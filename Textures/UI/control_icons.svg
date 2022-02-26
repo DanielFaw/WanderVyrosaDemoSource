@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   inkscape:version="0.92.5 (2060ec1f9f, 2020-04-08)"
+   sodipodi:docname="control_icons.svg">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.98994949"
+     inkscape:cx="282.83979"
+     inkscape:cy="483.81754"
+     inkscape:document-units="mm"
+     inkscape:current-layer="g827"
+     showgrid="false"
+     inkscape:pagecheckerboard="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1043"
+     inkscape:window-x="900"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <g
+       id="g823">
+      <g
+         id="g827"
+         style="fill:#888888;fill-opacity:0.97757846;stroke:#000000;stroke-opacity:1">
+        <g
+           id="g874"
+           transform="translate(11.49259,-7.4835468)"
+           inkscape:export-filename="/home/ethan/Desktop/KeyIcons/mouse.png"
+           inkscape:export-xdpi="249.45885"
+           inkscape:export-ydpi="249.45885">
+          <path
+             inkscape:connector-curvature="0"
+             id="rect815"
+             d="m 132.32639,113.65301 c -9.24855,0 -16.69407,7.44553 -16.69407,16.69407 v 27.28206 c 0,1.24897 0.14024,2.46354 0.39791,3.63285 a 24.399807,24.399807 0 0 0 24.05745,20.35586 24.399807,24.399807 0 0 0 23.9913,-20.06751 c 0.30059,-1.2573 0.46354,-2.56921 0.46354,-3.9212 v -27.28206 c 0,-9.24854 -7.44554,-16.69407 -16.69407,-16.69407 z"
+             style="opacity:1;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#25252e;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+          <g
+             transform="translate(1.7008929)"
+             id="g838">
+            <path
+               style="fill:none;stroke:#25252e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+               d="m 114.14881,137.30506 h 48.47544"
+               id="path832"
+               inkscape:connector-curvature="0" />
+            <path
+               inkscape:connector-curvature="0"
+               id="path834"
+               d="m 138.38653,113.06734 v 24.85193"
+               style="fill:none;stroke:#25252e;stroke-width:2;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+          </g>
+        </g>
+        <g
+           id="g846"
+           transform="translate(0.53453906)"
+           style="stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none;fill:#b4b4b4;fill-opacity:0.97757846"
+           inkscape:export-filename="/home/ethan/Desktop/KeyIcons/button_up.png"
+           inkscape:export-xdpi="219.89"
+           inkscape:export-ydpi="219.89">
+          <g
+             id="g864"
+             style="stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none;fill:#b4b4b4;fill-opacity:0.97757846">
+            <rect
+               style="opacity:1;fill:#828282;fill-opacity:0.97757846;fill-rule:nonzero;stroke:#25252e;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+               id="rect840"
+               width="31.372023"
+               height="31.372023"
+               x="40.443455"
+               y="120.86309"
+               ry="4.913691" />
+            <rect
+               ry="4.0676074"
+               y="122.2805"
+               x="42.049854"
+               height="25.970106"
+               width="25.970106"
+               id="rect842"
+               style="opacity:1;fill:#b4b4b4;fill-opacity:0.97757846;fill-rule:nonzero;stroke:#25252e;stroke-width:2;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+          </g>
+        </g>
+        <g
+           id="g852"
+           transform="translate(35.61754,-1.0366529)"
+           style="fill:#b3b3b3;fill-opacity:1"
+           inkscape:export-filename="/home/ethan/Desktop/KeyIcons/button_down.png"
+           inkscape:export-xdpi="219.89"
+           inkscape:export-ydpi="219.89">
+          <g
+             id="g860"
+             style="fill:#b3b3b3;fill-opacity:1">
+            <g
+               id="g868"
+               style="fill:#b3b3b3;fill-opacity:1">
+              <rect
+                 style="opacity:1;fill:#777777;fill-opacity:0.97647059;fill-rule:nonzero;stroke:#25252e;stroke-width:1.86974943;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+                 id="rect848"
+                 width="29.328911"
+                 height="29.328911"
+                 x="42.551693"
+                 y="122.97133"
+                 ry="4.5936856" />
+              <rect
+                 ry="3.8449948"
+                 y="124.34149"
+                 x="43.921856"
+                 height="24.548811"
+                 width="24.548811"
+                 id="rect850"
+                 style="opacity:1;fill:#b3b3b3;fill-opacity:1;fill-rule:nonzero;stroke:#25252e;stroke-width:1.56501281;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+            </g>
+          </g>
+        </g>
+        <g
+           style="fill:#b4b4b4;fill-opacity:0.97757844;stroke-width:1;stroke-miterlimit:4;stroke-dasharray:none"
+           transform="translate(-1.54433,49.514881)"
+           id="g901">
+          <g
+             style="fill:#b4b4b4;fill-opacity:0.97757844;stroke-width:2;stroke-miterlimit:4;stroke-dasharray:none"
+             id="g899">
+            <g
+               id="g939"
+               inkscape:export-filename="/home/ethan/Desktop/KeyIcons/long_button_up.png"
+               inkscape:export-xdpi="219.89"
+               inkscape:export-ydpi="219.89">
+              <rect
+                 style="opacity:1;fill:#828282;fill-opacity:0.97757844;fill-rule:nonzero;stroke:#25252e;stroke-width:2.89967752;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+                 id="rect895"
+                 width="67.891991"
+                 height="30.472345"
+                 x="40.893291"
+                 y="121.31293"
+                 ry="4.7727776" />
+              <rect
+                 ry="3.9092634"
+                 y="122.78598"
+                 x="42.55534"
+                 height="24.959141"
+                 width="61.244858"
+                 id="rect897"
+                 style="opacity:1;fill:#b4b4b4;fill-opacity:0.97757844;fill-rule:nonzero;stroke:#25252e;stroke-width:3.0109663;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+            </g>
+            <g
+               id="g943"
+               transform="translate(-69.925595,2.8348214)"
+               inkscape:export-filename="/home/ethan/Desktop/KeyIcons/long_button_down.png"
+               inkscape:export-xdpi="219.89"
+               inkscape:export-ydpi="219.89">
+              <rect
+                 ry="4.4809241"
+                 y="158.90831"
+                 x="112.1418"
+                 height="28.608973"
+                 width="67.891991"
+                 id="rect903"
+                 style="opacity:1;fill:#828282;fill-opacity:0.97757844;fill-rule:nonzero;stroke:#25252e;stroke-width:2.80962205;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke" />
+              <rect
+                 style="opacity:1;fill:#b4b4b4;fill-opacity:0.97757844;fill-rule:nonzero;stroke:#25252e;stroke-width:2.99635673;stroke-linecap:square;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1;paint-order:fill markers stroke"
+                 id="rect905"
+                 width="62.299885"
+                 height="24.298935"
+                 x="113.8433"
+                 y="160.33073"
+                 ry="3.8058577" />
+            </g>
+          </g>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>

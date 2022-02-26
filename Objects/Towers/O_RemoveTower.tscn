@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+albedo_color = Color( 1, 0, 0, 0.341176 )
+
+[node name="O_RemoveTower" type="Spatial"]
+
+[node name="CSGSphere" type="CSGSphere" parent="."]
+radial_segments = 32
+rings = 32
+material = SubResource( 1 )

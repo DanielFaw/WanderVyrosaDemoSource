@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/tower_hit.mp3-b5ce580fa925a53e3ef2e9f7cef84250.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/tower_hit.mp3"
+dest_files=[ "res://.import/tower_hit.mp3-b5ce580fa925a53e3ef2e9f7cef84250.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

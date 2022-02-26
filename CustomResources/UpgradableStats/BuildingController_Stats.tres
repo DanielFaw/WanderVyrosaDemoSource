@@ -1,0 +1,31 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/BuildModeControllerStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+has_been_set = true
+stat_list = [  ]
+my_stats = {
+}
+base_attack_speed = 0.0
+base_damage = 0.0
+base_health = 0.0
+base_build_time = 0.0
+base_windup_time = 0.0
+base_cooldown_time = 0.0
+base_shoot_time = 0.0
+base_bullet_spread = 0.0
+base_explosion_radius = 0.0
+base_napalm_enabled = 0
+base_fire_damage = 0.0
+base_fire_tick_amount = 0
+base_time_between_fire_ticks = 0.0
+base_stun_enabled = 0
+base_stun_duration = 0.0
+base_drill_speed = 0.0
+base_drill_efficiency = 0.0
+base_drill_bucket_size = 0.0
+base_starting_resources = 15
+base_drone_count = 4
+base_drone_speed = 2.5

@@ -1,0 +1,12 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/SceneIndex.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+sceneIndex = {
+"homeShip": "res://Scenes/HomeShip.tscn",
+"loading": "res://Scenes/LoadingScene.tscn",
+"mainMenu": "res://Scenes/MainMenu.tscn",
+"mainWorld": "res://Scenes/MainGame.tscn"
+}

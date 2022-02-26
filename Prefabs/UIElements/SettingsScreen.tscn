@@ -1,0 +1,759 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Rendering/Fonts/DebugFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Rendering/UI/UI_Dark_Style.tres" type="StyleBox" id=2]
+[ext_resource path="res://Rendering/UI/UI_Dark_Style_HOVER.tres" type="StyleBox" id=3]
+[ext_resource path="res://Rendering/UI/UI_Dark_Foreground_HOVER.tres" type="StyleBox" id=4]
+[ext_resource path="res://Rendering/UI/UI_Dark_Foreground.tres" type="StyleBox" id=5]
+[ext_resource path="res://Rendering/Fonts/Vanilla_Large.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scripts/GlobalUI/SettingsMenu.gd" type="Script" id=7]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=8]
+[ext_resource path="res://Scripts/GlobalUI/SliderSetting.gd" type="Script" id=9]
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=10]
+
+[node name="Settings" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": true
+}
+resolution_dropdown_path = NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution/HSplitContainer/OptionButton")
+graphics_settings_inputs = {
+"fullscreen": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Fullscreen/CheckBox"),
+"resolution": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution/HSplitContainer/OptionButton"),
+"vsync": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Vsync/CheckBox")
+}
+audio_settings_inputs = {
+"ambient_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume"),
+"main_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume"),
+"music_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume"),
+"sfx_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume")
+}
+control_settings_inputs = {
+"invert_x": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/InvertX/Control/CheckBox"),
+"invert_y": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/InvertY/Control/CheckBox"),
+"mouse_sensitivity_x": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX"),
+"mouse_sensitivity_y": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY")
+}
+
+[node name="BG" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -450.0
+margin_top = -249.0
+margin_right = 450.0
+margin_bottom = 281.0
+mouse_filter = 2
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TabContainer" type="TabContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -425.0
+margin_top = -200.0
+margin_right = 424.0
+margin_bottom = 224.0
+theme = ExtResource( 10 )
+tab_align = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Graphics" type="Tabs" parent="TabContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Graphics"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer"]
+margin_right = 809.0
+margin_bottom = 364.0
+
+[node name="Resolution" type="CenterContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+margin_right = 809.0
+margin_bottom = 23.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution"]
+margin_left = 281.0
+margin_right = 527.0
+margin_bottom = 23.0
+split_offset = 360
+dragger_visibility = 1
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution/HSplitContainer"]
+margin_top = 2.0
+margin_right = 216.0
+margin_bottom = 21.0
+custom_fonts/font = ExtResource( 6 )
+text = "Windowed Resolution"
+align = 1
+valign = 1
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution/HSplitContainer"]
+margin_left = 228.0
+margin_right = 246.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 6 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer"]
+margin_top = 27.0
+margin_right = 809.0
+margin_bottom = 105.0
+custom_constants/separation = 455
+alignment = 1
+
+[node name="Toggles" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 44.0
+margin_right = 144.0
+margin_bottom = 78.0
+custom_constants/separation = 15
+
+[node name="Fullscreen" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles"]
+margin_right = 100.0
+margin_bottom = 16.0
+dragger_visibility = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Fullscreen"]
+margin_right = 30.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 30, 0 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Fullscreen"]
+margin_left = 30.0
+margin_right = 100.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "Fullscreen"
+
+[node name="Vsync" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles"]
+margin_top = 31.0
+margin_right = 100.0
+margin_bottom = 47.0
+collapsed = true
+dragger_visibility = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Vsync"]
+margin_right = 30.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 30, 0 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Vsync"]
+margin_left = 30.0
+margin_right = 100.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "Use Vsync"
+
+[node name="Bloom" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles"]
+margin_top = 62.0
+margin_right = 100.0
+margin_bottom = 78.0
+collapsed = true
+dragger_visibility = 2
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Bloom"]
+margin_right = 30.0
+margin_bottom = 16.0
+rect_min_size = Vector2( 30, 0 )
+align = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Bloom"]
+margin_left = 30.0
+margin_right = 100.0
+margin_bottom = 16.0
+custom_fonts/font = ExtResource( 1 )
+text = "Bloom"
+
+[node name="Dropdown" type="VBoxContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer"]
+margin_left = 599.0
+margin_right = 765.0
+margin_bottom = 78.0
+custom_constants/separation = 15
+
+[node name="MSAA" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown"]
+margin_right = 166.0
+margin_bottom = 30.0
+collapsed = true
+dragger_visibility = 1
+
+[node name="Control" type="Control" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/MSAA"]
+margin_right = 112.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 112, 30 )
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/MSAA/Control"]
+margin_right = 112.0
+margin_bottom = 25.0
+rect_min_size = Vector2( 0, 30 )
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_fonts/font = ExtResource( 6 )
+text = "Disabled"
+items = [ "Disabled", null, false, 0, null, "x2", null, false, 1, null, "x4", null, false, 2, null, "x8", null, false, 3, null, "x16", null, false, 4, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/MSAA"]
+margin_left = 124.0
+margin_top = 7.0
+margin_right = 166.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "MSAA"
+
+[node name="SSAO" type="HSplitContainer" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown"]
+margin_top = 45.0
+margin_right = 166.0
+margin_bottom = 75.0
+collapsed = true
+dragger_visibility = 1
+
+[node name="Control" type="Control" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/SSAO"]
+margin_right = 112.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 112, 30 )
+
+[node name="OptionButton" type="OptionButton" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/SSAO/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 6 )
+text = "Off"
+clip_text = true
+items = [ "Off", null, false, 0, null, "Low", null, false, 1, null, "Medium", null, false, 2, null, "High", null, false, 3, null ]
+selected = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Dropdown/SSAO"]
+margin_left = 124.0
+margin_top = 7.0
+margin_right = 166.0
+margin_bottom = 23.0
+custom_fonts/font = ExtResource( 1 )
+text = "SSAO"
+
+[node name="Audio" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Audio"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 20.0
+margin_top = 20.0
+margin_right = -20.0
+margin_bottom = -20.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Audio/MarginContainer"]
+margin_right = 811.0
+margin_bottom = 364.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainVolume" type="HBoxContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer"]
+margin_right = 811.0
+margin_bottom = 19.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 19
+
+[node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume/HSplitContainer"]
+margin_right = 160.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 141.551, 0 )
+custom_fonts/font = ExtResource( 6 )
+text = "Main Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume/HSplitContainer"]
+margin_left = 172.0
+margin_right = 736.402
+margin_bottom = 16.0
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MusicVolume" type="HBoxContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 811.0
+margin_bottom = 48.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 12
+
+[node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume/HSplitContainer"]
+margin_right = 160.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 148, 0 )
+custom_fonts/font = ExtResource( 6 )
+text = "Music Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume/HSplitContainer"]
+margin_left = 172.0
+margin_right = 736.402
+margin_bottom = 16.0
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AmbientVolume" type="HBoxContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 58.0
+margin_right = 811.0
+margin_bottom = 77.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 12
+
+[node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume/HSplitContainer"]
+margin_right = 176.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "Ambient Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume/HSplitContainer"]
+margin_left = 188.0
+margin_right = 736.402
+margin_bottom = 16.0
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SFXVolume" type="HBoxContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 811.0
+margin_bottom = 77.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 12
+
+[node name="Label" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume/HSplitContainer"]
+margin_right = 160.0
+margin_bottom = 19.0
+rect_min_size = Vector2( 148, 0 )
+custom_fonts/font = ExtResource( 6 )
+text = "SFX Volume"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume/HSplitContainer"]
+margin_left = 172.0
+margin_right = 736.402
+margin_bottom = 16.0
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Controls" type="Tabs" parent="TabContainer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 20.0
+
+[node name="MarginContainer" type="MarginContainer" parent="TabContainer/Controls"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -404.5
+margin_top = -179.37
+margin_right = 406.5
+margin_bottom = 180.63
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
+margin_right = 811.0
+margin_bottom = 360.0
+custom_constants/separation = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseSensitivityX" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+margin_right = 811.0
+margin_bottom = 19.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 32
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX/HSplitContainer"]
+margin_right = 243.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "Horizontal Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX/HSplitContainer"]
+margin_left = 243.0
+margin_right = 736.402
+margin_bottom = 16.0
+step = 0.5
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MouseSensitivityY" type="HBoxContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+margin_top = 29.0
+margin_right = 811.0
+margin_bottom = 48.0
+script = ExtResource( 9 )
+label_path = NodePath("Control/AmountLabel")
+slider_path = NodePath("HSplitContainer/HSlider")
+
+[node name="HSplitContainer" type="HSplitContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY"]
+margin_right = 736.402
+margin_bottom = 19.0
+rect_min_size = Vector2( 736.402, 0 )
+split_offset = 58
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY/HSplitContainer"]
+margin_right = 243.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "Vertical Sensitivity"
+
+[node name="HSlider" type="HSlider" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY/HSplitContainer"]
+margin_left = 243.0
+margin_right = 736.402
+margin_bottom = 16.0
+step = 0.5
+value = 100.0
+
+[node name="Control" type="Control" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY"]
+margin_left = 740.0
+margin_right = 811.21
+margin_bottom = 19.0
+rect_min_size = Vector2( 71.21, 0.686 )
+
+[node name="AmountLabel" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -17.0
+margin_top = -7.0
+margin_right = 17.0
+margin_bottom = 7.0
+custom_fonts/font = ExtResource( 6 )
+text = "100%"
+align = 2
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvertX" type="HSplitContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 811.0
+margin_bottom = 77.0
+split_offset = 76
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertX"]
+margin_right = 239.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "Invert Horizontal"
+
+[node name="Control" type="Control" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertX"]
+margin_left = 239.0
+margin_right = 811.0
+margin_bottom = 19.0
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertX/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -287.5
+margin_top = -12.0
+margin_right = -263.5
+margin_bottom = 12.0
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InvertY" type="HSplitContainer" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+margin_top = 87.0
+margin_right = 811.0
+margin_bottom = 106.0
+split_offset = 100
+dragger_visibility = 2
+
+[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertY"]
+margin_right = 237.0
+margin_bottom = 19.0
+custom_fonts/font = ExtResource( 6 )
+text = "Invert Vertical"
+
+[node name="Control" type="Control" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertY"]
+margin_left = 237.0
+margin_right = 811.0
+margin_bottom = 19.0
+
+[node name="CheckBox" type="CheckBox" parent="TabContainer/Controls/MarginContainer/VBoxContainer/InvertY/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -287.0
+margin_top = -12.0
+margin_right = -263.0
+margin_bottom = 12.0
+align = 1
+expand_icon = true
+__meta__ = {
+"_edit_use_anchors_": true
+}
+
+[node name="SettingsLabel" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -62.0
+margin_top = 52.9439
+margin_right = 48.0
+margin_bottom = 79.9439
+rect_pivot_offset = Vector2( 55, 14 )
+custom_fonts/font = ExtResource( 8 )
+text = "Settings"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Submit" type="HSplitContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -412.0
+margin_top = -61.0
+margin_right = 412.0
+margin_bottom = -17.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="HBoxContainer" parent="Submit"]
+margin_right = 824.0
+margin_bottom = 44.0
+custom_constants/separation = 26
+alignment = 1
+
+[node name="BApply" type="Button" parent="Submit/CenterContainer"]
+margin_left = 377.0
+margin_right = 447.0
+margin_bottom = 44.0
+rect_min_size = Vector2( 70, 0 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 3 )
+custom_styles/normal = ExtResource( 5 )
+text = "Apply"
+
+[node name="Exit" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 379.439
+margin_top = -237.056
+margin_right = 424.439
+margin_bottom = -202.056
+custom_fonts/font = ExtResource( 6 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 5 )
+custom_styles/focus = ExtResource( 5 )
+custom_styles/normal = ExtResource( 5 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="value_changed" from="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume/HSplitContainer/HSlider" to="TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume" method="OnSliderChange"]
+[connection signal="value_changed" from="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume/HSplitContainer/HSlider" to="TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume" method="OnSliderChange"]
+[connection signal="value_changed" from="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume/HSplitContainer/HSlider" to="TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume" method="OnSliderChange"]
+[connection signal="value_changed" from="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume/HSplitContainer/HSlider" to="TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume" method="OnSliderChange"]
+[connection signal="value_changed" from="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX/HSplitContainer/HSlider" to="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX" method="OnSliderChange"]
+[connection signal="value_changed" from="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY/HSplitContainer/HSlider" to="TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY" method="OnSliderChange"]
+[connection signal="pressed" from="Submit/CenterContainer/BApply" to="." method="ApplySettings"]
+[connection signal="pressed" from="Exit" to="." method="SettingsClosed"]

@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main_FADE.tres" type="Material" id=1]
+[ext_resource path="res://Models/Player/Accessories/Head/SantaHat.glb" type="PackedScene" id=2]
+
+[node name="O_SantaHat" instance=ExtResource( 2 )]
+
+[node name="SantaHatBeard" parent="." index="0"]
+material/0 = ExtResource( 1 )

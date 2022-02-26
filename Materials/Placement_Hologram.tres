@@ -1,0 +1,19 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Rendering/Shaders/Hologram.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/line_color = Color( 1, 1, 1, 1 )
+shader_param/line_width = 0.005
+shader_param/line_blur = 0.43
+shader_param/line_speed = 0.046
+shader_param/straight_lines = false
+shader_param/interrupt_width = 0.2
+shader_param/interrupt_blur = 0.25
+shader_param/interrupt_speed = 0.2
+shader_param/base_transparency = 0.1
+shader_param/glow_color = Color( 0.501961, 0.74902, 1, 1 )
+shader_param/glow_itensity = 2.883
+shader_param/glow_amount = 2.032
+shader_param/flickering = 0.835

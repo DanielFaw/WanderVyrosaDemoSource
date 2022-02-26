@@ -1,0 +1,1549 @@
+[gd_scene load_steps=52 format=2]
+
+[ext_resource path="res://Rendering/Fonts/DebugFont.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Rendering/UI/UI_Dark_Style.tres" type="StyleBox" id=2]
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=3]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Rendering/Fonts/RobotoMono.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Rendering/Fonts/Vanilla_Large.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Scripts/MainGame/UI/ResourceDisplay.gd" type="Script" id=8]
+[ext_resource path="res://Scripts/MainGame/UI/WaveCounterDisplay.gd" type="Script" id=9]
+[ext_resource path="res://Scripts/MainGame/UI/WaveInformationDisplay.gd" type="Script" id=10]
+[ext_resource path="res://Scripts/MainGame/UI/TowerInfoDisplay.gd" type="Script" id=11]
+[ext_resource path="res://Scripts/MainGame/UI/Game Over/GameOver.gd" type="Script" id=13]
+[ext_resource path="res://Scripts/GlobalUI/ToolRadialMenu.gd" type="Script" id=14]
+[ext_resource path="res://Rendering/Fonts/RobotoMono-VariableFont_wght.ttf" type="DynamicFontData" id=15]
+[ext_resource path="res://Textures/UI/optionicon.png" type="Texture" id=16]
+[ext_resource path="res://Textures/UI/MultiplayerIcon.png" type="Texture" id=17]
+[ext_resource path="res://Textures/UI/RadialMenu/build_icon.png" type="Texture" id=18]
+[ext_resource path="res://Textures/UI/RadialMenu/scanning_icon.png" type="Texture" id=19]
+[ext_resource path="res://Scenes/ServerOptionsButton.gd" type="Script" id=20]
+[ext_resource path="res://Scripts/MainGame/UI/PopulateItemList.gd" type="Script" id=21]
+[ext_resource path="res://Scripts/MainGame/UI/MultiplayerOptions.gd" type="Script" id=22]
+[ext_resource path="res://Scenes/SubmitServerChangesButton.gd" type="Script" id=23]
+[ext_resource path="res://Prefabs/UIElements/PauseMenu.tscn" type="PackedScene" id=24]
+[ext_resource path="res://Prefabs/UIElements/RadialMenu.tscn" type="PackedScene" id=25]
+[ext_resource path="res://Prefabs/UIElements/SettingsScreen.tscn" type="PackedScene" id=27]
+[ext_resource path="res://Scripts/Utilities/ToggleUI.gd" type="Script" id=28]
+[ext_resource path="res://Scripts/MainGame/UI/PlayerChat.gd" type="Script" id=29]
+[ext_resource path="res://Scripts/MainGame/UI/GameStart.gd" type="Script" id=30]
+[ext_resource path="res://Scripts/MainGame/UI/BaseHealthDisplay.gd" type="Script" id=31]
+[ext_resource path="res://Scripts/MainGame/UI/ChatDisplay.gd" type="Script" id=32]
+[ext_resource path="res://Textures/UI/quartz_icon.png" type="Texture" id=33]
+[ext_resource path="res://Textures/UI/silicon_icon.png" type="Texture" id=34]
+[ext_resource path="res://Textures/UI/boomstone_icon.png" type="Texture" id=35]
+[ext_resource path="res://Rendering/UI/BBCodeEffects/BBCodeFadeLine.tres" type="RichTextEffect" id=36]
+
+[sub_resource type="StyleBoxFlat" id=52]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StreamTexture" id=51]
+flags = 4
+load_path = "res://.import/metal_icon.png-ff7596b0b4fcf63673ea19352c4aecc8.stex"
+
+[sub_resource type="DynamicFontData" id=4]
+font_path = "res://Rendering/Fonts/VanillaExtractRegular.ttf"
+
+[sub_resource type="DynamicFont" id=5]
+use_mipmaps = true
+font_data = SubResource( 4 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+
+[sub_resource type="StyleBoxTexture" id=7]
+
+[sub_resource type="StyleBoxEmpty" id=8]
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 0.745098, 0.121569, 0.121569, 0.756863 )
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="DynamicFont" id=11]
+size = 24
+outline_size = 1
+font_data = ExtResource( 15 )
+
+[sub_resource type="Animation" id=44]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=45]
+resource_name = "fade_in_first"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 5.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=46]
+resource_name = "fade_out_first"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=47]
+resource_name = "fade_in_second"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 5.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=48]
+resource_name = "fade_out_second"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=49]
+resource_name = "fade_in_third"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 5.5, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=50]
+resource_name = "fade_out_third"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+
+[sub_resource type="Animation" id=42]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=43]
+resource_name = "fade_to_black"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ) ]
+}
+
+[node name="UI" type="CanvasLayer"]
+pause_mode = 2
+layer = -100
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainUI" type="Control" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+script = ExtResource( 28 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="InfoBar" type="Control" parent="MarginContainer/MainUI"]
+anchor_right = 1.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 1024, 47 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/InfoBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveInformation" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer"]
+margin_right = 510.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+script = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/WaveInformation"]
+modulate = Color( 0.12549, 1, 0, 1 )
+margin_left = 128.0
+margin_top = 2.0
+margin_right = 510.0
+margin_bottom = 48.0
+custom_styles/fg = SubResource( 52 )
+step = 0.0
+value = 50.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveNumDisplay" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/WaveInformation"]
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 155.0
+margin_bottom = 71.0
+custom_fonts/font = ExtResource( 6 )
+text = "Wave 0/5"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DestroyTroops" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/WaveInformation"]
+visible = false
+margin_left = 128.0
+margin_top = 2.0
+margin_right = 509.0
+margin_bottom = 48.0
+custom_fonts/font = ExtResource( 6 )
+text = "Destroy all remaining enemies!"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResourceInformation" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer"]
+margin_left = 514.0
+margin_right = 1024.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 3 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="0" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer"]
+margin_right = 124.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/0"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/0/HBoxContainer"]
+margin_right = 51.0
+margin_bottom = 52.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = SubResource( 51 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/0/HBoxContainer"]
+margin_left = 55.0
+margin_right = 69.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/0/HBoxContainer"]
+margin_left = 73.0
+margin_right = 124.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="1" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer"]
+margin_left = 128.0
+margin_right = 253.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/1/HBoxContainer"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 33 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/1/HBoxContainer"]
+margin_left = 54.0
+margin_right = 68.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/1/HBoxContainer"]
+margin_left = 72.0
+margin_right = 125.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="2" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer"]
+margin_left = 257.0
+margin_right = 381.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/2"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/2/HBoxContainer"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 34 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/2/HBoxContainer"]
+margin_left = 54.0
+margin_right = 68.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/2/HBoxContainer"]
+margin_left = 72.0
+margin_right = 124.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="3" type="Control" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer"]
+margin_left = 385.0
+margin_right = 510.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/3"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/3/HBoxContainer"]
+margin_top = 1.0
+margin_right = 50.0
+margin_bottom = 51.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 35 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/3/HBoxContainer"]
+margin_left = 54.0
+margin_right = 68.0
+margin_bottom = 52.0
+size_flags_vertical = 3
+custom_fonts/font = ExtResource( 6 )
+text = "0"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/MainUI/InfoBar/HBoxContainer/ResourceInformation/HBoxContainer/3/HBoxContainer"]
+margin_left = 72.0
+margin_right = 125.0
+margin_bottom = 52.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+bbcode_enabled = true
+
+[node name="Temp_Win" type="Label" parent="MarginContainer/MainUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 28.0131
+margin_top = -172.097
+margin_right = 123.013
+margin_bottom = -156.097
+rect_scale = Vector2( 1.56869, 1.56869 )
+rect_pivot_offset = Vector2( 45.605, -0.874315 )
+custom_fonts/font = ExtResource( 1 )
+text = "Player WON!"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Chat" type="Control" parent="MarginContainer/MainUI"]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -246.0
+margin_right = 320.0
+script = ExtResource( 29 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+chatBackgroundPath = NodePath("VBoxContainer/ChatLog/SizeWrapper/Panel")
+chatInputPath = NodePath("VBoxContainer/Control/TextEdit")
+promptPath = NodePath("VBoxContainer/Control/PromptDisplay")
+chatLogTweenPath = NodePath("VBoxContainer/ChatLog/ChatLogTween")
+chatLogWrapperPath = NodePath("VBoxContainer/ChatLog/SizeWrapper")
+_playerColor = Color( 0, 0.345098, 1, 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainUI/Chat"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -244.0
+margin_right = 321.0
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatLog" type="Control" parent="MarginContainer/MainUI/Chat/VBoxContainer"]
+margin_right = 321.0
+margin_bottom = 200.0
+rect_min_size = Vector2( 0, 200 )
+
+[node name="SizeWrapper" type="Control" parent="MarginContainer/MainUI/Chat/VBoxContainer/ChatLog"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -160.5
+margin_top = -200.0
+margin_right = 160.5
+grow_horizontal = 0
+grow_vertical = 0
+rect_pivot_offset = Vector2( 0.0206909, 0.27536 )
+size_flags_horizontal = 9
+size_flags_vertical = 9
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/Chat/VBoxContainer/ChatLog/SizeWrapper"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatLogDisplay" type="RichTextLabel" parent="MarginContainer/MainUI/Chat/VBoxContainer/ChatLog/SizeWrapper"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -153.5
+margin_top = -182.656
+margin_right = 152.5
+margin_bottom = 1.34386
+rect_min_size = Vector2( 0, 55 )
+size_flags_horizontal = 13
+size_flags_vertical = 13
+custom_fonts/normal_font = SubResource( 5 )
+bbcode_enabled = true
+bbcode_text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+meta_underlined = false
+text = "
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"
+scroll_active = false
+scroll_following = true
+script = ExtResource( 32 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChatLogTween" type="Tween" parent="MarginContainer/MainUI/Chat/VBoxContainer/ChatLog"]
+
+[node name="Control" type="Control" parent="MarginContainer/MainUI/Chat/VBoxContainer"]
+margin_top = 204.0
+margin_right = 321.0
+margin_bottom = 244.0
+rect_min_size = Vector2( 0, 40 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/Chat/VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="TextEdit" parent="MarginContainer/MainUI/Chat/VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.5
+margin_top = -16.0
+margin_right = 152.5
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 1 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PromptDisplay" type="TextEdit" parent="MarginContainer/MainUI/Chat/VBoxContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -151.5
+margin_top = -16.0
+margin_right = 152.5
+margin_bottom = 16.0
+rect_min_size = Vector2( 0, 30 )
+custom_constants/line_spacing = 10
+custom_styles/read_only = SubResource( 8 )
+custom_styles/focus = SubResource( 6 )
+custom_styles/normal = SubResource( 7 )
+text = "Press <T> To Chat"
+readonly = true
+context_menu_enabled = false
+shortcut_keys_enabled = false
+virtual_keyboard_enabled = false
+selecting_enabled = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StartGame" type="Button" parent="MarginContainer/MainUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -115.5
+margin_top = -46.0
+margin_right = 115.5
+theme = ExtResource( 3 )
+custom_fonts/font = ExtResource( 1 )
+text = "Start Game"
+script = ExtResource( 30 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BaseHealth" type="Control" parent="MarginContainer/MainUI"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -401.0
+margin_top = 57.0
+margin_right = 402.0
+margin_bottom = 87.0
+script = ExtResource( 31 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+health_bar_path = NodePath("TowerHealth")
+
+[node name="TowerHealth" type="ProgressBar" parent="MarginContainer/MainUI/BaseHealth"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -399.998
+margin_top = -29.0
+margin_right = 399.998
+custom_styles/fg = SubResource( 10 )
+custom_styles/bg = ExtResource( 2 )
+max_value = 1.0
+step = 0.001
+value = 1.0
+percent_visible = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="MarginContainer/MainUI/BaseHealth"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_fonts/font = ExtResource( 1 )
+text = "Base Health"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MaterialCount" type="Control" parent="MarginContainer/MainUI"]
+visible = false
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -232.0
+margin_top = -105.0
+theme = ExtResource( 3 )
+script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+resources_list_path = NodePath("HBoxContainer/Resource")
+cost_list_path = NodePath("HBoxContainer/Cost")
+tower_description_path = NodePath("../TowerInfo/VBoxContainer/Description")
+tower_name_path = NodePath("../TowerInfo/VBoxContainer/TowerName")
+tower_info_path = NodePath("../TowerInfo")
+metal_label = NodePath("../TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/0/Label")
+quartz_label = NodePath("../TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/1/Label")
+silicon_label = NodePath("../TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/2/Label")
+boomstone_label = NodePath("../TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/3/Label")
+
+[node name="Background" type="Panel" parent="MarginContainer/MainUI/MaterialCount"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/MaterialCount"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -108.0
+margin_top = -45.0
+margin_right = 108.0
+margin_bottom = 45.0
+custom_constants/separation = 9
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resource" type="RichTextLabel" parent="MarginContainer/MainUI/MaterialCount/HBoxContainer"]
+margin_right = 160.749
+margin_bottom = 90.0
+rect_min_size = Vector2( 160.749, 0 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "Metal: 0 
+Quartz: 0
+Silicon: 0
+Boomstone: 0"
+text = "Metal: 0 
+Quartz: 0
+Silicon: 0
+Boomstone: 0"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Cost" type="RichTextLabel" parent="MarginContainer/MainUI/MaterialCount/HBoxContainer"]
+margin_left = 169.0
+margin_right = 216.005
+margin_bottom = 90.0
+rect_min_size = Vector2( 47.005, 0 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+tab_size = 0
+text = "
+
+
+-100"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerInfo" type="Control" parent="MarginContainer/MainUI"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -213.0
+margin_top = -18.0
+margin_right = -1.0
+margin_bottom = 302.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/TowerInfo"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainUI/TowerInfo"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -152.0
+margin_right = 105.0
+margin_bottom = 148.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TowerName" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 29.0
+rect_min_size = Vector2( 0, 29 )
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+bbcode_text = "[center]Gattling Turret[/center]"
+meta_underlined = false
+text = "Gattling Turret"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Description" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer"]
+margin_top = 33.0
+margin_right = 205.0
+margin_bottom = 183.0
+rect_min_size = Vector2( 0, 150 )
+custom_constants/line_separation = 0
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+bbcode_text = "Type: Offensive
+
+Description: Haha tower go brrrrrrr"
+meta_underlined = false
+text = "Type: Offensive
+
+Description: Haha tower go brrrrrrr"
+scroll_active = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer"]
+margin_top = 187.0
+margin_right = 205.0
+margin_bottom = 300.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer"]
+margin_right = 205.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="0" type="Control" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_right = 100.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/0"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = SubResource( 51 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/0"]
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 101.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "0"
+text = "0"
+
+[node name="1" type="Control" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer"]
+margin_left = 104.0
+margin_right = 205.0
+margin_bottom = 54.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/1"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 33 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer/1"]
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 103.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "0"
+text = "0"
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer"]
+margin_top = 58.0
+margin_right = 205.0
+margin_bottom = 113.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="2" type="Control" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_right = 100.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/2"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 34 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/2"]
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 105.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "0"
+text = "0"
+
+[node name="3" type="Control" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2"]
+margin_left = 104.0
+margin_right = 205.0
+margin_bottom = 55.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/3"]
+margin_right = 50.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 50, 50 )
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource( 35 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="RichTextLabel" parent="MarginContainer/MainUI/TowerInfo/VBoxContainer/VBoxContainer/HBoxContainer2/3"]
+margin_left = 51.0
+margin_top = 1.0
+margin_right = 104.0
+margin_bottom = 55.0
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "0"
+text = "0"
+
+[node name="WaveCounter" type="RichTextLabel" parent="MarginContainer/MainUI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -291.0
+margin_top = -192.0
+margin_right = 286.0
+margin_bottom = -114.0
+mouse_filter = 2
+custom_fonts/normal_font = ExtResource( 6 )
+bbcode_enabled = true
+meta_underlined = false
+scroll_active = false
+custom_effects = [ ExtResource( 36 ) ]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WaveCounterController" type="Control" parent="MarginContainer/MainUI"]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+wave_display_path = NodePath("../WaveCounter")
+
+[node name="MultiplayerButton" type="Control" parent="MarginContainer/MainUI"]
+visible = false
+margin_right = 49.0
+margin_bottom = 49.0
+script = ExtResource( 22 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+multiplayer_options_path = NodePath("../MultiplayerOptions")
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/MultiplayerButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -27.5
+margin_top = -27.5
+margin_right = 27.5
+margin_bottom = 27.5
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureButton" type="TextureButton" parent="MarginContainer/MainUI/MultiplayerButton"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+texture_normal = ExtResource( 17 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MultiplayerOptions" type="Control" parent="MarginContainer/MainUI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -258.0
+margin_top = -289.0
+margin_right = 258.0
+margin_bottom = 289.0
+mouse_filter = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/MultiplayerOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = -16.0
+margin_bottom = 62.0
+custom_styles/panel = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/MainUI/MultiplayerOptions"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer"]
+margin_right = 496.0
+margin_bottom = 564.0
+custom_constants/separation = 21
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Label" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_right = 496.0
+margin_bottom = 30.0
+rect_min_size = Vector2( 0, 30 )
+custom_fonts/font = ExtResource( 4 )
+text = "Multiplayer Options"
+align = 1
+
+[node name="IPAddr" type="Label" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 60.0
+margin_right = 496.0
+margin_bottom = 85.0
+rect_min_size = Vector2( 0, 25 )
+text = "                                      Server IP:"
+
+[node name="UsernameInput" type="LineEdit" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 51.0
+margin_right = 496.0
+margin_bottom = 101.0
+rect_min_size = Vector2( 0, 50 )
+custom_fonts/font = ExtResource( 1 )
+align = 1
+placeholder_text = "<Enter Username>"
+
+[node name="ServerStuff" type="HBoxContainer" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 122.0
+margin_right = 496.0
+margin_bottom = 222.0
+alignment = 1
+
+[node name="CreateServer" type="Button" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer/ServerStuff"]
+margin_left = 46.0
+margin_right = 346.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 300, 100 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "Create Server"
+
+[node name="ServerOptionsButton" type="Button" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer/ServerStuff"]
+margin_left = 350.0
+margin_right = 450.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 100, 100 )
+icon = ExtResource( 16 )
+expand_icon = true
+script = ExtResource( 20 )
+_serverOptionsPath = NodePath("../../../../../ServerOptions")
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 243.0
+margin_right = 496.0
+margin_bottom = 251.0
+custom_constants/separation = 8
+
+[node name="IPInput" type="LineEdit" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 272.0
+margin_right = 496.0
+margin_bottom = 322.0
+rect_min_size = Vector2( 0, 50 )
+text = "192.168.10."
+align = 1
+placeholder_text = "<Enter IP>"
+
+[node name="JoinServer" type="Button" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 343.0
+margin_right = 496.0
+margin_bottom = 443.0
+rect_min_size = Vector2( 1.041, 100 )
+custom_fonts/font = ExtResource( 4 )
+custom_styles/normal = ExtResource( 2 )
+text = "Join Server"
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 474.0
+margin_right = 496.0
+margin_bottom = 482.0
+custom_constants/separation = 8
+
+[node name="ColorList" type="ItemList" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+margin_top = 464.0
+margin_right = 496.0
+margin_bottom = 564.0
+rect_min_size = Vector2( 100, 100 )
+script = ExtResource( 21 )
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="LeaveButton" type="Button" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 595.0
+margin_right = 496.0
+margin_bottom = 695.0
+rect_min_size = Vector2( 200, 100 )
+text = "leaf game"
+
+[node name="CloseServerButton" type="Button" parent="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer"]
+visible = false
+margin_top = 716.0
+margin_right = 496.0
+margin_bottom = 816.0
+rect_min_size = Vector2( 200, 100 )
+text = "close server"
+
+[node name="ServerOptions" type="Control" parent="MarginContainer/MainUI"]
+visible = false
+margin_left = 375.0
+margin_top = 100.0
+margin_right = 725.0
+margin_bottom = 600.0
+rect_min_size = Vector2( 350, 500 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/MainUI/ServerOptions"]
+margin_right = 300.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 350, 500 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/MainUI/ServerOptions"]
+margin_right = 350.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 350, 500 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InfoLabel" type="Label" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_right = 350.0
+margin_bottom = 75.0
+rect_min_size = Vector2( 300, 75 )
+custom_fonts/font = SubResource( 11 )
+text = "Server-Specific Options"
+
+[node name="MaxPlayerOptions" type="HBoxContainer" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_top = 79.0
+margin_right = 350.0
+margin_bottom = 179.0
+rect_min_size = Vector2( 300, 100 )
+
+[node name="MaxPlayersLabel" type="Label" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/MaxPlayerOptions"]
+margin_top = 12.0
+margin_right = 150.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "Max Players (2-8):"
+autowrap = true
+
+[node name="MaxPlayersInput" type="LineEdit" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/MaxPlayerOptions"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "4"
+
+[node name="DifficultyOptions" type="HBoxContainer" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_top = 183.0
+margin_right = 350.0
+margin_bottom = 283.0
+rect_min_size = Vector2( 300, 100 )
+
+[node name="DifficultyLabel" type="Label" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/DifficultyOptions"]
+margin_top = 1.0
+margin_right = 150.0
+margin_bottom = 98.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "[unused] Difficulty (1 = easy 5 = hard):"
+autowrap = true
+
+[node name="DifficultyChoice" type="LineEdit" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/DifficultyOptions"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "2"
+
+[node name="PlanetOptions" type="HBoxContainer" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_top = 287.0
+margin_right = 350.0
+margin_bottom = 387.0
+rect_min_size = Vector2( 300, 100 )
+
+[node name="PlanetLabel" type="Label" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/PlanetOptions"]
+margin_top = 12.0
+margin_right = 150.0
+margin_bottom = 87.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "[unused] Planet (1-20):"
+autowrap = true
+
+[node name="PlanetChoice" type="LineEdit" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer/PlanetOptions"]
+margin_left = 154.0
+margin_right = 304.0
+margin_bottom = 100.0
+rect_min_size = Vector2( 150, 75 )
+custom_fonts/font = ExtResource( 5 )
+text = "1"
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_top = 391.0
+margin_right = 350.0
+margin_bottom = 395.0
+rect_min_size = Vector2( 350, 0 )
+
+[node name="SubmitButton" type="Button" parent="MarginContainer/MainUI/ServerOptions/VBoxContainer"]
+margin_top = 399.0
+margin_right = 350.0
+margin_bottom = 474.0
+rect_min_size = Vector2( 200, 75 )
+text = "Submit Changes (invalid input will be set to default) "
+script = ExtResource( 23 )
+
+[node name="RadialMenu" parent="MarginContainer/MainUI" instance=ExtResource( 25 )]
+visible = false
+script = ExtResource( 14 )
+options = {
+"Build": ExtResource( 18 ),
+"Scan": ExtResource( 19 )
+}
+option_order = [ "Build", "Scan" ]
+
+[node name="VersionInfo" type="Control" parent="MarginContainer"]
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 2
+
+[node name="Version" type="Label" parent="MarginContainer/VersionInfo"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -1033.0
+margin_top = 568.0
+margin_right = -934.0
+margin_bottom = 603.0
+rect_scale = Vector2( 0.552657, 0.552657 )
+rect_pivot_offset = Vector2( 43.4559, -1.16708 )
+custom_fonts/font = ExtResource( 1 )
+text = "Debug Build
+v 0.7.0a"
+align = 2
+valign = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" parent="MarginContainer" instance=ExtResource( 27 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+graphics_settings_inputs = {
+"fullscreen": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Fullscreen/CheckBox"),
+"resolution": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/Resolution/HSplitContainer/OptionButton"),
+"vsync": NodePath("TabContainer/Graphics/MarginContainer/VBoxContainer/HBoxContainer/Toggles/Vsync/CheckBox")
+}
+audio_settings_inputs = {
+"ambient_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/AmbientVolume"),
+"main_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/MainVolume"),
+"music_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/MusicVolume"),
+"sfx_volume": NodePath("TabContainer/Audio/MarginContainer/VBoxContainer/SFXVolume")
+}
+control_settings_inputs = {
+"invert_x": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/InvertX/Control/CheckBox"),
+"invert_y": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/InvertY/Control/CheckBox"),
+"mouse_sensitivity_x": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityX"),
+"mouse_sensitivity_y": NodePath("TabContainer/Controls/MarginContainer/VBoxContainer/MouseSensitivityY")
+}
+
+[node name="PauseMenu" parent="MarginContainer" instance=ExtResource( 24 )]
+visible = false
+anchor_right = 0.0
+anchor_bottom = 0.0
+margin_right = 1024.0
+margin_bottom = 600.0
+mouse_filter = 1
+
+[node name="GameOver" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="GameOver"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+color = Color( 0, 0, 0, 0 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="message_1" type="RichTextLabel" parent="GameOver"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -276.5
+margin_top = 90.0
+margin_right = 276.5
+margin_bottom = 202.0
+theme = ExtResource( 3 )
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]Despite your best efforts, the Wizard Lizards were victorious.[/center]"
+text = "Despite your best efforts, the Wizard Lizards were victorious."
+override_selected_font_color = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver/message_1"]
+anims/RESET = SubResource( 44 )
+anims/fade_in_first = SubResource( 45 )
+anims/fade_out_first = SubResource( 46 )
+
+[node name="message_2" type="RichTextLabel" parent="GameOver"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -304.5
+margin_top = -109.5
+margin_right = 306.5
+margin_bottom = 14.5
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]Your ship was destroyed, and the fragments cast off into the vastness of space.[/center]"
+text = "Your ship was destroyed, and the fragments cast off into the vastness of space."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver/message_2"]
+anims/fade_in_second = SubResource( 47 )
+anims/fade_out_second = SubResource( 48 )
+
+[node name="message_3" type="RichTextLabel" parent="GameOver"]
+modulate = Color( 1, 1, 1, 0 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -305.0
+margin_top = 77.0
+margin_right = 306.0
+margin_bottom = 255.0
+custom_fonts/mono_font = ExtResource( 5 )
+custom_fonts/normal_font = ExtResource( 4 )
+bbcode_enabled = true
+bbcode_text = "[center]It is now time for yet another to...[/center]"
+text = "It is now time for yet another to..."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver/message_3"]
+anims/fade_in_third = SubResource( 49 )
+anims/fade_out_third = SubResource( 50 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GameOver"]
+root_node = NodePath("../ColorRect")
+playback_speed = 0.25
+anims/RESET = SubResource( 42 )
+anims/fade_to_black = SubResource( 43 )
+
+[connection signal="resized" from="MarginContainer/MainUI/Chat" to="MarginContainer/MainUI/Chat/VBoxContainer/ChatLog/SizeWrapper/ChatLogDisplay" method="_OnResize"]
+[connection signal="pressed" from="MarginContainer/MainUI/StartGame" to="MarginContainer/MainUI/StartGame" method="OnPress"]
+[connection signal="pressed" from="MarginContainer/MainUI/MultiplayerButton/TextureButton" to="MarginContainer/MainUI/MultiplayerButton" method="OnClick"]
+[connection signal="pressed" from="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer/ServerStuff/ServerOptionsButton" to="MarginContainer/MainUI/MultiplayerOptions/MarginContainer/VBoxContainer/ServerStuff/ServerOptionsButton" method="_on_ServerOptionsButton_pressed"]
+[connection signal="pressed" from="MarginContainer/MainUI/ServerOptions/VBoxContainer/SubmitButton" to="MarginContainer/MainUI/ServerOptions/VBoxContainer/SubmitButton" method="_on_SubmitButton_pressed"]
+[connection signal="animation_finished" from="GameOver/message_1/AnimationPlayer" to="GameOver" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GameOver/message_2/AnimationPlayer" to="GameOver" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GameOver/message_3/AnimationPlayer" to="GameOver" method="_on_AnimationPlayer_animation_finished"]
+[connection signal="animation_finished" from="GameOver/AnimationPlayer" to="GameOver" method="_on_AnimationPlayer_animation_finished"]

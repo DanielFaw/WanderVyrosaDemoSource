@@ -1,0 +1,248 @@
+[gd_scene load_steps=35 format=2]
+
+[ext_resource path="res://Models/Player/M_PlayerCharacter.glb" type="PackedScene" id=1]
+[ext_resource path="res://Materials/PlayerTorsoMat.tres" type="Material" id=2]
+[ext_resource path="res://Objects/PlayerAccessories/O_Multitool.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sounds/SFX/Footsteps/Footstep_Grass_1.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Scripts/PlayerControl/PlayerSound.gd" type="Script" id=5]
+[ext_resource path="res://Models/Player/PlayerS_Run.tres" type="Animation" id=6]
+[ext_resource path="res://Models/Player/PlayerS_Walk.tres" type="Animation" id=7]
+[ext_resource path="res://Scripts/PlayerControl/ArmIKController.gd" type="Script" id=8]
+[ext_resource path="res://Prefabs/Effects/PlayerJetpackParticles.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Materials/PAL_Main_FADE.tres" type="Material" id=10]
+[ext_resource path="res://Materials/JetpackIndicator.tres" type="Material" id=11]
+[ext_resource path="res://Sounds/SFX/Footsteps/Footstep_Metal_1.ogg" type="AudioStream" id=12]
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "A_RunForward"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "A_WalkForward"
+
+[sub_resource type="AnimationNodeAnimation" id=32]
+animation = "S_Run"
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "A_Idle"
+
+[sub_resource type="AnimationNodeBlend2" id=30]
+filters = [ "M_Astronaut/Skeleton:Ankle.L", "M_Astronaut/Skeleton:Ankle.R", "M_Astronaut/Skeleton:Base", "M_Astronaut/Skeleton:Bicep.L", "M_Astronaut/Skeleton:Bicep.R", "M_Astronaut/Skeleton:Bone", "M_Astronaut/Skeleton:Calf.L", "M_Astronaut/Skeleton:Calf.R", "M_Astronaut/Skeleton:Chest", "M_Astronaut/Skeleton:FingerTips.R", "M_Astronaut/Skeleton:Foot.L", "M_Astronaut/Skeleton:Foot.R", "M_Astronaut/Skeleton:Forearm.L", "M_Astronaut/Skeleton:Forearm.R", "M_Astronaut/Skeleton:Head", "M_Astronaut/Skeleton:Heel.L", "M_Astronaut/Skeleton:Heel.R", "M_Astronaut/Skeleton:Hip.L", "M_Astronaut/Skeleton:Hip.R", "M_Astronaut/Skeleton:Hips", "M_Astronaut/Skeleton:IKFoot.L", "M_Astronaut/Skeleton:IKFoot.R", "M_Astronaut/Skeleton:IK_Arm.L", "M_Astronaut/Skeleton:IK_Arm.R", "M_Astronaut/Skeleton:Midsection", "M_Astronaut/Skeleton:PIpeIK", "M_Astronaut/Skeleton:POLE_Arm.L", "M_Astronaut/Skeleton:POLE_Arm.R", "M_Astronaut/Skeleton:POLE_Foot.L", "M_Astronaut/Skeleton:POLE_Foot.R", "M_Astronaut/Skeleton:Palm.R", "M_Astronaut/Skeleton:Palm.R.001", "M_Astronaut/Skeleton:Pipe.002", "M_Astronaut/Skeleton:Pipe.003", "M_Astronaut/Skeleton:Pipe.004", "M_Astronaut/Skeleton:Pipe.005", "M_Astronaut/Skeleton:Pipe.006", "M_Astronaut/Skeleton:Pipe.007", "M_Astronaut/Skeleton:Pipe.008", "M_Astronaut/Skeleton:PipeBase", "M_Astronaut/Skeleton:PipePOLE", "M_Astronaut/Skeleton:PipeTop", "M_Astronaut/Skeleton:Shoulder.L", "M_Astronaut/Skeleton:Shoulder.R", "M_Astronaut/Skeleton:Thigh.L", "M_Astronaut/Skeleton:Thigh.R", "M_Astronaut/Skeleton:Toes.L", "M_Astronaut/Skeleton:Toes.R", "M_Astronaut/Skeleton:Wrist.R" ]
+
+[sub_resource type="AnimationNodeBlend2" id=31]
+filters = [ "M_Astronaut/Skeleton:Base", "M_Astronaut/Skeleton:POLE_Foot.L", "M_Astronaut/Skeleton:POLE_Foot.R" ]
+sync = true
+
+[sub_resource type="AnimationNodeAdd2" id=7]
+sync = true
+
+[sub_resource type="AnimationNodeTimeScale" id=9]
+
+[sub_resource type="AnimationNodeTimeScale" id=10]
+
+[sub_resource type="AnimationNodeTimeScale" id=11]
+
+[sub_resource type="AnimationNodeAdd2" id=12]
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "PlayerS_Walk"
+
+[sub_resource type="AnimationNodeBlendTree" id=14]
+graph_offset = Vector2( -180, -99 )
+nodes/A_Run/node = SubResource( 2 )
+nodes/A_Run/position = Vector2( -920, 220 )
+nodes/A_Walk/node = SubResource( 3 )
+nodes/A_Walk/position = Vector2( -920, -80 )
+nodes/Animation/node = SubResource( 4 )
+nodes/Animation/position = Vector2( -620, -100 )
+"nodes/Animation 2/node" = SubResource( 32 )
+"nodes/Animation 2/position" = Vector2( -920, 360 )
+nodes/B_Idle_Move/node = SubResource( 30 )
+nodes/B_Idle_Move/position = Vector2( 120, -80 )
+nodes/B_Run_Walk/node = SubResource( 31 )
+nodes/B_Run_Walk/position = Vector2( -120, 120 )
+nodes/RunSound/node = SubResource( 7 )
+nodes/RunSound/position = Vector2( -620, 260 )
+nodes/TimeScale/node = SubResource( 11 )
+nodes/TimeScale/position = Vector2( -400, 280 )
+"nodes/TimeScale 2/node" = SubResource( 9 )
+"nodes/TimeScale 2/position" = Vector2( -380, 80 )
+"nodes/TimeScale 3/node" = SubResource( 10 )
+"nodes/TimeScale 3/position" = Vector2( -340, -100 )
+nodes/WalkSound/node = SubResource( 12 )
+nodes/WalkSound/position = Vector2( -620, 40 )
+nodes/WalkSoundA/node = SubResource( 13 )
+nodes/WalkSoundA/position = Vector2( -920, 60 )
+nodes/output/position = Vector2( 360, 0 )
+node_connections = [ "output", 0, "B_Idle_Move", "TimeScale 3", 0, "Animation", "RunSound", 0, "A_Run", "RunSound", 1, "Animation 2", "B_Idle_Move", 0, "TimeScale 3", "B_Idle_Move", 1, "B_Run_Walk", "B_Run_Walk", 0, "TimeScale 2", "B_Run_Walk", 1, "TimeScale", "TimeScale 2", 0, "WalkSound", "TimeScale", 0, "RunSound", "WalkSound", 0, "A_Walk", "WalkSound", 1, "WalkSoundA" ]
+
+[sub_resource type="AnimationNodeAnimation" id=15]
+animation = "A_TakeOff"
+
+[sub_resource type="AnimationNodeAnimation" id=16]
+animation = "A_Fall"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id=17]
+blend_point_0/node = SubResource( 15 )
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource( 16 )
+blend_point_1/pos = 1.0
+value_label = "0"
+
+[sub_resource type="AnimationNodeBlendTree" id=18]
+graph_offset = Vector2( -606, -117 )
+nodes/output/position = Vector2( -20, 20 )
+nodes/vertSpeed/node = SubResource( 17 )
+nodes/vertSpeed/position = Vector2( -264, -9 )
+node_connections = [ "output", 0, "vertSpeed" ]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
+switch_mode = 1
+advance_condition = "hovering"
+xfade_time = 0.21
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 1
+advance_condition = "isGrounded"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id=21]
+states/Grounded/node = SubResource( 14 )
+states/Grounded/position = Vector2( 95, 60 )
+states/Hovering/node = SubResource( 18 )
+states/Hovering/position = Vector2( 331, 60 )
+transitions = [ "Grounded", "Hovering", SubResource( 19 ), "Hovering", "Grounded", SubResource( 20 ) ]
+start_node = "Grounded"
+graph_offset = Vector2( -331, -54 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=22]
+
+[sub_resource type="SpatialMaterial" id=33]
+flags_unshaded = true
+flags_vertex_lighting = true
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.266667, 1, 0, 1 )
+
+[node name="O_PlayerCharacter" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00108433, -4.76837e-07, 0.024837 )
+
+[node name="BoneAttachment" parent="M_Astronaut/Skeleton" index="0"]
+transform = Transform( -0.957165, -0.255449, 0.136312, 0.281552, -0.930992, 0.232338, 0.0675546, 0.260765, 0.963037, -1.25909, 2.20211, -0.120611 )
+
+[node name="O_Multitool" parent="M_Astronaut/Skeleton/BoneAttachment/RHand_Transform" index="0" instance=ExtResource( 3 )]
+transform = Transform( 0.163254, 0.00584625, -0.0213213, -0.0219522, 0.0240195, -0.161499, -0.00262247, 0.162879, 0.0245813, 0.0382703, -0.0500587, 0.115142 )
+
+[node name="BarrelMarker" type="Spatial" parent="M_Astronaut/Skeleton/BoneAttachment/RHand_Transform/O_Multitool" index="1"]
+transform = Transform( 0.999932, -0.00627893, -0.00981142, 0.00638637, 0.99992, 0.0109532, 0.00974184, -0.0110155, 0.999892, -0.033637, 1.86737, 6.1624 )
+
+[node name="BoneAttachment2" parent="M_Astronaut/Skeleton" index="1"]
+transform = Transform( 1, -5.55112e-17, 8.67362e-19, 5.55112e-17, 0.999858, 0.0168556, -1.06742e-18, -0.0168556, 0.999858, -0.0110788, 3.19976, -0.00203288 )
+
+[node name="Indicator001" parent="M_Astronaut/Skeleton/BoneAttachment2" index="0"]
+transform = Transform( 0.235524, 0, 0, 0, 0.235524, 0, -3.23117e-27, 0, 0.235524, 0.0129341, -0.487067, -1.00505 )
+material/0 = ExtResource( 11 )
+
+[node name="BoneAttachment3" parent="M_Astronaut/Skeleton" index="2"]
+transform = Transform( 1, -5.55112e-17, 8.67362e-19, 5.55112e-17, 0.999858, 0.0168556, -1.06742e-18, -0.0168556, 0.999858, -0.0110788, 3.19976, -0.00203288 )
+
+[node name="Indicators002" parent="M_Astronaut/Skeleton/BoneAttachment3" index="0"]
+transform = Transform( 0.235524, 0, 0, 0, 0.235524, 0, -3.23117e-27, 0, 0.235524, 0.0129341, -0.487067, -1.00505 )
+material/0 = ExtResource( 11 )
+
+[node name="BoneAttachment4" parent="M_Astronaut/Skeleton" index="3"]
+transform = Transform( 1, -5.55112e-17, 8.67362e-19, 5.55112e-17, 0.999858, 0.0168556, -1.06742e-18, -0.0168556, 0.999858, -0.0110788, 3.19976, -0.00203288 )
+
+[node name="Indicators003" parent="M_Astronaut/Skeleton/BoneAttachment4" index="0"]
+transform = Transform( 0.235524, 0, 0, 0, 0.235524, 0, -3.23117e-27, 0, 0.235524, 0.0129341, -0.487067, -1.00505 )
+material/0 = ExtResource( 11 )
+
+[node name="BoneAttachment5" parent="M_Astronaut/Skeleton" index="4"]
+transform = Transform( 1, -5.55112e-17, 8.67362e-19, 5.55112e-17, 0.999858, 0.0168556, -1.06742e-18, -0.0168556, 0.999858, -0.0110788, 3.19976, -0.00203288 )
+
+[node name="Pack" parent="M_Astronaut/Skeleton/BoneAttachment5" index="0"]
+material/0 = ExtResource( 10 )
+
+[node name="PlayerJetpackParticles" parent="M_Astronaut/Skeleton/BoneAttachment5" index="1" instance=ExtResource( 9 )]
+transform = Transform( -1, 7.24706e-11, -1.50996e-07, -9.96583e-11, 1, 0.00113996, 1.50996e-07, 0.00113996, -1, -3.72529e-09, -1.0827, -1.00743 )
+
+[node name="Head" type="BoneAttachment" parent="M_Astronaut/Skeleton" index="5"]
+transform = Transform( 0.999994, -0.000159978, -0.00346819, 2.18122e-05, 0.999208, -0.0398014, 0.0034718, 0.0398011, 0.999201, -0.0110788, 4.3427, -0.0142021 )
+
+[node name="Offset" type="Spatial" parent="M_Astronaut/Skeleton/Head" index="0"]
+transform = Transform( 0.999996, 0.00349088, 0.000360373, 0.000116298, 0.0696671, -0.99757, -0.00350751, 0.997565, 0.0696664, 0.00147185, 1.08726, -1.40937 )
+
+[node name="AirPipe" parent="M_Astronaut/Skeleton" index="6"]
+visible = false
+material/0 = ExtResource( 10 )
+
+[node name="Helmet" parent="M_Astronaut/Skeleton" index="7"]
+material/0 = ExtResource( 10 )
+material/1 = ExtResource( 10 )
+
+[node name="Torso" parent="M_Astronaut/Skeleton" index="8"]
+material/0 = ExtResource( 2 )
+material/1 = ExtResource( 10 )
+
+[node name="Torso001" parent="M_Astronaut/Skeleton" index="9"]
+material/0 = ExtResource( 10 )
+
+[node name="AimIk" type="SkeletonIK" parent="M_Astronaut/Skeleton" index="10"]
+process_priority = 1
+root_bone = "Bicep.R"
+tip_bone = "Wrist.R"
+interpolation = 0.89
+use_magnet = true
+magnet = Vector3( -1.857, 0, -1.539 )
+target_node = NodePath("../../../ArmAimIK")
+
+[node name="AnimationPlayer" parent="." index="1"]
+anims/PlayerS_Walk = ExtResource( 7 )
+anims/S_Run = ExtResource( 6 )
+
+[node name="AnimationTree" type="AnimationTree" parent="." index="2"]
+tree_root = SubResource( 21 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 22 )
+parameters/conditions/hovering = false
+parameters/conditions/isGrounded = false
+parameters/Grounded/B_Idle_Move/blend_amount = 0.0
+parameters/Grounded/B_Run_Walk/blend_amount = 1.0
+parameters/Grounded/RunSound/add_amount = 1.0
+parameters/Grounded/TimeScale/scale = 1.75
+"parameters/Grounded/TimeScale 2/scale" = 1.5
+"parameters/Grounded/TimeScale 3/scale" = 0.5
+parameters/Grounded/WalkSound/add_amount = 1.0
+parameters/Hovering/vertSpeed/blend_position = -0.133681
+
+[node name="Audio" type="Spatial" parent="." index="3"]
+script = ExtResource( 5 )
+left_foot_sound_path = NodePath("LeftFootAudio")
+right_foot_sound_path = NodePath("RightFootAudio")
+grass_footesteps = [ ExtResource( 4 ) ]
+metal_footesteps = [ ExtResource( 12 ) ]
+
+[node name="LeftFootAudio" type="AudioStreamPlayer" parent="Audio" index="0"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+bus = "PlayerSFX"
+
+[node name="RightFootAudio" type="AudioStreamPlayer" parent="Audio" index="1"]
+stream = ExtResource( 4 )
+volume_db = -20.0
+bus = "PlayerSFX"
+
+[node name="ArmAimIK" type="Spatial" parent="." index="4"]
+transform = Transform( -0.983597, 0.0509343, 0.173038, 0.177159, 0.0923201, 0.979842, 0.0339326, 0.994426, -0.0998291, -0.937617, 2.7966, 0.138627 )
+script = ExtResource( 8 )
+skeleton_ik_path = NodePath("../M_Astronaut/Skeleton/AimIk")
+vis_path = NodePath("..")
+tween_path = NodePath("Tween")
+line_geometry_path = NodePath("ImmediateGeometry")
+tool_barrel_path = NodePath("../M_Astronaut/Skeleton/BoneAttachment/RHand_Transform/O_Multitool/BarrelMarker")
+
+[node name="Tween" type="Tween" parent="ArmAimIK" index="0"]
+
+[node name="ImmediateGeometry" type="ImmediateGeometry" parent="ArmAimIK" index="1"]
+transform = Transform( -0.983597, 0.177159, 0.0339326, 0.0509342, 0.0923201, 0.994425, 0.173039, 0.979844, -0.0998293, -1.41924, -1.2562, -2.57339 )
+material_override = SubResource( 33 )

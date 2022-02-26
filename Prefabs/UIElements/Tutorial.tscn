@@ -1,0 +1,330 @@
+[gd_scene load_steps=17 format=2]
+
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=1]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Textures/UI/TutorialSS/dot_filled.png" type="Texture" id=3]
+[ext_resource path="res://Textures/UI/TutorialSS/vein_placement.png" type="Texture" id=4]
+[ext_resource path="res://Textures/UI/TutorialSS/tool_menu.png" type="Texture" id=5]
+[ext_resource path="res://Scripts/HomeShip/UI/TutorialUI.gd" type="Script" id=6]
+[ext_resource path="res://Rendering/Fonts/RobotoMono-VariableFont_wght.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://Textures/UI/TutorialSS/tower_place.png" type="Texture" id=8]
+[ext_resource path="res://Rendering/Fonts/Vanilla_Large.tres" type="DynamicFont" id=9]
+[ext_resource path="res://Textures/UI/TutorialSS/player_controls.png" type="Texture" id=10]
+[ext_resource path="res://Textures/UI/TutorialSS/system_nav.png" type="Texture" id=11]
+[ext_resource path="res://Textures/UI/TutorialSS/combat_tips.png" type="Texture" id=12]
+[ext_resource path="res://Textures/UI/TutorialSS/drop_lander.png" type="Texture" id=13]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.105882, 0.105882, 0.105882, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 0.152941, 0.152941, 0.152941, 1 )
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+
+[sub_resource type="DynamicFont" id=1]
+size = 17
+font_data = ExtResource( 7 )
+
+[node name="Tutorial" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+slide_images = [ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 5 ), ExtResource( 8 ), ExtResource( 13 ), ExtResource( 4 ), ExtResource( 12 ) ]
+slide_descriptions = [ "- Use [but] W, A, S, D [/but] to move
+
+- Look around with the [but]Mouse[/but]
+", "- Choose your next planet my walking up to the navigation terminal and pressing [but]E[/but]
+
+- Select your next planet and choose \"Set Course!\"
+
+- Proceed to the launch chamber towards the back and get ready for planet fall!", "- Press [but]TAB[/but] to toggle your multitool
+
+- Pressing and holding [but]TAB[/but] will allow you to choose different tools", "- With the build tool, use [but]LMB[/but] to place a tower
+
+- Towers will appear white when they can be placed with [but] LMB[/but]
+
+- Rotate with [but]scroll wheel[/but] and swap with [but]Q[/but] and  [but]E[/but]", "- The locals will most likely hear the commotion when you try to drill for fuel resources
+
+- Protect your lander pod until you can gather enough resources to refuel", "- TIPS -
+
+- Placing drills on veins will yield the type of ore the vein contains. Placing elsewhere is less reliable
+
+- Veins can be scanned for more information", "- Some towers such as the mortar can only fire in one direction. Aim carefully!
+
+- Each tower has strengths and weaknesses. Experiment to find out what they are!" ]
+slide_titles = [ "Basic Controls", "Navigation", "Tool Mode", "Build Mode", "Drop Lander", "Mining Tips", "Combat Tips" ]
+dots = [ NodePath("MarginContainer/Control/HBoxContainer/TextureRect"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect2"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect3"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect4"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect5"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect6"), NodePath("MarginContainer/Control/HBoxContainer/TextureRect7") ]
+slide_title_path = NodePath("MarginContainer/Control/Display/SlideTitle")
+slide_image_path = NodePath("MarginContainer/Control/Display/HBoxContainer/MarginContainer/Control/HSplitContainer/TextureRect")
+slide_desc_path = NodePath("MarginContainer/Control/Display/HBoxContainer/MarginContainer/Control/HSplitContainer/RichTextLabel")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 1 )
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="Label" type="Label" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -121.0
+margin_right = 121.0
+margin_bottom = 32.0
+custom_fonts/font = ExtResource( 2 )
+text = "Wanderer's Guide"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Display" type="Control" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -366.0
+margin_top = -226.0
+margin_right = 366.0
+margin_bottom = 226.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="MarginContainer/Control/Display"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="Control" parent="MarginContainer/Control/Display"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_top = 68.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/Control/Display/HBoxContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 10.0
+margin_top = 10.0
+margin_right = -10.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Control" type="Control" parent="MarginContainer/Control/Display/HBoxContainer/MarginContainer"]
+margin_right = 712.0
+margin_bottom = 364.0
+
+[node name="HSplitContainer" type="HSplitContainer" parent="MarginContainer/Control/Display/HBoxContainer/MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -356.0
+margin_top = -160.0
+margin_right = 356.0
+margin_bottom = 160.0
+split_offset = 53
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/Display/HBoxContainer/MarginContainer/Control/HSplitContainer"]
+margin_right = 373.0
+margin_bottom = 320.0
+rect_min_size = Vector2( 320, 320 )
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/Control/Display/HBoxContainer/MarginContainer/Control/HSplitContainer"]
+margin_left = 385.0
+margin_right = 712.0
+margin_bottom = 320.0
+custom_fonts/mono_font = SubResource( 1 )
+custom_fonts/normal_font = ExtResource( 9 )
+text = "This text will be about how to properly 
+play the game
+
+It should be pretty simple really but 
+that depends on how things work out"
+
+[node name="SlideTitle" type="Label" parent="MarginContainer/Control/Display"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -106.367
+margin_top = 11.2246
+margin_right = 99.6326
+margin_bottom = 38.2246
+custom_fonts/font = ExtResource( 2 )
+text = "Drill Placement"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlipLeft" type="Button" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -488.53
+margin_top = -43.5
+margin_right = -391.53
+margin_bottom = 43.5
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "<"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlipRight" type="Button" parent="MarginContainer/Control"]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -113.837
+margin_top = -43.5
+margin_right = -16.8369
+margin_bottom = 43.5
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = ">"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/Control"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -75.0
+margin_top = -44.8369
+margin_right = 75.0
+margin_bottom = -29.8369
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_right = 18.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 22.0
+margin_right = 40.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 44.0
+margin_right = 62.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 66.0
+margin_right = 84.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect5" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 88.0
+margin_right = 106.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect6" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 110.0
+margin_right = 128.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="TextureRect7" type="TextureRect" parent="MarginContainer/Control/HBoxContainer"]
+margin_left = 132.0
+margin_right = 150.0
+margin_bottom = 15.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 6
+
+[node name="Exit" type="Button" parent="MarginContainer/Control"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -40.0
+margin_bottom = 40.0
+theme = ExtResource( 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MarginContainer/Control/FlipLeft" to="." method="ChangeSlideLeft"]
+[connection signal="pressed" from="MarginContainer/Control/FlipRight" to="." method="ChangeSlideRight"]
+[connection signal="pressed" from="MarginContainer/Control/Exit" to="." method="CloseTutorial"]

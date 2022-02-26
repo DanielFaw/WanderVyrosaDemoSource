@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Textures/endesga-16.png" type="Texture" id=1]
+
+[resource]
+params_diffuse_mode = 4
+params_specular_mode = 3
+params_depth_draw_mode = 3
+albedo_texture = ExtResource( 1 )
+metallic_specular = 0.06
+roughness = 0.03
+distance_fade_mode = 3
+distance_fade_min_distance = 0.7
+distance_fade_max_distance = 1.9

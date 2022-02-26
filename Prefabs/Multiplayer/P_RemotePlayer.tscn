@@ -1,0 +1,67 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Objects/O_PlayerCharacter.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Networking/ClientSide/NonLocalCharacterController.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Networking/ClientSide/NonLocalPlayerAnimationController.gd" type="Script" id=3]
+[ext_resource path="res://Textures/PlayerSuitBlank.png" type="Texture" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.34545
+height = 0.982189
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_color = Color( 0.960784, 0.176471, 0.176471, 1 )
+albedo_texture = ExtResource( 4 )
+metallic_specular = 0.06
+roughness = 0.03
+distance_fade_mode = 2
+distance_fade_min_distance = 0.7
+distance_fade_max_distance = 1.9
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=2]
+
+[node name="RemotePlayer" type="KinematicBody"]
+script = ExtResource( 2 )
+planetPath = NodePath("../CSGSphere")
+acceleration = 3.0
+visPath = NodePath("../RemotePlayer/_Vis")
+moveSpeed = 3.0
+_torsoPath = NodePath("_Vis/O_PlayerCharacter/M_Astronaut/Skeleton/Torso")
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
+shape = SubResource( 1 )
+
+[node name="_Vis" type="Spatial" parent="."]
+
+[node name="O_PlayerCharacter" parent="_Vis" instance=ExtResource( 1 )]
+transform = Transform( 0.252, 0, 0, 0, 0.252, 0, 0, 0, 0.252, 0, -0.774, 0 )
+script = ExtResource( 3 )
+playerControllerPath = NodePath("../..")
+playerModelPath = NodePath(".")
+
+[node name="BoneAttachment" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="0"]
+transform = Transform( 1, 2.28775e-17, -7.25066e-19, -2.28586e-17, 0.996537, -0.083151, -1.17973e-18, 0.083151, 0.996537, -0.0110788, 3.03837, 0.018297 )
+
+[node name="BoneAttachment 2" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="1"]
+transform = Transform( 1, 2.28775e-17, -7.25066e-19, -2.28586e-17, 0.996537, -0.083151, -1.17973e-18, 0.083151, 0.996537, -0.0110788, 3.03837, 0.018297 )
+
+[node name="BoneAttachment 3" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="2"]
+transform = Transform( 1, 2.28775e-17, -7.25066e-19, -2.28586e-17, 0.996537, -0.083151, -1.17973e-18, 0.083151, 0.996537, -0.0110788, 3.03837, 0.018297 )
+
+[node name="BoneAttachment 4" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="3"]
+transform = Transform( 1, 2.28775e-17, -7.25066e-19, -2.28586e-17, 0.996537, -0.083151, -1.17973e-18, 0.083151, 0.996537, -0.0110788, 3.03837, 0.018297 )
+
+[node name="Head" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="5"]
+transform = Transform( 0.999994, -1.60116e-05, -0.00346371, 5.42383e-05, 0.999939, 0.0110365, 0.00346332, -0.0110367, 0.999933, -0.0110788, 4.36446, -0.0246162 )
+
+[node name="Torso" parent="_Vis/O_PlayerCharacter/M_Astronaut/Skeleton" index="7"]
+material/1 = SubResource( 3 )
+
+[node name="AnimationTree" parent="_Vis/O_PlayerCharacter" index="2"]
+parameters/playback = SubResource( 2 )
+
+[editable path="_Vis/O_PlayerCharacter"]

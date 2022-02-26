@@ -1,0 +1,216 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Rendering/UI/UI_Dark_Foreground.tres" type="StyleBox" id=1]
+[ext_resource path="res://Scripts/MainGame/UI/PauseMenuController.gd" type="Script" id=2]
+[ext_resource path="res://Rendering/UI/UI_Dark_Foreground_HOVER.tres" type="StyleBox" id=4]
+[ext_resource path="res://Rendering/Fonts/MainMenu_ProcPixie.tres" type="DynamicFont" id=5]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=7]
+[ext_resource path="res://Rendering/Fonts/VanillaExtractRegular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Rendering/Fonts/Vanilla_Large.tres" type="DynamicFont" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.113725, 0.113725, 0.113725, 0.988235 )
+corner_radius_top_left = 14
+corner_radius_top_right = 14
+corner_radius_bottom_right = 14
+corner_radius_bottom_left = 14
+
+[sub_resource type="DynamicFont" id=2]
+size = 50
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 8 )
+
+[node name="PauseMenu" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+settings_menu_path = NodePath("../Settings")
+
+[node name="BG" type="Panel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -224.0
+margin_top = -233.0
+margin_right = 223.0
+margin_bottom = 233.0
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -129.0
+margin_top = -228.0
+margin_right = 144.0
+margin_bottom = -150.0
+rect_scale = Vector2( 1.00759, 0.832994 )
+custom_fonts/normal_font = ExtResource( 5 )
+bbcode_enabled = true
+bbcode_text = "[center]PAUSED[/center]"
+text = "PAUSED"
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -182.0
+margin_top = -151.938
+margin_right = 184.0
+margin_bottom = 241.062
+custom_constants/separation = 30
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Resume" type="Button" parent="VBoxContainer"]
+margin_right = 366.0
+margin_bottom = 102.948
+rect_min_size = Vector2( 366, 102.948 )
+focus_mode = 0
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Resume"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Settings" type="Button" parent="VBoxContainer"]
+margin_top = 132.0
+margin_right = 366.0
+margin_bottom = 234.948
+rect_min_size = Vector2( 366, 102.948 )
+focus_mode = 0
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Settings"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Exit" type="Button" parent="VBoxContainer"]
+margin_top = 264.0
+margin_right = 366.0
+margin_bottom = 366.948
+rect_min_size = Vector2( 366, 102.948 )
+focus_mode = 0
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 6 )
+shortcut_in_tooltip = false
+enabled_focus_mode = 0
+text = "Menu"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ExitConfirmation" type="Control" parent="."]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -270.0
+margin_top = -151.938
+margin_right = 270.0
+margin_bottom = 125.062
+
+[node name="Panel" type="Panel" parent="ExitConfirmation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="ExitConfirmation"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_bottom = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="ExitConfirmation/MarginContainer"]
+margin_right = 540.0
+margin_bottom = 265.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExitConfirmation/MarginContainer/CenterContainer"]
+margin_left = 50.0
+margin_top = 17.0
+margin_right = 489.0
+margin_bottom = 248.0
+custom_constants/separation = 103
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer"]
+margin_right = 439.0
+margin_bottom = 78.0
+
+[node name="Confirmation" type="Label" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer"]
+margin_right = 439.0
+margin_bottom = 55.0
+custom_fonts/font = SubResource( 2 )
+text = "You Sure?"
+align = 1
+
+[node name="Unsaved" type="Label" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/VBoxContainer"]
+margin_top = 59.0
+margin_right = 439.0
+margin_bottom = 78.0
+custom_fonts/font = ExtResource( 9 )
+text = "All unsaved progress will be lost..."
+align = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer"]
+margin_top = 181.0
+margin_right = 439.0
+margin_bottom = 231.0
+custom_constants/separation = 39
+alignment = 1
+
+[node name="Yes" type="Button" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 1 )
+text = "Yup"
+
+[node name="No" type="Button" parent="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer"]
+margin_left = 239.0
+margin_right = 439.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 200, 50 )
+custom_styles/hover = ExtResource( 4 )
+custom_styles/pressed = ExtResource( 1 )
+custom_styles/focus = ExtResource( 4 )
+custom_styles/normal = ExtResource( 1 )
+text = "Nah"
+
+[connection signal="pressed" from="VBoxContainer/Resume" to="." method="ResumeButtonPressed"]
+[connection signal="pressed" from="VBoxContainer/Settings" to="." method="OpenSettings"]
+[connection signal="pressed" from="VBoxContainer/Exit" to="." method="ExitButtonPressed"]
+[connection signal="pressed" from="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/Yes" to="." method="ExitConfirmed"]
+[connection signal="pressed" from="ExitConfirmation/MarginContainer/CenterContainer/VBoxContainer/HBoxContainer/No" to="." method="ExitDenied"]

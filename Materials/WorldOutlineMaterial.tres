@@ -1,0 +1,11 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Rendering/Shaders/OutlineSSShader.tres" type="Shader" id=1]
+
+[resource]
+shader = ExtResource( 1 )
+shader_param/outline_mode = 3
+shader_param/outline_intensity = 0.078
+shader_param/_round = true
+shader_param/outline_bias = -0.335
+shader_param/outline_color = Color( 0, 0, 0, 1 )

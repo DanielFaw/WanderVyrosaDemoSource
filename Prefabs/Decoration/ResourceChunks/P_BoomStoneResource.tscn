@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Models/Decoration/ResourceChunks/M_BoomStoneResource.glb" type="PackedScene" id=1]
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=2]
+[ext_resource path="res://Scripts/MainGame/Effects/ResourceChunkMovement.gd" type="Script" id=3]
+
+[node name="P_BoomStoneResource" type="Spatial"]
+script = ExtResource( 3 )
+movementSpeed = 10.0
+
+[node name="M_BoomStoneResource" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.247, 0, 0, 0, 0.247, 0, 0, 0, 0.247, 0, 0, 0 )
+
+[node name="M_BoomStone" parent="M_BoomStoneResource" index="0"]
+transform = Transform( 0.70574, 0, 0, 0, 0.70574, 0, 0, 0, 0.70574, 0, 0, 0 )
+material/0 = ExtResource( 2 )
+
+[editable path="M_BoomStoneResource"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DartShot.ogg-d4a3a01cfaede6933dbd7585ec0b334a.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/DartShot.ogg"
+dest_files=[ "res://.import/DartShot.ogg-d4a3a01cfaede6933dbd7585ec0b334a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

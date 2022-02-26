@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/spaceship_take_off.mp3-3932fdf1ed900a7e4a09c6528c0e5f99.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/spaceship_take_off.mp3"
+dest_files=[ "res://.import/spaceship_take_off.mp3-3932fdf1ed900a7e4a09c6528c0e5f99.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

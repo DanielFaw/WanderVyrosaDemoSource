@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/ResourceChunks/M_MetalResource.glb" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MainGame/Effects/ResourceChunkMovement.gd" type="Script" id=3]
+
+[node name="P_MetalResource" type="Spatial"]
+script = ExtResource( 3 )
+movementSpeed = 10.0
+
+[node name="M_MetalResource" parent="." instance=ExtResource( 2 )]
+transform = Transform( 0.166, 0, 0, 0, 0.166, 0, 0, 0, 0.166, 0, 0, 0 )
+
+[node name="M_MetalChunk" parent="M_MetalResource" index="0"]
+material/0 = ExtResource( 1 )
+
+[editable path="M_MetalResource"]

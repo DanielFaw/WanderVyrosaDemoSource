@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Footstep_Gravel_1.ogg-7621c1dddcd4c80a814e5e3e5ef47df8.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Footsteps/Footstep_Gravel_1.ogg"
+dest_files=[ "res://.import/Footstep_Gravel_1.ogg-7621c1dddcd4c80a814e5e3e5ef47df8.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

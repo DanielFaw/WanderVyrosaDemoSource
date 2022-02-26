@@ -1,0 +1,398 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MainGame/UI/TowerUpgradeNodeControllers/UpgradeNode.gd" type="Script" id=1]
+
+[node name="Drill" type="Control"]
+margin_right = 697.0
+margin_bottom = 450.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainNode" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 352.118
+margin_right = 100.892
+margin_bottom = 396.118
+text = "Drill"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_root = true
+next_nodes = [ NodePath("../Mining1"), NodePath("../MoreHealth1"), NodePath("../Bldtime1") ]
+upgrade_price = 0
+description = "The drill gathers resources to be able to deploy your TowerPacks"
+specific_changes = {
+}
+upgrade_name = "Drill"
+is_bought = true
+
+[node name="Buckets1" type="Button" parent="."]
+margin_left = 173.032
+margin_top = 20.3444
+margin_right = 250.032
+margin_bottom = 64.3444
+text = "BUCKETS I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Buckets2") ]
+upgrade_price = 15
+description = "Bigger buckets allow drills to mine even faster, but can only payout at larger amounts"
+specific_changes = {
+"BUCKETSIZE": 0.3,
+"DRILLEFF": 0.2
+}
+upgrade_name = "Bigger Buckets I"
+
+[node name="Buckets2" type="Button" parent="."]
+margin_left = 302.511
+margin_top = 20.3444
+margin_right = 379.511
+margin_bottom = 64.3444
+text = "BUCKETS II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Buckets3") ]
+upgrade_price = 15
+description = "Bigger buckets allow drills to mine even faster, but can only payout at larger amounts"
+specific_changes = {
+"BUCKETSIZE": 0.5,
+"DRILLEFF": 0.2
+}
+upgrade_name = "Bigger Buckets II"
+
+[node name="Buckets3" type="Button" parent="."]
+margin_left = 425.984
+margin_top = 20.3444
+margin_right = 502.984
+margin_bottom = 64.3444
+text = "BUCKETS III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "Bigger buckets allow drills to mine even faster, but can only payout at larger amounts"
+specific_changes = {
+"BUCKETSIZE": 0.5,
+"DRILLEFF": 0.2
+}
+upgrade_name = "Bigger Buckets III"
+
+[node name="Mining1" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 286.117
+margin_right = 121.892
+margin_bottom = 330.117
+text = "MINING I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Mining2") ]
+upgrade_price = 5
+description = "Mines resources faster"
+specific_changes = {
+"DRILLEFF": 0.05,
+"DRILLSPEED": -0.1
+}
+upgrade_name = "Faster Mining I"
+
+[node name="Mining2" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 220.711
+margin_right = 126.892
+margin_bottom = 264.711
+text = "MINING II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Mining3") ]
+upgrade_price = 10
+description = "Mines resources faster"
+specific_changes = {
+"DRILLEFF": 0.05,
+"DRILLSPEED": -0.1
+}
+upgrade_name = "Faster Mining II"
+
+[node name="Mining3" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 155.899
+margin_right = 131.892
+margin_bottom = 199.899
+text = "MINING III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Mining4") ]
+upgrade_price = 15
+description = "Mines resources faster"
+specific_changes = {
+"DRILLEFF": 0.05,
+"DRILLSPEED": -0.05
+}
+upgrade_name = "Faster Mining III"
+
+[node name="Mining4" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 87.5196
+margin_right = 129.892
+margin_bottom = 131.52
+text = "MINING IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Mining5") ]
+upgrade_price = 20
+description = "Mines resources faster"
+specific_changes = {
+"DRILLEFF": 0.05,
+"DRILLSPEED": -0.05
+}
+upgrade_name = "Faster Mining IV"
+
+[node name="Mining5" type="Button" parent="."]
+margin_left = 48.8917
+margin_top = 20.3444
+margin_right = 124.892
+margin_bottom = 64.3444
+text = "MINING V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Buckets1") ]
+upgrade_price = 25
+description = "Mines resources faster"
+specific_changes = {
+"DRILLEFF": 0.05,
+"DRILLSPEED": -0.05
+}
+upgrade_name = "Faster Mining V"
+
+[node name="MoreHealth1" type="Button" parent="."]
+margin_left = 162.485
+margin_top = 353.8
+margin_right = 205.485
+margin_bottom = 394.8
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth2") ]
+upgrade_price = 2
+description = "Increase the health of your drills"
+specific_changes = {
+"HP": 4
+}
+upgrade_name = "Health Increase I"
+
+[node name="MoreHealth2" type="Button" parent="."]
+margin_left = 238.899
+margin_top = 353.8
+margin_right = 284.899
+margin_bottom = 394.8
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth3") ]
+upgrade_price = 4
+description = "Increase the health of your drills"
+specific_changes = {
+"HP": 3
+}
+upgrade_name = "Health Increase II"
+
+[node name="MoreHealth3" type="Button" parent="."]
+margin_left = 302.511
+margin_top = 353.8
+margin_right = 351.511
+margin_bottom = 394.8
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth4") ]
+upgrade_price = 6
+description = "Increase the health of your drills"
+specific_changes = {
+"HP": 4
+}
+upgrade_name = "Health Increase III"
+
+[node name="MoreHealth4" type="Button" parent="."]
+margin_left = 376.743
+margin_top = 352.118
+margin_right = 423.743
+margin_bottom = 393.118
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth5") ]
+upgrade_price = 8
+description = "Increase the health of your drills"
+specific_changes = {
+"HP": 5
+}
+upgrade_name = "Health Increase IV"
+
+[node name="MoreHealth5" type="Button" parent="."]
+margin_left = 454.655
+margin_top = 352.118
+margin_right = 500.655
+margin_bottom = 393.118
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 10
+description = "Increase the health of your drills"
+specific_changes = {
+"HP": 6
+}
+upgrade_name = "Health Increase V"
+
+[node name="Bldtime1" type="Button" parent="."]
+margin_left = 150.528
+margin_top = 302.997
+margin_right = 228.528
+margin_bottom = 343.997
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime2") ]
+upgrade_price = 2
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time I"
+
+[node name="Bldtime2" type="Button" parent="."]
+margin_left = 150.528
+margin_top = 245.313
+margin_right = 233.528
+margin_bottom = 286.312
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime3") ]
+upgrade_price = 4
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time II"
+
+[node name="Bldtime3" type="Button" parent="."]
+margin_left = 150.528
+margin_top = 189.875
+margin_right = 238.528
+margin_bottom = 230.875
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime4") ]
+upgrade_price = 6
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time III"
+
+[node name="Bldtime4" type="Button" parent="."]
+margin_left = 247.402
+margin_top = 189.875
+margin_right = 333.402
+margin_bottom = 230.875
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime5") ]
+upgrade_price = 8
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time IV"
+
+[node name="Bldtime5" type="Button" parent="."]
+margin_left = 346.397
+margin_top = 189.875
+margin_right = 427.397
+margin_bottom = 230.875
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 10
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time V"

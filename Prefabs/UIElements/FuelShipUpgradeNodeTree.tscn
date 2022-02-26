@@ -1,0 +1,206 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/MainGame/UI/TowerUpgradeNodeControllers/UpgradeNode.gd" type="Script" id=1]
+
+[node name="FuelShip" type="Control"]
+margin_right = 697.0
+margin_bottom = 450.0
+
+[node name="MainNode" type="Button" parent="."]
+margin_left = 35.5175
+margin_top = 247.567
+margin_right = 105.518
+margin_bottom = 291.567
+text = "Fuel Ship"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_root = true
+next_nodes = [ NodePath("../Resources1"), NodePath("../DroneSpeed1"), NodePath("../MoreDrones1") ]
+upgrade_price = 0
+description = "Your fuel ship contains resources when you land and holds construction drones"
+specific_changes = {
+}
+upgrade_name = "Fuel Ship"
+is_bought = true
+
+[node name="DroneSpeed1" type="Button" parent="."]
+margin_left = 153.249
+margin_top = 321.298
+margin_right = 227.249
+margin_bottom = 365.298
+text = "SPEED I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../DroneSpeed2") ]
+blocked_nodes = [ NodePath("../MoreDrones1") ]
+upgrade_price = 10
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONESPEED": 1.5
+}
+upgrade_name = "Drone Speed I"
+
+[node name="DroneSpeed2" type="Button" parent="."]
+margin_left = 250.764
+margin_top = 321.298
+margin_right = 324.764
+margin_bottom = 365.298
+text = "SPEED II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../DroneSpeed3") ]
+upgrade_price = 15
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONESPEED": 1.5
+}
+upgrade_name = "Drone Speed II"
+
+[node name="DroneSpeed3" type="Button" parent="."]
+margin_left = 364.928
+margin_top = 321.298
+margin_right = 438.928
+margin_bottom = 365.298
+text = "SPEED III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 20
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONESPEED": 1.5
+}
+upgrade_name = "Drone Speed III"
+
+[node name="MoreDrones1" type="Button" parent="."]
+margin_left = 153.249
+margin_top = 247.567
+margin_right = 227.249
+margin_bottom = 291.567
+text = "DRONES I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreDrones2") ]
+blocked_nodes = [ NodePath("../DroneSpeed1") ]
+upgrade_price = 10
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONECOUNT": 1
+}
+upgrade_name = "Drone Count I"
+
+[node name="MoreDrones2" type="Button" parent="."]
+margin_left = 250.764
+margin_top = 247.567
+margin_right = 324.764
+margin_bottom = 291.567
+text = "DRONES II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreDrones3") ]
+upgrade_price = 15
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONECOUNT": 1
+}
+upgrade_name = "Drone Count II"
+
+[node name="MoreDrones3" type="Button" parent="."]
+margin_left = 364.928
+margin_top = 247.567
+margin_right = 438.928
+margin_bottom = 291.567
+text = "DRONES III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreDrones4") ]
+upgrade_price = 20
+description = "Increase the amount of drones available to build towers"
+specific_changes = {
+"DRONECOUNT": 2
+}
+upgrade_name = "Drone Count III"
+
+[node name="MoreDrones4" type="Button" parent="."]
+margin_left = 364.928
+margin_top = 169.08
+margin_right = 448.928
+margin_bottom = 213.08
+text = "SWARM I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 25
+description = "Massively increase the amount of drones at the cost of their fidelity"
+specific_changes = {
+"DRONECOUNT": 8,
+"DRONESPEED": -1.25
+}
+upgrade_name = "Drone Swarm I"
+
+[node name="Resources1" type="Button" parent="."]
+margin_left = 35.5175
+margin_top = 169.08
+margin_right = 109.518
+margin_bottom = 213.08
+text = "CARGO I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Resources2") ]
+upgrade_price = 15
+description = "Increase the cargo capacity of the fuel ship, allowing you to take more resources with you to each planet"
+specific_changes = {
+"STARTRESOURCES": 5
+}
+upgrade_name = "Cargo Increase I"
+
+[node name="Resources2" type="Button" parent="."]
+margin_left = 35.5175
+margin_top = 106.052
+margin_right = 109.518
+margin_bottom = 150.052
+text = "CARGO II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Resources3") ]
+upgrade_price = 25
+description = "Increase the cargo capacity of the fuel ship, allowing you to take more resources with you to each planet"
+specific_changes = {
+"STARTRESOURCES": 5
+}
+upgrade_name = "Cargo Increase II"
+
+[node name="Resources3" type="Button" parent="."]
+margin_left = 35.5175
+margin_top = 40.6453
+margin_right = 109.518
+margin_bottom = 84.6453
+text = "CARGO III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 30
+description = "Increase the cargo capacity of the fuel ship, allowing you to take more resources with you to each planet"
+specific_changes = {
+"STARTRESOURCES": 5
+}
+upgrade_name = "Cargo Increase III"

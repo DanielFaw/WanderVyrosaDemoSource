@@ -1,0 +1,71 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Objects/Misc/O_ConstructionDrone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/Building/BuildDroneController.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/SFX/DroneWeld.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Sounds/SFX/DroneFly.ogg" type="AudioStream" id=4]
+[ext_resource path="res://Materials/Particles/Shader_Spatial_Draw.tres" type="Material" id=5]
+[ext_resource path="res://Materials/Particles/ConstructionDroneWeld.tres" type="Material" id=6]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=6]
+
+[sub_resource type="QuadMesh" id=12]
+material = ExtResource( 5 )
+size = Vector2( 0.25, 0.25 )
+
+[sub_resource type="BoxShape" id=5]
+extents = Vector3( 0.212318, 0.263466, 0.289798 )
+
+[node name="P_ConstructionDrone" type="KinematicBody"]
+collision_layer = 4
+collision_mask = 8
+script = ExtResource( 2 )
+move_speed = 2.5
+bob_speed = 1.5
+bob_magnitude = 0.2
+vis_path = NodePath("O_ConstructionDrone")
+weld_audio_path = NodePath("Weld")
+particles_path = NodePath("O_ConstructionDrone/BuildParticles/WeldParticles")
+
+[node name="O_ConstructionDrone" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.197284, 0, 0, 0, 0.197284, 0, 0, 0, 0.197284, 0, 0, 0 )
+
+[node name="AnimationTree" parent="O_ConstructionDrone" index="4"]
+parameters/playback = SubResource( 6 )
+
+[node name="BuildParticles" type="Spatial" parent="O_ConstructionDrone"]
+transform = Transform( 5.06883, 0, 0, 0, 5.06883, 0, 0, 0, 5.06883, -0.0167491, -1.4127, 1.94481 )
+
+[node name="WeldParticles" type="Particles" parent="O_ConstructionDrone/BuildParticles"]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -7.45058e-09, 0, 0 )
+amount = 10
+lifetime = 0.5
+preprocess = 0.01
+explosiveness = 0.11
+randomness = 0.96
+local_coords = false
+process_material = ExtResource( 6 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.791923, 0, 0, 0, 0.854867, 0, -0.0288639, 0 )
+shape = SubResource( 5 )
+
+[node name="RayCast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.00577098 )
+enabled = true
+
+[node name="Weld" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+max_db = -3.0
+max_distance = 5.0
+attenuation_filter_cutoff_hz = 11460.0
+
+[node name="Fly" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 4 )
+unit_db = -1.0
+max_db = 0.0
+autoplay = true
+max_distance = 6.0
+
+[editable path="O_ConstructionDrone"]

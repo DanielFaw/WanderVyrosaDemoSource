@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_ShipInterior.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/ShipInteriorParts/M_DoorBottom.glb" type="PackedScene" id=2]
+
+[node name="O_DoorBottom" instance=ExtResource( 2 )]
+
+[node name="Door_Bottom" parent="." index="0"]
+transform = Transform( 0.896808, 0, 0, 0, 1.11991, 0, 0, 0, 0.0875118, 0, 0, 0 )
+material/0 = ExtResource( 1 )

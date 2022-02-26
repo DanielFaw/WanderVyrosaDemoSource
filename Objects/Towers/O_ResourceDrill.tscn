@@ -1,0 +1,22 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Towers/M_ResourceDrill/M_ResourceDrill.glb" type="PackedScene" id=2]
+
+[node name="O_ResourceDrill" instance=ExtResource( 2 )]
+
+[node name="M_Drill" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.43833, 0 )
+
+[node name="rock" parent="M_Drill" index="0"]
+visible = false
+material/0 = ExtResource( 1 )
+
+[node name="Base_Bottom003" parent="M_Drill/Skeleton" index="0"]
+material/0 = ExtResource( 1 )
+
+[node name="Cube" parent="M_Drill/Skeleton" index="1"]
+material/0 = ExtResource( 1 )
+
+[node name="M_ResourceDrill" parent="M_Drill/Skeleton" index="2"]
+material/0 = ExtResource( 1 )

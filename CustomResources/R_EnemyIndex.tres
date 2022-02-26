@@ -1,0 +1,10 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/EnemyIndex.gd" type="Script" id=1]
+[ext_resource path="res://CustomResources/Enemies/ER_LizardMage.tres" type="Resource" id=2]
+
+[resource]
+script = ExtResource( 1 )
+_enemyIndex = {
+"lizardMage": ExtResource( 2 )
+}

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/ArpeggioAlert.ogg-516367bf98a8a295b2a73134b998eee6.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/ArpeggioAlert.ogg"
+dest_files=[ "res://.import/ArpeggioAlert.ogg-516367bf98a8a295b2a73134b998eee6.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=3.0

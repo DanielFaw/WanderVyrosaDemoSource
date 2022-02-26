@@ -1,0 +1,129 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://Objects/Towers/O_ResourceDrill.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/TowerControl/Towers/ResourceDrill.gd" type="Script" id=2]
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=3]
+[ext_resource path="res://Materials/Building_Hologram.tres" type="Material" id=4]
+[ext_resource path="res://Prefabs/Decoration/ResourceChunks/P_SiliconResource.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/Decoration/ResourceChunks/P_MetalResource.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Prefabs/Decoration/ResourceChunks/P_QuartzResource.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Decoration/ResourceChunks/P_BoomStoneResource.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Sounds/SFX/Drill.ogg" type="AudioStream" id=9]
+[ext_resource path="res://Materials/Particles/Shader_Spatial_Draw.tres" type="Material" id=10]
+[ext_resource path="res://Materials/Particles/Drill.tres" type="Material" id=11]
+[ext_resource path="res://Sounds/SFX/tower_hit.mp3" type="AudioStream" id=12]
+
+[sub_resource type="AnimationNodeAnimation" id=1]
+animation = "DrillSpin"
+
+[sub_resource type="AnimationNodeStateMachine" id=2]
+states/DrillSpin/node = SubResource( 1 )
+states/DrillSpin/position = Vector2( 152, 55 )
+start_node = "DrillSpin"
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=3]
+
+[sub_resource type="BoxShape" id=4]
+extents = Vector3( 0.705999, 0.276768, 0.787768 )
+
+[sub_resource type="CylinderShape" id=10]
+radius = 0.592687
+height = 0.974649
+
+[sub_resource type="QuadMesh" id=12]
+material = ExtResource( 10 )
+
+[sub_resource type="SphereShape" id=9]
+radius = 5.21382
+
+[node name="T_ResourceDrill" type="Spatial" groups=["Towers"]]
+script = ExtResource( 2 )
+_unbuiltMaterial = ExtResource( 4 )
+_builtMaterial = ExtResource( 3 )
+_meshes = [ NodePath("O_ResourceDrill/M_Drill/Skeleton/Base_Bottom003"), NodePath("O_ResourceDrill/M_Drill/Skeleton/Cube"), NodePath("O_ResourceDrill/M_Drill/Skeleton/M_ResourceDrill") ]
+_nonPlacementColliders = [ NodePath("Collider/CollisionShape") ]
+placementColliderPath = NodePath("BuildShape/CollisionShape")
+towerIndexName = "resourceDrill"
+_towerMaxHealth = 2
+hit_audio_path = NodePath("Hit")
+dirt_path = NodePath("O_ResourceDrill/M_Drill/rock")
+anim_player_path = NodePath("O_ResourceDrill/AnimationTree")
+spawn_node_path = NodePath("ResourceSpawnPoint")
+particle_path = NodePath("Particles")
+metal_prefab = ExtResource( 6 )
+silicon_prefab = ExtResource( 5 )
+quartz_prefab = ExtResource( 7 )
+boom_stone_prefab = ExtResource( 8 )
+audio_source_path = NodePath("Drill")
+vein_raycast_path = NodePath("VeinRaycast")
+
+[node name="O_ResourceDrill" parent="." groups=["Towers"] instance=ExtResource( 1 )]
+transform = Transform( 0.102, 0, 0, 0, 0.102, 0, 0, 0, 0.102, 0, 0.000590011, -0.0325594 )
+
+[node name="M_Drill" parent="O_ResourceDrill" index="0" groups=["Towers"]]
+
+[node name="rock" parent="O_ResourceDrill/M_Drill" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0435219, -4.39206, 0.00273007 )
+visible = true
+
+[node name="AnimationTree" type="AnimationTree" parent="O_ResourceDrill"]
+tree_root = SubResource( 2 )
+anim_player = NodePath("../AnimationPlayer")
+parameters/playback = SubResource( 3 )
+
+[node name="BuildShape" type="StaticBody" parent="." groups=["Towers"]]
+collision_layer = 512
+collision_mask = 2147484160
+
+[node name="CollisionShape" type="CollisionShape" parent="BuildShape"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0279205, 0, 0 )
+shape = SubResource( 4 )
+
+[node name="Collider" type="StaticBody" parent="." groups=["Towers"]]
+collision_layer = 4
+collision_mask = 12
+
+[node name="CollisionShape" type="CollisionShape" parent="Collider"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0151872, 0.45318, -0.0135208 )
+shape = SubResource( 10 )
+
+[node name="ResourceSpawnPoint" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00881624, 0.926446, -0.0198369 )
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 0.237719, 0, 0, 0, 0.237719, 0, 0, 0, 0.237719, 0.0199671, 0.0293071, -0.00411773 )
+amount = 10
+lifetime = 0.3
+visibility_aabb = AABB( -2.84196, -2.76977, -2.20624, 5.76399, 6.58065, 4.44792 )
+process_material = ExtResource( 11 )
+draw_pass_1 = SubResource( 12 )
+
+[node name="Area" type="Area" parent="."]
+collision_layer = 2
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+shape = SubResource( 9 )
+
+[node name="Drill" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 9 )
+max_db = 2.5
+max_distance = 20.0
+attenuation_filter_cutoff_hz = 20500.0
+
+[node name="VeinRaycast" type="RayCast" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.525572, 0 )
+enabled = true
+collision_mask = 32
+collide_with_areas = true
+
+[node name="Hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 12 )
+max_distance = 30.0
+bus = "SFX"
+
+[connection signal="body_entered" from="Area" to="." method="_OnBodyEnter"]
+[connection signal="body_exited" from="Area" to="." method="_OnBodyExit"]
+
+[editable path="O_ResourceDrill"]

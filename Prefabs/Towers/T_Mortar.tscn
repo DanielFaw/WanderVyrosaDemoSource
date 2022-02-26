@@ -1,0 +1,98 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Objects/Towers/O_Mortar.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/TowerControl/Towers/MortarTower.gd" type="Script" id=2]
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=3]
+[ext_resource path="res://Materials/Building_Hologram.tres" type="Material" id=4]
+[ext_resource path="res://Prefabs/Towers/Projectiles/P_MortarMissle.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/SFX/MortarFire.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Objects/Towers/O_Missile.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Sounds/SFX/tower_hit.mp3" type="AudioStream" id=8]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.728312, 0.291325, 1.00669 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.419088, 0.717358, 0.736236 )
+
+[sub_resource type="SphereShape" id=3]
+radius = 9.34913
+
+[node name="P_Mortar" type="Spatial" groups=["Towers"]]
+script = ExtResource( 2 )
+_unbuiltMaterial = ExtResource( 4 )
+_builtMaterial = ExtResource( 3 )
+_meshes = [ NodePath("O_Mortar/M_Mortar"), NodePath("O_Mortar/M_Mortar/BackPlate"), NodePath("O_Mortar/M_Mortar/Legs") ]
+_nonPlacementColliders = [ NodePath("Collider/CollisionShape") ]
+placementColliderPath = NodePath("BuildBoundary/CollisionShape")
+towerIndexName = "mortar"
+_towerMaxHealth = 25
+hit_audio_path = NodePath("Hit")
+projectilePrefab = ExtResource( 5 )
+firingPointPath = NodePath("FiringPoint")
+firingCooldown = 10.0
+_fireAudioSourcePath = NodePath("AudioStreamPlayer3D")
+_decoMissilePath = NodePath("DecoMissile")
+
+[node name="O_Mortar" parent="." groups=["Towers"] instance=ExtResource( 1 )]
+transform = Transform( 0.096, 0, 0, 0, 0.096, 0, 0, 0, 0.096, 0, 0, 0 )
+
+[node name="M_Mortar" parent="O_Mortar" index="0" groups=["Towers"]]
+
+[node name="BackPlate" parent="O_Mortar/M_Mortar" index="0" groups=["Towers"]]
+
+[node name="Legs" parent="O_Mortar/M_Mortar" index="1" groups=["Towers"]]
+
+[node name="AnimationPlayer" parent="O_Mortar" index="1" groups=["Towers"]]
+
+[node name="BuildBoundary" type="StaticBody" parent="." groups=["Towers"]]
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape" type="CollisionShape" parent="BuildBoundary" groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.142426 )
+shape = SubResource( 1 )
+
+[node name="Collider" type="StaticBody" parent="." groups=["Towers"]]
+collision_layer = 4
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Collider" groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.687153, -0.234085 )
+shape = SubResource( 2 )
+
+[node name="FiringPoint" type="Position3D" parent="." groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0036695, 1.04716, 0.295404 )
+
+[node name="Area" type="Area" parent="." groups=["Towers"]]
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape" type="CollisionShape" parent="Area" groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3.7191, 7.75488 )
+shape = SubResource( 3 )
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="." groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.10087, 0.338409 )
+stream = ExtResource( 6 )
+unit_size = 6.0
+pitch_scale = 0.8
+max_distance = 18.0
+
+[node name="DecoMissile" type="Spatial" parent="." groups=["Towers"]]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05636, 0.293193 )
+
+[node name="O_Missle" parent="DecoMissile" groups=["Towers"] instance=ExtResource( 7 )]
+transform = Transform( 0.068057, 0, 0, 0, 0.0508984, -0.0451786, 0, 0.0451786, 0.0508984, 0.000510484, -0.0340298, -0.0287057 )
+
+[node name="Hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+max_db = -3.0
+max_distance = 30.0
+bus = "SFX"
+
+[connection signal="body_entered" from="Area" to="." method="_OnBodyEnter"]
+[connection signal="body_exited" from="Area" to="." method="_OnBodyExit"]
+
+[editable path="O_Mortar"]

@@ -1,0 +1,135 @@
+[gd_scene load_steps=15 format=2]
+
+[ext_resource path="res://Rendering/Fonts/VanillaExtractRegular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Rendering/UI/UI_Dark_Style.tres" type="StyleBox" id=2]
+[ext_resource path="res://Scripts/Utilities/SceneLoadingProgress.gd" type="Script" id=3]
+[ext_resource path="res://Textures/Skyboxes/randomSB.png" type="Texture" id=4]
+[ext_resource path="res://Rendering/UI/UI_Dark_Foreground.tres" type="StyleBox" id=5]
+[ext_resource path="res://Rendering/DefaultEnv.tres" type="Environment" id=6]
+[ext_resource path="res://Objects/O_PlayerShip.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Prefabs/Effects/PlayerJetpackParticles.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scripts/MainGame/Effects/ShipMovement.gd" type="Script" id=9]
+[ext_resource path="res://Textures/Particles/circle.png" type="Texture" id=10]
+[ext_resource path="res://Materials/Particles/StarParticles.tres" type="Material" id=11]
+
+[sub_resource type="DynamicFont" id=3]
+size = 48
+use_mipmaps = true
+use_filter = true
+font_data = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+params_use_alpha_scissor = true
+params_alpha_scissor_threshold = 0.98
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 10 )
+
+[sub_resource type="QuadMesh" id=6]
+material = SubResource( 5 )
+
+[node name="LoadingScene" type="Spatial"]
+script = ExtResource( 3 )
+loading_progress_bar_path = NodePath("UI/ProgressBar")
+
+[node name="Camera2D" type="Camera" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.965926, 0.258819, 0, -0.258819, 0.965926, 0.888107, 1.62914, 8.44746 )
+environment = ExtResource( 6 )
+current = true
+fov = 69.1
+size = 10.0
+
+[node name="UI" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="UI"]
+visible = false
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -801.0
+margin_top = -801.0
+margin_right = 800.0
+margin_bottom = 800.0
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -123.0
+margin_top = 115.799
+margin_right = 123.0
+margin_bottom = 234.459
+custom_fonts/normal_font = SubResource( 3 )
+bbcode_enabled = true
+bbcode_text = "
+[center][wave]Loading..[/wave]"
+meta_underlined = false
+text = "
+Loading.."
+scroll_active = false
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ProgressBar" type="ProgressBar" parent="UI"]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -345.5
+margin_top = -55.3394
+margin_right = 345.5
+margin_bottom = -11.3394
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_styles/fg = ExtResource( 5 )
+custom_styles/bg = ExtResource( 2 )
+max_value = 1.0
+value = 0.55
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="O_PlayerShip" parent="." instance=ExtResource( 7 )]
+transform = Transform( -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0 )
+script = ExtResource( 9 )
+bobMagnitude = 0.1
+rotSpeed = 0.5
+rotMagnitude = 0.05
+shipPath = NodePath(".")
+
+[node name="PlayerJetpackParticles" parent="O_PlayerShip" instance=ExtResource( 8 )]
+transform = Transform( -1, 7.24718e-11, -1.50996e-07, -9.96572e-11, 1, 0.00113996, 1.50996e-07, 0.00113996, -1, 0.0182348, -0.895077, -0.0405642 )
+preprocess = 1.0
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( -4.2169e-08, -0.263301, 0.964714, -1.15092e-08, 0.964714, 0.263301, -1, 8.88178e-16, -4.37114e-08, 12.8727, 3.98456, 0 )
+light_energy = 0.171
+shadow_enabled = true
+directional_shadow_max_distance = 17.4
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 21.0751, 0, 0 )
+lifetime = 2.0
+preprocess = 5.0
+speed_scale = 1.77
+randomness = 1.0
+visibility_aabb = AABB( -53.8557, -10.8556, -10.5486, 55.8509, 21.5853, 20.4192 )
+process_material = ExtResource( 11 )
+draw_pass_1 = SubResource( 6 )
+
+[editable path="O_PlayerShip/PlayerJetpackParticles"]

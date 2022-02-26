@@ -1,0 +1,14 @@
+[gd_resource type="SpatialMaterial" load_steps=3 format=2]
+
+[ext_resource path="res://Textures/NormalMaps/Moon_Pet_Normal.png" type="Texture" id=1]
+[ext_resource path="res://Textures/AlbedoMaps/Moon_Pet_Color.png" type="Texture" id=2]
+
+[resource]
+params_diffuse_mode = 4
+params_specular_mode = 3
+albedo_texture = ExtResource( 2 )
+metallic_specular = 0.06
+roughness = 0.03
+normal_enabled = true
+normal_scale = 2.66
+normal_texture = ExtResource( 1 )

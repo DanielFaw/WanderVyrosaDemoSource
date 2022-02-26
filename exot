@@ -1,0 +1,846 @@
+[33mcommit 2337b3f3298f93cf51520f1a800451cdb3c36bf6[m[33m ([m[1;36mHEAD -> [m[1;32methan-develop[m[33m, [m[1;32mbig-merge[m[33m)[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Jan 16 16:58:10 2022 -0500
+
+    Refactored CameraController.gd, added audio manager settings and input settings
+
+[33mcommit c1672a6826599d59b7de8243cebacad9833d4655[m
+Merge: 492da86 f6c005d
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Wed Jan 12 13:19:02 2022 -0500
+
+    Merge branch 'ethan-develop' into big-merge
+
+[33mcommit f6c005d7c6e008246fe2919745400578f1361c45[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Jan 9 20:51:31 2022 -0500
+
+    Added settings saving/loading
+
+[33mcommit 1ef7dab28533941e51e50662d6c059278a0de942[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Jan 6 23:09:17 2022 -0500
+
+    Script refactoring
+
+[33mcommit 12e6ca424552ce9d3ac96c80439e31a8e769f5ea[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Jan 4 00:26:05 2022 -0500
+
+    Refactored MainGame loose and UI Scripts
+
+[33mcommit 943c379dc44899b7083b930958936d610003eaed[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Dec 29 18:40:18 2021 -0500
+
+    Refactored DamageIndicator.gd
+
+[33mcommit 960a4b8876dc1b1eb58224463e7652a83ca65508[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Dec 29 18:27:56 2021 -0500
+
+    More settings screen changes
+
+[33mcommit da9b67e1b3ca537adbe2803aad07436175ca1ed8[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Dec 29 15:40:54 2021 -0500
+
+    Additional settings menu updates
+
+[33mcommit 67f4242b8a0ac22cae28f048a4fb251c5993b538[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Dec 25 23:38:48 2021 -0500
+
+    Added scene pausing and pause "menu"
+
+[33mcommit 9ee275cfb4a1ce48475da1d18c018b463b81fdd2[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Dec 20 02:03:10 2021 -0500
+
+    Added player cheer anim, created basic ui for pause menu
+
+[33mcommit 492da86407dcc444eb7865eabe496e05fabb58ca[m
+Merge: daedcea 7ff6065
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Dec 14 18:07:20 2021 -0500
+
+    Merge branch 'big-merge' of github.com:ebot102/SpaceDefenseGame into big-merge
+
+[33mcommit daedceaa0dc2106765f681f7d2b5bdad8ca71d3c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Dec 14 17:59:53 2021 -0500
+
+    Added player color switching and added non-planet calculations to networked players
+
+[33mcommit 7ff606584de5d66c160754cca7610e711b5bd5ec[m
+Merge: 13d6b35 98d2b30
+Author: Ethan Ruhl <45072333+ebot102@users.noreply.github.com>
+Date:   Tue Dec 14 17:25:48 2021 -0500
+
+    Merge pull request #1 from ebot102/ethan-develop
+    
+    Ethan develop into big merge
+
+[33mcommit 98d2b30e0cc4d8e5f81773def07b69a5677e384a[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Dec 13 15:17:23 2021 -0500
+
+    Fixed jetpack bug
+
+[33mcommit c0987a5adc7ed233b1184981946370d708bc3938[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Dec 12 23:55:36 2021 -0500
+
+    Added more settings to RuntimeManager.gd, created GraphicsManger.gd
+
+[33mcommit e04b54b48e9f03ca3722ca8ad65b883d72bcc6c5[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Dec 12 17:11:33 2021 -0500
+
+    Added distance dither to player and outline shader
+
+[33mcommit 20e2a22526924dfda03bbcf5b575d500c0cd7999[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Dec 11 02:47:13 2021 -0500
+
+    Added runtime options loader, outline shader
+
+[33mcommit 27bb78c41bd4c084515cdbd2988b1106f657b984[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Dec 10 22:02:29 2021 -0500
+
+    Added main menu and mainmenu control
+
+[33mcommit 179359f364b2e1103af96fe170547f699007dbac[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Dec 9 02:45:38 2021 -0500
+
+    Readded ambiance to planet scene
+
+[33mcommit 13d6b35ff27624e1d0581cfb9feab4e96b28cefb[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Wed Dec 8 17:47:55 2021 -0500
+
+    Big Mergus
+
+[33mcommit 0e92805cefc92f2845afe0be8a3776ba09e9cbc5[m
+Merge: 1ff9287 d531ed1
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Wed Dec 8 17:31:11 2021 -0500
+
+    Merge branch 'ethan-develop' into big-merge
+
+[33mcommit d531ed154d850830e24face23ed55ffee5a247ab[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Dec 8 11:32:07 2021 -0500
+
+    Head look and player footstep audio fixes
+
+[33mcommit 1ff9287fd86b08b335f2c523121d620264ccb616[m[33m ([m[1;32mrob-develop[m[33m)[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Wed Dec 8 10:16:41 2021 -0500
+
+    Handshake fully implemented and code cleanup
+
+[33mcommit 8e2355a48bda134996600f3e9e8d172ba872111b[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Dec 7 23:53:52 2021 -0500
+
+    Fixed the animations I broke
+
+[33mcommit 30f08d54340f27b573f952cc8fca71c9c058f05a[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Dec 7 22:58:40 2021 -0500
+
+    Added colorable player character
+
+[33mcommit 0095bc65dca1e9848600ddd425dde8b0b3b7d52c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Dec 6 16:03:57 2021 -0500
+
+    Modified Music
+
+[33mcommit c9d89c3711db396ccc5ce82124466099ee473ff2[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Sun Nov 28 15:00:11 2021 -0500
+
+    handshake about80% working
+
+[33mcommit 2b090d3d2e3c0a5e9e365035b8cbc4aa11641edd[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Nov 28 01:41:52 2021 -0500
+
+    Added more sound effects
+
+[33mcommit fc02c1e4f6abcae6f6c6258f78c224b79639477d[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Nov 27 23:16:05 2021 -0500
+
+    Added basic scene loader
+
+[33mcommit 5c6a9f5d8089a08efb71f84244bd4894ce916bac[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 23 22:36:13 2021 -0500
+
+    Moved tower instancing from BuildingController.gd to TowerManager.gd
+
+[33mcommit 59d6fccde5aa6fd3ff6fdf29abfb06878e52f586[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Nov 18 14:54:00 2021 -0500
+
+    Added more ship interior decorations
+
+[33mcommit 246552a06ad346d0374f9b871cfce769f6b74b31[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 16 15:53:57 2021 -0500
+
+    Added initial ship decorations
+
+[33mcommit 8b60a5eeac5d25de5ae47134e41b923dce882b46[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Nov 15 21:53:34 2021 -0500
+
+    Remodeled home ship interior
+
+[33mcommit 337fe24979f98488830b9a7603b2bc99a6f94008[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Nov 15 14:13:08 2021 -0500
+
+    Added Ship Interior Meshes
+
+[33mcommit 61531a3fd46117ccb3046fbac114762652cbe170[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Sun Nov 14 12:18:31 2021 -0500
+
+    fixed bugs with join/leaving servers
+    
+    everything should be good now as far as that goes
+
+[33mcommit 5757bcd4b1f4799ed90be3e8e08a280618c7fa91[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 9 21:17:54 2021 -0500
+
+    Added interior models for home ship
+
+[33mcommit 73a49dd9a7ab47264428f55ae9c68814cc8af8c9[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 9 12:37:38 2021 -0500
+
+    Modified player controller and camera controller to work with non-spherical gravity
+
+[33mcommit 79dff481e2fc5914caa79e073ec869a3c15d4973[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Sat Nov 6 02:00:47 2021 -0400
+
+    Significantly increase multiplayer QoL
+    
+    Still incredibly buggy
+
+[33mcommit 16350d8292bab4e07903a34bbb23d766e9b0fba4[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Nov 6 00:02:02 2021 -0400
+
+    Updated BuildingController to use tower index
+
+[33mcommit c35ebde9bc41b1a010c26043ec1e1599b3b9a88a[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Nov 5 23:12:44 2021 -0400
+
+    Added player, enemy, and tower sfx
+
+[33mcommit 1929c9b0223cf783c4fa559b3feac43c00442bc4[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Nov 4 15:52:09 2021 -0400
+
+    Reworked player footsteps
+
+[33mcommit 7868b7da0db25a5c607d58a17a9f669a6d925e06[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Nov 4 14:47:22 2021 -0400
+
+    Fixed enemy alignment bug
+
+[33mcommit 8ff43fdbb728d0b7655c1b777c14625433fef272[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Nov 4 13:57:31 2021 -0400
+
+    Added mortar tower
+
+[33mcommit 035beffad7d163daed27bc4ed73d60709c47d0f1[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Thu Nov 4 11:49:57 2021 -0400
+
+    changed to 3.3.4
+
+[33mcommit 8e19da12e23a94f6be533dacd50a2926c339569b[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Thu Nov 4 11:44:00 2021 -0400
+
+    Enhanced multiplayer functionality
+    
+    Players look around correctly and towers are placed with correct rotations. You can also select a color when joining multiplayer games, and if you refuse to name yourself the default name is something kinda sus
+
+[33mcommit d4122a1fa185233cbae4ef4cb44cc31a10fae154[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 2 20:08:07 2021 -0400
+
+    Twerks
+
+[33mcommit b000ddbcfd2e4b736142677e5b6f6a14c4eebeb3[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Nov 2 18:32:24 2021 -0400
+
+    Re-added multiplayer
+    
+    Everything works like it did before :)
+    I also made it so you can't talk to yourself while in singleplayer (F) but it pops back up when you join a multiplayer game
+
+[33mcommit 8019bf15d29d99b14250a755090f5d6c0166ec64[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 2 15:47:30 2021 -0400
+
+    Added basis for mortar tower
+
+[33mcommit b4436f3ab066a037daf9cf38bf9b6e7202a0228c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 2 14:00:41 2021 -0400
+
+    Added multiplayer UI
+
+[33mcommit f11228826cfcbf418154a139af69f3ed7fa7c232[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Nov 2 13:20:54 2021 -0400
+
+    Minor tweaks
+
+[33mcommit 9836b1726bdb57d1ce55534b3035a8f0b33b0b84[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Nov 2 13:10:48 2021 -0400
+
+    Merge branch 'ethan-develop' into rob-develop
+
+[33mcommit d083006f611c900cb64d694869e563dfb6c21371[m
+Merge: ca7bc08 2ccd873
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Nov 2 13:04:08 2021 -0400
+
+    Merge branch 'ethan-develop' into rob-develop
+
+[33mcommit ca7bc08da44b110dda457ae3a946efe54da26a0d[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Nov 2 12:42:18 2021 -0400
+
+    tower placement in multiplayer added
+    
+    yeah
+
+[33mcommit 2ccd87315847d649632faefcd38528c89479a547[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Nov 1 23:24:12 2021 -0400
+
+    Readded Construction drones, added Debug DrawDebugTransform
+
+[33mcommit 4d0fe83b089bb8ed1a21aa80a5ff129e2217d987[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Mon Nov 1 19:08:57 2021 -0400
+
+    Added cumulative damage indicators
+
+[33mcommit ca78a108d90f928d5aff8d02c58dd2bf32d8a425[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Nov 1 15:46:22 2021 -0400
+
+    Added damage indicator spawning to EnemyBase.gd
+
+[33mcommit 7a305e51648caa07193216dda379e367b5f4c242[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Nov 1 14:13:35 2021 -0400
+
+    Added basic damage indicator prefabs
+
+[33mcommit 9fc6f8cb5af5571d536ba04cd3474c68c88b47ce[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Oct 29 13:36:44 2021 -0400
+
+    Added UI Toggle, Changed windows icon
+
+[33mcommit e3e5211c15b059ac4ca559d74b3c088b705c6a4d[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Fri Oct 29 10:51:32 2021 -0400
+
+    Finished* chat
+
+[33mcommit 5028685735907cde1e12741f37f1d2f892ec98f6[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Oct 29 02:05:26 2021 -0400
+
+    Added chat animations
+
+[33mcommit d91c01fdbcb05d4d8c559ae1f6a8ae802f2dd534[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 28 15:39:02 2021 -0400
+
+    Added fade text effect
+
+[33mcommit 1ab0eeb3885d84ca8606894f04697467f796874f[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Oct 27 23:35:33 2021 -0400
+
+    Added UI elements, changed player jump to a jetpack
+
+[33mcommit 5d77502148c88fb8e424bb1db4cb83009995ab06[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 26 15:22:56 2021 -0400
+
+    Added InputState singleton, updated TowerManager to keep list of alive towers
+
+[33mcommit 51a6e438328effeefafef2ea6ed98c8f98ede0de[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Oct 25 20:50:36 2021 -0400
+
+    Worked on avoidance collision, added new skybox
+
+[33mcommit 9856c49a609a8e9ebbd16e533993d69187f2a1d9[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Oct 22 17:44:23 2021 -0400
+
+    Added player footsteps
+
+[33mcommit 4e8630ae65520c4980f26892a90cd8159bfafc91[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 21 22:38:14 2021 -0400
+
+    Added enemy and turret FX
+
+[33mcommit 421040d05f3dbb2062b0ce26dfed785cbe4e80bc[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Thu Oct 21 18:39:25 2021 -0400
+
+    De-Threaded BuildingController
+
+[33mcommit b8a55d2edfdd459aaefa00d278b6d3aaefdb7f5b[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 21 15:52:58 2021 -0400
+
+    Updated enemy collision avoidance
+
+[33mcommit dd396a49e60341a80047d65ed1d6d0adde10b933[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Thu Oct 21 13:44:51 2021 -0400
+
+    Beginning implementation of robust networking
+    
+    I said what I said.
+
+[33mcommit 309a4990ed0c5843a4f9108259765347a969d2f9[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 21 00:23:34 2021 -0400
+
+    Re-enabled flora generator, added rocks
+
+[33mcommit af1f89e545f3ef726aaab880819478f9e186cde4[m
+Merge: c2c918d 73c3f6d
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Oct 20 23:49:23 2021 -0400
+
+    Merge branch 'ethan-develop' of github.com:ebot102/SpaceDefenseGame into ethan-develop
+
+[33mcommit c2c918d85187647a419fe1de929cc240a9df434b[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Oct 20 23:48:29 2021 -0400
+
+    Added GameStateController, modified enemy manager
+    and fixed release build bugs
+
+[33mcommit 73c3f6d3b4922304c7bf9d961a40b23d8da951b6[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 19:16:32 2021 -0400
+
+    UPDATED test1 ; FIXED test2
+
+[33mcommit a38903d2b1c6c93caeb5a737ea8a332f721e2971[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 19:03:00 2021 -0400
+
+    FIXED Patch note generation, Patch Note formatting
+
+[33mcommit f3f22887d026d989da1492dcf2a139e58df2c1a5[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:55:18 2021 -0400
+
+    UPDATED test of string split, this is a new line
+
+[33mcommit 47d40040356b97c2f1f433339393fa3779e5aff1[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:51:32 2021 -0400
+
+    Text
+
+[33mcommit 1af862a46ac8911623758238f43fe07d348d5fa3[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:46:21 2021 -0400
+
+    FIXED: Patch note generator formatting
+
+[33mcommit 15a6c5178c19af146d748a42f6628b91ec237ddb[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:16:23 2021 -0400
+
+    UPDATED Patch notes generator
+
+[33mcommit 0b7633d15913823fd136c85b7387ddaf4727002a[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:14:51 2021 -0400
+
+    ADDED PatchNotes text
+
+[33mcommit 2d62aba59a31df586699d39690734e11934df82e[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 19 18:09:22 2021 -0400
+
+    Added bash script to generate patch notes
+
+[33mcommit 9f498cdcb0432908072ec6a827c3eb9fbf87e17c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 19 15:28:16 2021 -0400
+
+    Various build controller updates and bug fixes
+
+[33mcommit 6edc115c0c4e04c50fbf87edbd8610669d0b8e82[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 12 21:12:06 2021 -0400
+
+    Added wave manager
+
+[33mcommit d199c6c8a4ce945205d84de21eb7baacb2db8264[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 12 15:59:23 2021 -0400
+
+    Added enemy avoidance back in
+
+[33mcommit 7577cc49de408192941d5996463f46877c5d5187[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 7 15:45:26 2021 -0400
+
+    Added waypoint based enemy navigation, added static lines to debug
+
+[33mcommit 88ee10f7436075378bfbd91232f04c78aa9695fc[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 7 13:37:09 2021 -0400
+
+    Added debug lines, created Astar network
+
+[33mcommit 2a5b88c819d6cf77c28d645135cfd3f545930529[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Thu Oct 7 05:06:58 2021 -0400
+
+    Milestone 1 submission
+    
+    This is pretty much what was turned in for milestone 1
+
+[33mcommit c28c7b184b8dc678d350cb95472d5e693129c2a2[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Oct 7 01:06:15 2021 -0400
+
+    Added Cartesian to Spherical coordinate conversion
+
+[33mcommit 11f0c942542b40bec4919c1c7d31a013fffb801c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 5 21:37:20 2021 -0400
+
+    I hate collision layers tbh
+
+[33mcommit dc7e5dd48f287f31c8962c606549b0dfa2c33f95[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Tue Oct 5 19:09:35 2021 -0400
+
+    Fixed enemy collision avoidance but broke tower targeting :/
+
+[33mcommit 7bbd6aa38c53ed28b51e62730cf66d3e6b7099cd[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 5 15:52:43 2021 -0400
+
+    Upgrade lizard enemy model
+
+[33mcommit 3b4879687210dc26946fff4c8df5b8d4662d41c4[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Oct 5 03:29:39 2021 -0400
+
+    Added tower index/resource framework, performance updates
+
+[33mcommit 49368159ae197e1b7d76daaf4a91a7ea8cbbd5b8[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Oct 5 00:59:17 2021 -0400
+
+    Create/Join Server + Messaging!
+    
+    Merged ethan-develop into rob-develop, cleaned up some weird bugs, and implemented a very basic messaging system as well as a menu to join/create a server. just press tab
+
+[33mcommit e53e59b5fb6cbc5b089c81c6e108c75f711d5846[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Mon Oct 4 18:32:37 2021 -0400
+
+    Added camera rotation smoothing
+
+[33mcommit 265f03a840158d5cc19ed1a5dc39ab2982040ea4[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Oct 4 15:48:39 2021 -0400
+
+    Added resource return on tower removal
+
+[33mcommit 8b6383f8d84407732991ecf0001865dcb13c2332[m
+Merge: 1a8fce3 6806a76
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Mon Oct 4 15:21:22 2021 -0400
+
+    Merge branch 'ethan-develop' into rob-develop
+
+[33mcommit 1a8fce38e5396ef94933cf0a5c79458074a21c62[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Mon Oct 4 15:11:15 2021 -0400
+
+    Update _PROTO_SCENE.tscn
+
+[33mcommit 62a4a35cb99e7efaae1bfdc7c77d0ec286af2bbe[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Fri Oct 1 11:10:37 2021 -0400
+
+    Revert "Added nonlocal player logic"
+    
+    This reverts commit c1725b3d85a30d86dabd239005ab0b339b263246.
+
+[33mcommit 6806a76f7963a13c6c363792b7aa1f068715a364[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 30 23:26:28 2021 -0400
+
+    Added tower removal
+
+[33mcommit 2c5d955410c6d28f1ba03e004c567af2bbe3a217[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 30 22:08:35 2021 -0400
+
+    Added resource chunks and resource mining
+
+[33mcommit 00f2edd3ee8eb7e9bfe24eeccdb73b8b0c08e1a2[m
+Merge: a10f4b0 dc0d517
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 30 19:13:29 2021 -0400
+
+    Merge branch 'ethan-develop' of github.com:ebot102/SpaceDefenseGame into ethan-develop
+
+[33mcommit a10f4b0210bdf90380fe2c085c0dd3645e2a0deb[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 30 19:13:20 2021 -0400
+
+    added resource chunks
+
+[33mcommit dc0d517ee8c3518c747ced5f3d1d93996a782fea[m
+Author: Ethan Ruhl <epruhl102@gmail.com>
+Date:   Thu Sep 30 19:09:26 2021 -0400
+
+    Added Resource Collection
+
+[33mcommit 83798fcd19a652a7229d35a56c2c0b32bebc2a6c[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 30 15:14:17 2021 -0400
+
+    Added tower switching, redid inheritance in tower scripts
+
+[33mcommit c1725b3d85a30d86dabd239005ab0b339b263246[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Sep 28 22:09:22 2021 -0400
+
+    Added nonlocal player logic
+
+[33mcommit a1735b9b18f228949a8e11f689bcb5c13c3dff8b[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Sep 28 19:54:12 2021 -0400
+
+    Added non local player controller
+
+[33mcommit 84ddf80c2934592e340229fec5e61b1e8e037cd5[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Sep 28 19:08:00 2021 -0400
+
+    player orientates itself a little better
+
+[33mcommit 3f971edca39295d4767be76b151493b1ce1804b9[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Sep 28 19:06:59 2021 -0400
+
+    Material Fun
+
+[33mcommit 917a87d15ff0f8b8d6d0e17ad213de16fecac754[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Tue Sep 28 16:39:09 2021 -0400
+
+    Multiplayer added
+    
+    its really messy but you can join a pre-set server and run around and stuff with a max of 4 people total :cat:  :honey_pot:  (pretend that is catjam)
+
+[33mcommit 562e9eb9884381755d44f271610a975706dc9a6f[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Sep 28 12:56:28 2021 -0400
+
+    Messed with skybox
+
+[33mcommit 0b23524f44cd13169628713147a502ed43450028[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Sep 27 22:39:48 2021 -0400
+
+    Bug Fixes
+
+[33mcommit eff949bd60d23e081cbbc23553624f8ef04445f4[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Sep 27 22:19:35 2021 -0400
+
+    Polished* enemy smoothing
+
+[33mcommit 0425e34852a61c4ecfcb58494f63456525605130[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Mon Sep 27 19:56:19 2021 -0400
+
+    Enemy collision avoidance changes
+
+[33mcommit 0759ae3c246b810e341719329f5926d0c90fd281[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Mon Sep 27 19:53:12 2021 -0400
+
+    small fix, needs more testing
+
+[33mcommit e2fafeac8e76c8b3cef943ee1ec5c7d66247e594[m
+Author: DanielFaw <58899301+DanielFaw@users.noreply.github.com>
+Date:   Mon Sep 27 18:09:39 2021 -0400
+
+    very simple client/server interactions
+    
+    some of the client/server interactions have now been implemented but needs a lot more testing and research to properly send and receive packets
+
+[33mcommit ac1f073ed47e71b98ce8c6eb7ecb174ac37e2ab5[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Sep 26 19:12:56 2021 -0400
+
+    Added construction drone collision avoidance
+
+[33mcommit ca7c601911279d60d6809a1a71e38771204c32a7[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Sep 26 17:53:14 2021 -0400
+
+    Added drone tower construction
+
+[33mcommit 4ded110c289d97c4625da3a2628bfc0fa42beb86[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Sep 23 15:28:12 2021 -0400
+
+    Seperated base code, added base enemy ai logic
+
+[33mcommit 5e0c3fcf8e1fa85569916f7e251a918c0dc876e7[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Sep 22 18:25:48 2021 -0400
+
+    Finished Tower firing (v1)
+
+[33mcommit 90a70c4053e387e0c78a9a04f742c3ad0ccae61e[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Sep 15 17:08:25 2021 -0400
+
+    Added grav vec calculation to Utilities.gd singleton
+
+[33mcommit e9e9c203b1878f35abc0bb42276696b17cb3eac0[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Sep 15 16:53:54 2021 -0400
+
+    Push for start of netcode, player movement only
+
+[33mcommit 773f095a45cead9f14e69eec45b20ca45aea77fb[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Sep 12 01:43:15 2021 -0400
+
+    Added base tower firing
+
+[33mcommit 2802948f6faf7e26edefe6a5624e5b84c353eb2f[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Fri Aug 27 00:03:22 2021 -0400
+
+    Added skybox, gattling gun model, and added WIP Bone target system
+
+[33mcommit f6199ddede3918da3d96e23fda61b6d311ae1e51[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Tue Aug 24 22:08:08 2021 -0400
+
+    Added building, fixed bugs
+
+[33mcommit 1fe876b6cced927fe9958f88700fdef006324124[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Aug 22 18:33:12 2021 -0400
+
+    Added basic Building logic and build mode switching.
+    Added SceneResources.gd
+    Moved functions to Utilities.gd
+
+[33mcommit ba6b3dade571d96d784620b2790b4f44b1c6d4b8[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Aug 22 14:44:58 2021 -0400
+
+    Updated Toon Shader, Moved ToggleCursor to Utilities.gd, Added testing tower base
+
+[33mcommit 57119856246da554f852b2bf2f786a5f59ba5d80[m[33m ([m[1;32mreleases[m[33m, [m[1;32mfeature-testing[m[33m)[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sun Aug 22 00:48:18 2021 -0400
+
+    Added debug system
+
+[33mcommit a6761e06e2bf9418ed3fabcf9bd8bf3ecb1d9277[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Aug 21 17:28:30 2021 -0400
+
+    Fixed player rotation relative to camera
+
+[33mcommit d914ecc3fd38622aa849121825b7506d957f9a39[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Aug 21 16:06:58 2021 -0400
+
+    Added player run/walk cycles and basic character animation
+
+[33mcommit 57a501d8a5bd03950d3cb649102cb54eab970830[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Sat Aug 21 02:20:15 2021 -0400
+
+    Added player cam rotation, created player model
+
+[33mcommit c156cd7ea08e143c42327bd2eb2e4f114e46a105[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Thu Aug 19 14:30:58 2021 -0400
+
+    Added Z axis rotation to camera controller, fixed player movement
+
+[33mcommit f80eb79750d7e399ece7523303c1fccc5b6e24c9[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Aug 18 19:22:51 2021 -0400
+
+    Added basic physics to player movement
+
+[33mcommit 7e6646a1a615f88e31a982d880d130d1b51cb05a[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Aug 18 18:22:05 2021 -0400
+
+    Fixed Camera Rotation- Currently only around local Y axis
+
+[33mcommit 2b075f29d60cbf51497b9ba23bd26f85d4fd4f9c[m[33m ([m[1;32mmain[m[33m)[m
+Merge: 93649e6 6363aaf
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Aug 18 15:30:37 2021 -0400
+
+    Merge github.com:ebot102/SpaceDefenseGame into main
+
+[33mcommit 6363aafbb0ef27cd36cd49503b3343328d5580c7[m
+Author: Ethan Ruhl <45072333+ebot102@users.noreply.github.com>
+Date:   Wed Aug 18 15:18:27 2021 -0400
+
+    Initial commit
+
+[33mcommit 93649e6ea1a5dfb42ae775416b07f33aa1b4743a[m
+Author: Ethan <epruhl102@gmail.com>
+Date:   Wed Aug 18 15:15:41 2021 -0400
+
+    Initial Commit

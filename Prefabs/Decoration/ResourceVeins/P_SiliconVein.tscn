@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Misc/ResourcePockets/O_Silicon_Vein.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/Building/ResourceVein.gd" type="Script" id=2]
+
+[node name="P_SiliconVein" type="Spatial"]
+script = ExtResource( 2 )
+type = 2
+meshs_paths = [ NodePath("O_Silicon_ResourcePocket/Resource_Silicon") ]
+
+[node name="O_Silicon_ResourcePocket" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1.716, 0, 0, 0, 1.416, 0, 0, 0, 1.716, 0, 0.177187, 0 )
+
+[editable path="O_Silicon_ResourcePocket"]

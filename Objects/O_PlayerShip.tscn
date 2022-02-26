@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Models/M_PlayerShip.glb" type="PackedScene" id=2]
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=3]
+
+[node name="O_PlayerShip" instance=ExtResource( 2 )]
+
+[node name="Body" parent="." index="0"]
+material/0 = ExtResource( 3 )
+
+[node name="Tanks" parent="." index="1"]
+material/0 = ExtResource( 3 )
+
+[node name="AccessHatch" parent="." index="2"]
+material/0 = ExtResource( 3 )
+
+[node name="Legs" parent="." index="3"]
+material/0 = ExtResource( 3 )
+
+[node name="CommsDish" parent="." index="4"]
+material/0 = ExtResource( 3 )
+
+[node name="Cube" parent="." index="5"]
+material/0 = ExtResource( 3 )
+
+[node name="Ladder" parent="." index="6"]
+material/0 = ExtResource( 3 )

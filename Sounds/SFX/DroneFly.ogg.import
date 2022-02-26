@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/DroneFly.ogg-2b32de766281326705fd8a7bc536e9e1.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/DroneFly.ogg"
+dest_files=[ "res://.import/DroneFly.ogg-2b32de766281326705fd8a7bc536e9e1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

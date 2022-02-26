@@ -1,0 +1,13 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/BaseScripts/TowerFile.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+attackCooldown = 0.0
+towerID = -1
+towerType = 3
+prefabPath = ""
+attackRadius = 0.0
+towerBaseHealth = 0
+baseDamage = 0

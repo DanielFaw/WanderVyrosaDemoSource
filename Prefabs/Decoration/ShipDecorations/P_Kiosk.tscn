@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Decoration/ShipDecorations/O_Kiosk.tscn" type="PackedScene" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1.08297, 2.12509, 0.62707 )
+
+[node name="P_Kiosk" type="StaticBody"]
+
+[node name="O_Kiosk" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.675853, 0, 0, 0, 0.675853, 0, 0, 0, 0.675853, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.40909, 0.118408 )
+shape = SubResource( 1 )

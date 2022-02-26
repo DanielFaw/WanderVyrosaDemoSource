@@ -1,0 +1,9 @@
+[gd_resource type="Resource" load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/EnemyResource.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/Actors/Enemies/Lizards/P_LizardMage.tscn" type="PackedScene" id=2]
+
+[resource]
+script = ExtResource( 1 )
+_enemyName = "lizardMage"
+_enemyPrefab = ExtResource( 2 )

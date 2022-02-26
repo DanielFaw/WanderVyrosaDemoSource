@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Towers/O_TGattlingGun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/CustomResources/TowerResource.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/Towers/T_Gattling.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 2 )
+_towerModel = ExtResource( 1 )
+_towerPrefab = ExtResource( 3 )
+_modelScale = Vector3( 0.102, 0.102, 0.102 )
+_overridePlacementBounds = false
+_towerName = "Gattling Tower"
+_displayName = "Gattling"
+_towerType = "Offensive"
+_towerDescription = "Shoots incredibly fast, but has to cool down after shooting for too long"
+_metalCost = 2
+_quartzCost = 2
+_siliconCost = 2
+_boomStoneCost = 2

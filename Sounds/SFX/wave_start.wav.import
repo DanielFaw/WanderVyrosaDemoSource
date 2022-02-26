@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/wave_start.wav-d2d1df27a6dc3e622e41b0193b42fc0c.sample"
+
+[deps]
+
+source_file="res://Sounds/SFX/wave_start.wav"
+dest_files=[ "res://.import/wave_start.wav-d2d1df27a6dc3e622e41b0193b42fc0c.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

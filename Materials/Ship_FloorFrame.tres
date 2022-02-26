@@ -1,0 +1,9 @@
+[gd_resource type="SpatialMaterial" load_steps=2 format=2]
+
+[ext_resource path="res://Textures/FloorFrame_Color.png" type="Texture" id=2]
+
+[resource]
+params_diffuse_mode = 2
+albedo_texture = ExtResource( 2 )
+metallic_specular = 0.0
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )

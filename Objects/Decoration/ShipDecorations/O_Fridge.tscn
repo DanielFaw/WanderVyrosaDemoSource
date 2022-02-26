@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/ShipDecorations/M_Fridge.glb" type="PackedScene" id=2]
+
+[node name="O_Fridge" instance=ExtResource( 2 )]
+
+[node name="M_Fridge" parent="." index="0"]
+transform = Transform( -0.739305, 0, -2.40896e-07, 0, 0.739305, 0, 2.40896e-07, 0, -0.739305, 0, 0, 0 )
+material/0 = ExtResource( 1 )

@@ -1,0 +1,238 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scripts/MainGame/UI/UpgradeController.gd" type="Script" id=1]
+[ext_resource path="res://Prefabs/UIElements/GatlingUpgradeNodeTree.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scripts/MainGame/UI/TowerUpgradeNodeControllers/UpgradeDescription.gd" type="Script" id=3]
+[ext_resource path="res://Prefabs/UIElements/MortarUpgradeNodeTree.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/UIElements/DrillUpgradeNodeTree.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Prefabs/UIElements/FuelShipUpgradeNodeTree.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=7]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=8]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0952148, 0.0952148, 0.0952148, 1 )
+
+[node name="Upgrades" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource( 7 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BG" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeSelection" type="Control" parent="."]
+margin_top = 499.0
+margin_right = 1024.0
+margin_bottom = 599.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CargoUpgradeButton" type="Button" parent="UpgradeSelection"]
+margin_left = 789.298
+margin_right = 960.298
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Fuel Ship"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DrillUpgradeButton" type="Button" parent="UpgradeSelection"]
+margin_left = 539.099
+margin_right = 710.099
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Drill"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MortarUpgradeButton" type="Button" parent="UpgradeSelection"]
+margin_left = 277.851
+margin_right = 448.851
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Mortar"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="GatlingUpgradeButton" type="Button" parent="UpgradeSelection"]
+margin_left = 49.6307
+margin_right = 220.63
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Gatling"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeDescription" type="Control" parent="."]
+margin_left = 748.0
+margin_top = 45.0
+margin_right = 1024.0
+margin_bottom = 485.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="UpgradeDescription"]
+margin_left = 16.0
+margin_top = 2.0
+margin_right = 266.0
+margin_bottom = 52.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="UpgradeName" type="Label" parent="UpgradeDescription"]
+margin_left = 16.0
+margin_top = 10.0
+margin_right = 266.0
+margin_bottom = 56.0
+text = "Upgrade Name"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Desc" type="Panel" parent="UpgradeDescription"]
+margin_left = 16.0
+margin_top = 54.0
+margin_right = 266.0
+margin_bottom = 220.0
+rect_min_size = Vector2( 250, 150 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Label" type="Label" parent="UpgradeDescription/Desc"]
+margin_top = 2.0
+margin_right = 250.0
+margin_bottom = 176.0
+rect_min_size = Vector2( 0, 150 )
+text = "This area will contain a description of what the node does if it is neccessary. For example, an upgrade that fundamentally changes the way a tower works is something that would definitely need to be explained some, but a simple attack speed upgrade proabably wont. The player isn't stupid."
+autowrap = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Changes" type="Panel" parent="UpgradeDescription"]
+margin_left = 16.0
+margin_top = 220.875
+margin_right = 266.0
+margin_bottom = 370.875
+rect_min_size = Vector2( 250, 150 )
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RichLabel" type="RichTextLabel" parent="UpgradeDescription/Changes"]
+margin_top = 52.0
+margin_right = 250.0
+margin_bottom = 150.0
+bbcode_enabled = true
+bbcode_text = "[color=green]+ Damage (6 -> 8)[/color]
+[color=green]- Attack Speed (0.4s -> 0.35s)[/color]
+[color=red]+ Build Time (5.5s -> 7.0s)[/color]
+[color=purple]*Ability: Set enemies on fire[/color]"
+text = "+ Damage (6 -> 8)
+- Attack Speed (0.4s -> 0.35s)
++ Build Time (5.5s -> 7.0s)
+*Ability: Set enemies on fire"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Purchase" type="Panel" parent="UpgradeDescription"]
+margin_left = 16.0
+margin_top = 370.875
+margin_right = 266.0
+margin_bottom = 445.875
+grow_horizontal = 0
+grow_vertical = 0
+rect_min_size = Vector2( 0, 75 )
+size_flags_horizontal = 3
+
+[node name="Button" type="Button" parent="UpgradeDescription/Purchase"]
+margin_left = 9.413
+margin_top = 7.0
+margin_right = 242.413
+margin_bottom = 64.0
+rect_min_size = Vector2( 200, 50 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Buy Upgrade: 6 GalacticCoinImage"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ResourceAmount" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 11.0
+margin_right = 102.0
+margin_bottom = 47.0
+text = "GCIMG 13"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Nodes" type="Control" parent="."]
+margin_left = 16.0
+margin_top = 35.0
+margin_right = 650.0
+margin_bottom = 488.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Gatling" parent="Nodes" instance=ExtResource( 2 )]
+margin_right = 697.0
+script = null
+
+[node name="Mortar" parent="Nodes" instance=ExtResource( 4 )]
+visible = false
+script = null
+
+[node name="Drill" parent="Nodes" instance=ExtResource( 5 )]
+visible = false
+
+[node name="FuelShip" parent="Nodes" instance=ExtResource( 6 )]
+visible = false
+
+[node name="Exit" type="Button" parent="."]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -54.0
+margin_top = 7.0
+margin_right = -10.0
+margin_bottom = 46.0
+custom_fonts/font = ExtResource( 8 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="button_down" from="UpgradeSelection/CargoUpgradeButton" to="." method="_on_CargoUpgradeButton_button_down"]
+[connection signal="button_down" from="UpgradeSelection/DrillUpgradeButton" to="." method="_on_DrillUpgradeButton_button_down"]
+[connection signal="button_down" from="UpgradeSelection/MortarUpgradeButton" to="." method="_on_MortarUpgradeButton_button_down"]
+[connection signal="button_down" from="UpgradeSelection/GatlingUpgradeButton" to="." method="_on_GatlingUpgradeButton_button_down"]
+[connection signal="pressed" from="Exit" to="." method="ExitUpgrades"]

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/GattlingShot.ogg-e8dda3bc85e96b9a9f71238a92e6602f.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/GattlingShot.ogg"
+dest_files=[ "res://.import/GattlingShot.ogg-e8dda3bc85e96b9a9f71238a92e6602f.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

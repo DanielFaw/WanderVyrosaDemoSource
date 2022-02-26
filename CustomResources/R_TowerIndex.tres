@@ -1,0 +1,16 @@
+[gd_resource type="Resource" load_steps=6 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/TowerIndex.gd" type="Script" id=1]
+[ext_resource path="res://CustomResources/Towers/TF_ResourceDrill.tres" type="Resource" id=2]
+[ext_resource path="res://CustomResources/Towers/TF_GattlingTower.tres" type="Resource" id=3]
+[ext_resource path="res://CustomResources/Towers/TF_Mortar.tres" type="Resource" id=4]
+[ext_resource path="res://CustomResources/Towers/TF_RemovalTower.tres" type="Resource" id=5]
+
+[resource]
+script = ExtResource( 1 )
+_towerIndex = {
+"Removal Tool": ExtResource( 5 ),
+"gattling": ExtResource( 3 ),
+"mortar": ExtResource( 4 ),
+"resourceDrill": ExtResource( 2 )
+}

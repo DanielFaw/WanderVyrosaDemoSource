@@ -1,0 +1,117 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Objects/Towers/O_TGattlingGun.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Utilities/BoneLookAt.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/Towers/Projectiles/P_ProjectileTest.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scripts/MainGame/TowerControl/Towers/GattlingTower.gd" type="Script" id=4]
+[ext_resource path="res://Materials/Building_Hologram.tres" type="Material" id=5]
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=6]
+[ext_resource path="res://Sounds/SFX/GattlingSpin.wav" type="AudioStream" id=7]
+[ext_resource path="res://Sounds/SFX/tower_hit.mp3" type="AudioStream" id=8]
+
+[sub_resource type="Curve" id=14]
+_data = [ Vector2( 0, 0 ), 0.0, 3.00909, 0, 0, Vector2( 1, 1 ), 0.85974, 0.0, 0, 0 ]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1.05524, 1 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.919368, 0.245355, 0.790899 )
+
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 0.490904, 1, 0.658996 )
+
+[sub_resource type="SphereShape" id=13]
+radius = 5.6947
+
+[node name="T_Gattling" type="Spatial" groups=["Towers"]]
+script = ExtResource( 4 )
+_unbuiltMaterial = ExtResource( 5 )
+_builtMaterial = ExtResource( 6 )
+_meshes = [ NodePath("O_TGattlingGun/Armature/Skeleton/Barrel"), NodePath("O_TGattlingGun/Armature/Skeleton/Base_Bottom"), NodePath("O_TGattlingGun/Armature/Skeleton/BaseTop"), NodePath("O_TGattlingGun/Armature/Skeleton/Body") ]
+_nonPlacementColliders = [ NodePath("Collider/CollisionShape"), NodePath("Collider/CollisionShape2") ]
+placementColliderPath = NodePath("BuildBoundary/CollisionShape")
+towerIndexName = "gattling"
+hit_audio_path = NodePath("Hit")
+projectilePrefab = ExtResource( 3 )
+firingPointPath = NodePath("O_TGattlingGun/Armature/Skeleton/BoneAttachment/Position3D")
+firingCooldown = 0.2
+boneControlPaths = [ NodePath("HorizRotController"), NodePath("O_TGattlingGun") ]
+aimpointAttachmentPath = NodePath("O_TGattlingGun/Armature/Skeleton/BoneAttachment")
+_skeletonPath = NodePath("O_TGattlingGun/Armature/Skeleton")
+_barrelBoneName = "BarrelSpin"
+fire_sound_path = NodePath("O_TGattlingGun/Armature/Skeleton/BoneAttachment/Position3D/AudioStreamPlayer3D")
+spin_sound_volume_bounds = Vector2( 0.5, 1 )
+spin_sound_pitch_bounds = Vector2( 0.2, 1.25 )
+spin_sound_pitch_curve = SubResource( 14 )
+spin_sound_path = NodePath("BarrelSpin")
+
+[node name="BuildBoundary" type="StaticBody" parent="."]
+transform = Transform( 0.580542, 0, 0, 0, 0.580542, 0, 0, 0, 0.580542, 0, 0, 0 )
+collision_layer = 512
+collision_mask = 512
+
+[node name="CollisionShape" type="CollisionShape" parent="BuildBoundary"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.984429, 0 )
+shape = SubResource( 1 )
+
+[node name="Collider" type="StaticBody" parent="."]
+transform = Transform( 0.580542, 0, 0, 0, 0.580542, 0, 0, 0, 0.580542, 0, 0, 0 )
+collision_layer = 4
+collision_mask = 4
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="Collider"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.138384, 0 )
+shape = SubResource( 2 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="Collider"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.866451, 0 )
+shape = SubResource( 3 )
+
+[node name="O_TGattlingGun" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.10162, 0, 0, 0, 0.10162, 0, 0, 0, 0.10162, 0, 0, 0 )
+script = ExtResource( 2 )
+skeletonPath = NodePath("Armature/Skeleton")
+targetBoneName = "Base_Rot_Y"
+lockX = true
+lockZ = true
+rotLerpSpeed = 10.0
+
+[node name="BoneAttachment" parent="O_TGattlingGun/Armature/Skeleton" index="4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0136944, 5.48871, 0.0235776 )
+
+[node name="HorizRotController" type="Spatial" parent="."]
+script = ExtResource( 2 )
+skeletonPath = NodePath("../O_TGattlingGun/Armature/Skeleton")
+targetBoneName = "Base_Rot_X"
+lockX = true
+lockZ = true
+offset = Vector3( 0, -0.09, 0 )
+rotLerpSpeed = 10.0
+
+[node name="TargetingArea" type="Area" parent="."]
+collision_layer = 0
+collision_mask = 2
+input_ray_pickable = false
+
+[node name="CollisionShape" type="CollisionShape" parent="TargetingArea"]
+shape = SubResource( 13 )
+
+[node name="BarrelSpin" type="AudioStreamPlayer3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.860814, -0.0034793 )
+stream = ExtResource( 7 )
+unit_db = 6.512
+max_db = 0.0
+bus = "SFX"
+
+[node name="Hit" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 8 )
+max_db = -3.0
+max_distance = 30.0
+bus = "SFX"
+
+[connection signal="body_entered" from="TargetingArea" to="." method="_OnBodyEnter"]
+[connection signal="body_exited" from="TargetingArea" to="." method="_OnBodyExit"]
+
+[editable path="O_TGattlingGun"]

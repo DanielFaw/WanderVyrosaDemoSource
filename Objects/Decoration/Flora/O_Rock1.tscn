@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/Flora/M_Rock1.glb" type="PackedScene" id=2]
+
+[node name="O_Rock1" instance=ExtResource( 2 )]
+
+[node name="Stone_1-lod0" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+material/0 = ExtResource( 1 )

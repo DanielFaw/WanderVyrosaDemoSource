@@ -1,0 +1,170 @@
+[gd_scene load_steps=27 format=2]
+
+[ext_resource path="res://Objects/Enemies/Lizard/O_Lizard_Mage.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/Enemies/Lizard/LizardMage.gd" type="Script" id=2]
+[ext_resource path="res://Prefabs/Actors/Enemies/Projectiles/P_Mageball.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Objects/Enemies/Lizard/O_MageStaff.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Prefabs/TestMarker.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Sounds/SFX/Footsteps/Footstep_Grass_1.ogg" type="AudioStream" id=6]
+[ext_resource path="res://Scripts/MainGame/Enemies/SoundControllers/LizardAudio.gd" type="Script" id=7]
+[ext_resource path="res://Models/Enemies/Lizards/LizardMage/M_Lizard_Mage/AS_Run.tres" type="Animation" id=8]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.301325
+height = 0.812852
+
+[sub_resource type="AnimationNodeAnimation" id=2]
+animation = "A_AttackCharge"
+
+[sub_resource type="AnimationNodeAnimation" id=3]
+animation = "A_AttackFire"
+
+[sub_resource type="AnimationNodeAdd2" id=17]
+sync = true
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "A_Idle"
+
+[sub_resource type="AnimationNodeBlend2" id=6]
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "A_Run"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "AS_Run"
+
+[sub_resource type="AnimationNodeTimeScale" id=7]
+
+[sub_resource type="AnimationNodeTimeScale" id=8]
+
+[sub_resource type="AnimationNodeBlendTree" id=9]
+graph_offset = Vector2( -98, 91.5 )
+nodes/Add2/node = SubResource( 17 )
+nodes/Add2/position = Vector2( -180, 320 )
+nodes/Animation/node = SubResource( 5 )
+nodes/Animation/position = Vector2( -221, 5 )
+nodes/B_Walk_Run/node = SubResource( 6 )
+nodes/B_Walk_Run/position = Vector2( 228, 123 )
+nodes/Run/node = SubResource( 4 )
+nodes/Run/position = Vector2( -440, 200 )
+nodes/Sound/node = SubResource( 18 )
+nodes/Sound/position = Vector2( -440, 360 )
+nodes/TimeScale/node = SubResource( 8 )
+nodes/TimeScale/position = Vector2( -40, 0 )
+"nodes/TimeScale 2/node" = SubResource( 7 )
+"nodes/TimeScale 2/position" = Vector2( 4, 222 )
+nodes/output/position = Vector2( 520, 140 )
+node_connections = [ "output", 0, "B_Walk_Run", "TimeScale", 0, "Animation", "TimeScale 2", 0, "Add2", "B_Walk_Run", 0, "TimeScale", "B_Walk_Run", 1, "TimeScale 2", "Add2", 0, "Run", "Add2", 1, "Sound" ]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+switch_mode = 1
+advance_condition = "atTarget"
+xfade_time = 0.2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 1
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=12]
+switch_mode = 1
+advance_condition = "atTarget"
+xfade_time = 1.0
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=13]
+advance_condition = "newTargetSelected"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+switch_mode = 1
+advance_condition = "newTargetSelected"
+xfade_time = 0.1
+
+[sub_resource type="AnimationNodeStateMachine" id=15]
+states/A_AttackCharge/node = SubResource( 2 )
+states/A_AttackCharge/position = Vector2( 477, 45 )
+states/A_AttackFire/node = SubResource( 3 )
+states/A_AttackFire/position = Vector2( 265, 275 )
+states/Default/node = SubResource( 9 )
+states/Default/position = Vector2( 113, 69 )
+transitions = [ "Default", "A_AttackCharge", SubResource( 10 ), "A_AttackCharge", "A_AttackFire", SubResource( 11 ), "A_AttackFire", "A_AttackCharge", SubResource( 12 ), "A_AttackFire", "Default", SubResource( 13 ), "A_AttackCharge", "Default", SubResource( 14 ) ]
+start_node = "Default"
+graph_offset = Vector2( -133.922, -20 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=16]
+
+[node name="P_LizardMage" type="KinematicBody" groups=["Enemies"]]
+collision_layer = 2
+collision_mask = 23
+script = ExtResource( 2 )
+moveSpeed = 30.0
+attackCooldown = 3.0
+testCube = ExtResource( 5 )
+animatorPath = NodePath("O_Lizard_Mage/AnimationTree")
+firingPointPath = NodePath("FiringPoint")
+projectilePrefab = ExtResource( 3 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, -0.0269851, -3.11176e-08 )
+shape = SubResource( 1 )
+
+[node name="FiringPoint" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00788701, 0.538126, 0.654474 )
+
+[node name="O_Lizard_Mage" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.171849, 0, 0, 0, 0.171849, 0, 0, 0, 0.171849, 0, -0.691115, 0 )
+
+[node name="BoneAttachment" parent="O_Lizard_Mage/O_Lizard/Skeleton" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0551731, 6.19834, 0.0575194 )
+
+[node name="BoneAttachment2" parent="O_Lizard_Mage/O_Lizard/Skeleton" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0551731, 6.19834, 0.0575194 )
+
+[node name="BoneAttachment3" parent="O_Lizard_Mage/O_Lizard/Skeleton" index="2"]
+transform = Transform( -0.97423, 0.2015, -0.101352, -0.193398, -0.977488, -0.0843481, -0.116066, -0.0625731, 0.991269, 1.3851, 2.69819, -0.147418 )
+
+[node name="O_MageStaff" parent="O_Lizard_Mage/O_Lizard/Skeleton/BoneAttachment3/HandAttach_L" index="0" instance=ExtResource( 4 )]
+transform = Transform( 0.999137, 0.04102, 0.00649548, -0.0413471, 0.997173, 0.0627052, -0.00390503, -0.0629197, 0.998009, 0.0666264, 1.12442, -0.241639 )
+
+[node name="BoneAttachment4" parent="O_Lizard_Mage/O_Lizard/Skeleton" index="3"]
+transform = Transform( -0.942531, -0.151185, 0.297953, 0.166921, -0.985573, 0.0279375, 0.289432, 0.0760668, 0.95417, -1.46774, 2.62152, 0.0575234 )
+
+[node name="AnimationPlayer" parent="O_Lizard_Mage" index="1"]
+anims/AS_Run = ExtResource( 8 )
+
+[node name="AnimationTree" type="AnimationTree" parent="O_Lizard_Mage"]
+tree_root = SubResource( 15 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 16 )
+parameters/conditions/atTarget = false
+parameters/conditions/newTargetSelected = false
+parameters/Default/Add2/add_amount = 1.0
+parameters/Default/B_Walk_Run/blend_amount = 0.0
+parameters/Default/TimeScale/scale = 0.8
+"parameters/Default/TimeScale 2/scale" = 2.3
+
+[node name="Audio" type="Spatial" parent="."]
+script = ExtResource( 7 )
+_leftFootSoundPath = NodePath("LeftFoot")
+_rightFootSoundPath = NodePath("RightFoot")
+_enemyControllerPath = NodePath("..")
+pitchVariationRange = Vector2( 1, 1.1 )
+
+[node name="LeftFoot" type="AudioStreamPlayer3D" parent="Audio"]
+stream = ExtResource( 6 )
+unit_db = -11.556
+max_db = 0.0
+max_distance = 3.0
+bus = "EnemySfx"
+attenuation_filter_cutoff_hz = 10000.0
+doppler_tracking = 1
+
+[node name="RightFoot" type="AudioStreamPlayer3D" parent="Audio"]
+stream = ExtResource( 6 )
+unit_db = -11.556
+max_db = 0.0
+max_distance = 3.0
+out_of_range_mode = 1
+bus = "EnemySfx"
+attenuation_filter_cutoff_hz = 10000.0
+doppler_tracking = 1
+
+[editable path="O_Lizard_Mage"]

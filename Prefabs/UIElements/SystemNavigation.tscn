@@ -1,0 +1,370 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Rendering/Fonts/Vanilla_Large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://Textures/UI/StarmapBG.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/HomeShip/UI/NavigationUI.gd" type="Script" id=4]
+[ext_resource path="res://Prefabs/UIElements/HomeShipUI/PlanetIcon.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Rendering/UI/BBCodeEffects/BBCodeFadeLine.tres" type="RichTextEffect" id=6]
+[ext_resource path="res://Rendering/UI/UI_dark.tres" type="Theme" id=7]
+[ext_resource path="res://Textures/UI/Starmap/ship_display.png" type="Texture" id=8]
+[ext_resource path="res://Scripts/HomeShip/UI/RectRotate.gd" type="Script" id=9]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.0683594, 0.0683594, 0.0683594, 1 )
+
+[sub_resource type="CanvasItemMaterial" id=2]
+
+[node name="SystemNavigation" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 1
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+planet_holder_path = NodePath("MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap/Holder")
+planet_column_spacing_horiz = 150.0
+planet_column_vert_spacing = 150.0
+planet_ui_prefab = ExtResource( 5 )
+scroll_contatiner_path = NodePath("MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer")
+current_planet_indicator_path = NodePath("MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap/Holder/CurrentPlanetIndicator")
+navigation_set_path = NodePath("MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer/CourseConfirm")
+systems_wandered_path = NodePath("MarginContainer/VBoxContainer/Header/SystemCount")
+
+[node name="Panel" type="Panel" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 7 )
+custom_styles/panel = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 15.0
+margin_top = 10.0
+margin_right = -15.0
+margin_bottom = -10.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+margin_right = 994.0
+margin_bottom = 580.0
+custom_constants/separation = 0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Header" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_right = 994.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -497.0
+margin_top = -20.0
+margin_right = 497.0
+margin_bottom = 20.0
+custom_fonts/font = ExtResource( 1 )
+text = "System Navigation"
+align = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="SystemCount" type="Label" parent="MarginContainer/VBoxContainer/Header"]
+anchor_top = 0.5
+anchor_bottom = 0.5
+margin_top = -20.0
+margin_right = 212.0
+margin_bottom = 13.0
+custom_fonts/font = ExtResource( 2 )
+text = "Systems Wandered: 1"
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CenterContainer" type="CenterContainer" parent="MarginContainer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 994.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 350, 20 )
+
+[node name="HSeparator" type="HSeparator" parent="MarginContainer/VBoxContainer/CenterContainer"]
+margin_left = 322.0
+margin_top = 8.0
+margin_right = 672.0
+margin_bottom = 12.0
+rect_min_size = Vector2( 350, 0 )
+
+[node name="Control" type="Control" parent="MarginContainer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 994.0
+margin_bottom = 580.0
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/separation = 36
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="StarMap" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer"]
+margin_right = 658.0
+margin_bottom = 520.0
+mouse_filter = 2
+size_flags_horizontal = 3
+
+[node name="ScrollContainer" type="ScrollContainer" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+theme = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Starmap" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer"]
+margin_right = 900.0
+margin_bottom = 900.0
+rect_min_size = Vector2( 900, 900 )
+mouse_filter = 1
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap"]
+light_mask = 0
+material = SubResource( 2 )
+margin_right = 672.0
+margin_bottom = 579.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect2" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap"]
+light_mask = 0
+material = SubResource( 2 )
+margin_top = 502.0
+margin_right = 672.0
+margin_bottom = 1081.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect3" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap"]
+light_mask = 0
+material = SubResource( 2 )
+margin_left = 588.333
+margin_top = -27.3246
+margin_right = 1260.33
+margin_bottom = 551.675
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect4" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap"]
+light_mask = 0
+material = SubResource( 2 )
+margin_left = 588.333
+margin_top = 533.0
+margin_right = 1260.33
+margin_bottom = 1112.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Holder" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap"]
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CurrentPlanetIndicator" type="TextureRect" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/StarMap/ScrollContainer/Starmap/Holder"]
+margin_left = 143.571
+margin_top = 90.2444
+margin_right = 293.571
+margin_bottom = 240.244
+rect_pivot_offset = Vector2( 75, 75 )
+mouse_filter = 2
+texture = ExtResource( 8 )
+expand = true
+stretch_mode = 6
+script = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+rotation_speed = 50.0
+
+[node name="InfoPannel" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer"]
+margin_left = 694.0
+margin_right = 994.0
+margin_bottom = 520.0
+rect_min_size = Vector2( 300, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -12.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Analysis" type="Label" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_right = 288.0
+margin_bottom = 27.0
+custom_fonts/font = ExtResource( 1 )
+text = "Planet Analysis"
+align = 1
+
+[node name="Materials" type="Label" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+visible = false
+margin_top = 31.0
+margin_right = 288.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 2 )
+text = "
+Materials"
+align = 1
+
+[node name="HSeparator2" type="HSeparator" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+visible = false
+margin_top = 76.0
+margin_right = 288.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding_1" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+visible = false
+margin_top = 84.0
+margin_right = 288.0
+margin_bottom = 90.738
+rect_min_size = Vector2( 0, 6.738 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlanetInfo" type="Label" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+visible = false
+margin_top = 94.0
+margin_right = 288.0
+margin_bottom = 182.0
+custom_constants/line_spacing = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Boomstone: 10%
+Metal: 10%
+Quartz: 10%
+Silicon: 10%"
+
+[node name="Atmosphere" type="Label" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 31.0
+margin_right = 288.0
+margin_bottom = 72.0
+custom_fonts/font = ExtResource( 2 )
+text = "
+Biology"
+align = 1
+
+[node name="HSeparator3" type="HSeparator" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 76.0
+margin_right = 288.0
+margin_bottom = 80.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Padding_2" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 84.0
+margin_right = 288.0
+margin_bottom = 90.738
+rect_min_size = Vector2( 0, 6.738 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PlanetInfo2" type="Label" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 94.0
+margin_right = 288.0
+margin_bottom = 159.0
+custom_constants/line_spacing = 4
+custom_fonts/font = ExtResource( 2 )
+text = "Atmosphere: ???
+Flora: ??????
+Inhabitants: Agressive"
+
+[node name="Padding" type="Control" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 163.0
+margin_right = 288.0
+margin_bottom = 391.0
+size_flags_vertical = 3
+
+[node name="CourseConfirm" type="RichTextLabel" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 395.0
+margin_right = 288.0
+margin_bottom = 485.0
+rect_min_size = Vector2( 0, 90 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+scroll_active = false
+custom_effects = [ ExtResource( 6 ) ]
+
+[node name="SetCourse" type="Button" parent="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer"]
+margin_top = 489.0
+margin_right = 288.0
+margin_bottom = 520.0
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+text = "Set Course"
+
+[node name="Control2" type="Control" parent="MarginContainer"]
+margin_right = 994.0
+margin_bottom = 580.0
+mouse_filter = 2
+
+[node name="Exit" type="Button" parent="MarginContainer/Control2"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -42.0
+margin_bottom = 36.0
+theme = ExtResource( 7 )
+custom_fonts/font = ExtResource( 1 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Control/HBoxContainer/InfoPannel/VBoxContainer/SetCourse" to="." method="SetCourseClicked"]
+[connection signal="pressed" from="MarginContainer/Control2/Exit" to="." method="OnNavClosed"]

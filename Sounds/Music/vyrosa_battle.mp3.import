@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/vyrosa_battle.mp3-cdcb9712a91b57ee1d78fedd23fc1977.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Music/vyrosa_battle.mp3"
+dest_files=[ "res://.import/vyrosa_battle.mp3-cdcb9712a91b57ee1d78fedd23fc1977.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

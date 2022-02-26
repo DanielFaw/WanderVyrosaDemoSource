@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Wandering.mp3-dd82e6a5a8d855d787f5c0f3d4ccc23e.mp3str"
+
+[deps]
+
+source_file="res://Sounds/SFX/Wandering.mp3"
+dest_files=[ "res://.import/Wandering.mp3-dd82e6a5a8d855d787f5c0f3d4ccc23e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

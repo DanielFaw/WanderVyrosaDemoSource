@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Placement.ogg-69d07594843eae3db039164d5d178fb9.oggstr"
+
+[deps]
+
+source_file="res://Sounds/SFX/Placement.ogg"
+dest_files=[ "res://.import/Placement.ogg-69d07594843eae3db039164d5d178fb9.oggstr" ]
+
+[params]
+
+loop=false
+loop_offset=0

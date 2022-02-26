@@ -1,0 +1,575 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/MainGame/UI/TowerUpgradeNodeControllers/UpgradeNode.gd" type="Script" id=2]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+
+"
+
+[node name="Mortar" type="Control"]
+margin_left = 0.45929
+margin_top = -2.06099
+margin_right = 697.459
+margin_bottom = 447.939
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainNode" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 363.515
+margin_right = 86.9229
+margin_bottom = 407.515
+text = "Mortar"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_root = true
+next_nodes = [ NodePath("../Health1"), NodePath("../Attackspeed1"), NodePath("../Damage1"), NodePath("../Bldtime1") ]
+upgrade_price = 0
+description = "The mortar lobs shells across the map dealing huge AoE damage, but can only fire in the direction it's placed at"
+upgrade_name = "Mortar"
+is_bought = true
+
+[node name="Damage1" type="Button" parent="."]
+margin_left = 111.148
+margin_top = 387.454
+margin_right = 163.148
+margin_bottom = 431.454
+text = "DMG I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage2") ]
+upgrade_price = 3
+description = "Explosion does more damage"
+specific_changes = {
+"DMG": 3.0
+}
+upgrade_name = "Damage I"
+
+[node name="Damage2" type="Button" parent="."]
+margin_left = 214.261
+margin_top = 387.454
+margin_right = 272.261
+margin_bottom = 431.454
+text = "DMG II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage3") ]
+upgrade_price = 4
+description = "Explosion does more damage"
+specific_changes = {
+"DMG": 3.0
+}
+upgrade_name = "Damage II"
+
+[node name="Damage3" type="Button" parent="."]
+margin_left = 313.037
+margin_top = 387.454
+margin_right = 376.037
+margin_bottom = 431.454
+text = "DMG III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Attackspeed4") ]
+upgrade_price = 6
+description = "Explosion does more damage"
+specific_changes = {
+"DMG": 3.0
+}
+upgrade_name = "Damage III"
+
+[node name="Attackspeed1" type="Button" parent="."]
+margin_left = 111.148
+margin_top = 325.088
+margin_right = 163.148
+margin_bottom = 369.088
+text = "ATKSPD I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Attackspeed2") ]
+upgrade_price = 3
+description = "Mortar fires faster"
+specific_changes = {
+"ATKSPD": -0.5
+}
+upgrade_name = "Attack Speed I"
+
+[node name="Attackspeed2" type="Button" parent="."]
+margin_left = 204.312
+margin_top = 325.088
+margin_right = 274.312
+margin_bottom = 369.088
+text = "ATKSPD II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Attackspeed3") ]
+upgrade_price = 4
+description = "Mortar fires faster"
+specific_changes = {
+"ATKSPD": -0.5
+}
+upgrade_name = "Attack Speed II"
+
+[node name="Attackspeed3" type="Button" parent="."]
+margin_left = 294.671
+margin_top = 325.088
+margin_right = 364.671
+margin_bottom = 369.088
+text = "ATKSPD III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Attackspeed4") ]
+upgrade_price = 6
+description = "Mortar fires faster"
+specific_changes = {
+"ATKSPD": -0.5
+}
+upgrade_name = "Attack Speed III"
+
+[node name="Attackspeed4" type="Button" parent="."]
+margin_left = 495.03
+margin_top = 352.027
+margin_right = 575.03
+margin_bottom = 396.027
+text = "DPS IV"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Napalm1"), NodePath("../Stun1") ]
+upgrade_price = 6
+description = "Mortar fires faster and does more damage"
+specific_changes = {
+"ATKSPD": -0.5,
+"DMG": 3.0
+}
+upgrade_name = "DPS IV"
+
+[node name="Napalm1" type="Button" parent="."]
+margin_left = 495.03
+margin_top = 262.791
+margin_right = 575.03
+margin_bottom = 306.791
+text = "NAPALM I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Napalm2"), NodePath("../Thermite1") ]
+blocked_nodes = [ NodePath("../Stun1") ]
+upgrade_price = 10
+description = "Mortar gains the ability to catch enemies on fire, doing constant damage until it fizzles out"
+specific_changes = {
+"FIREDAMAGE": 1.0,
+"FIRETICKAMOUNT": 5,
+"NAPALM_ENABLED": 1,
+"TBT": 1.0
+}
+upgrade_name = "Napalm I"
+
+[node name="Thermite1" type="Button" parent="."]
+margin_left = 595.824
+margin_top = 262.791
+margin_right = 675.824
+margin_bottom = 306.791
+text = "THERMITE I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Thermite2") ]
+blocked_nodes = [ NodePath("../Napalm2") ]
+upgrade_price = 15
+description = "As cool as explosions are, nothing beats the basics. Massively increases fire damage, but the mortar does almost none on its initial blast"
+specific_changes = {
+"DAMAGE": -25.0,
+"FIREDAMAGE": 1.5,
+"FIRETICKAMOUNT": 10,
+"TBT": -0.5
+}
+upgrade_name = "Thermite I"
+
+[node name="Thermite2" type="Button" parent="."]
+margin_left = 595.824
+margin_top = 198.535
+margin_right = 679.824
+margin_bottom = 242.535
+text = "THERMITE II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Thermite3") ]
+upgrade_price = 15
+description = "More intense flames"
+specific_changes = {
+"FIREDAMAGE": 0.5,
+"FIRETICKAMOUNT": 5,
+"TBT": 0.1
+}
+upgrade_name = "Thermite II"
+
+[node name="Thermite3" type="Button" parent="."]
+margin_left = 595.824
+margin_top = 129.239
+margin_right = 684.824
+margin_bottom = 173.239
+text = "THERMITE III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "More intense flames"
+specific_changes = {
+"FIREDAMAGE": 0.5,
+"FIRETICKAMOUNT": 5
+}
+upgrade_name = "Thermite III"
+
+[node name="Napalm2" type="Button" parent="."]
+margin_left = 495.03
+margin_top = 198.535
+margin_right = 575.03
+margin_bottom = 242.535
+text = "NAPALM II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Napalm3") ]
+blocked_nodes = [ NodePath("../Thermite1") ]
+upgrade_price = 15
+description = "More intense flames"
+specific_changes = {
+"FIREDAMAGE": 0.3,
+"FIRETICKAMOUNT": 2,
+"TBT": -0.2
+}
+upgrade_name = "Napalm II"
+
+[node name="Napalm3" type="Button" parent="."]
+margin_left = 495.03
+margin_top = 129.239
+margin_right = 575.03
+margin_bottom = 173.239
+text = "NAPALM III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Napalm4") ]
+upgrade_price = 15
+description = "More intense flames"
+specific_changes = {
+"FIREDAMAGE": 0.3,
+"FIRETICKAMOUNT": 2,
+"TBT": -0.2
+}
+upgrade_name = "Napalm III"
+
+[node name="Napalm4" type="Button" parent="."]
+margin_left = 495.03
+margin_top = 68.133
+margin_right = 581.03
+margin_bottom = 112.133
+text = "NAPALM IV"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "More intense flames"
+specific_changes = {
+"FIREDAMAGE": 0.3
+}
+upgrade_name = "Napalm IV"
+
+[node name="Stun1" type="Button" parent="."]
+margin_left = 389.197
+margin_top = 262.791
+margin_right = 469.197
+margin_bottom = 306.791
+text = "STUN I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Stun2") ]
+blocked_nodes = [ NodePath("../Napalm1") ]
+upgrade_price = 15
+description = "Mortar shells stun enemies, preventing them from moving or attacking"
+specific_changes = {
+"STUNDURATION": 2.5,
+"STUN_ENABLED": 1
+}
+upgrade_name = "Stunning Shells I"
+
+[node name="Stun2" type="Button" parent="."]
+margin_left = 389.197
+margin_top = 198.535
+margin_right = 469.197
+margin_bottom = 242.535
+text = "STUN II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Stun3") ]
+upgrade_price = 15
+description = "Mortar shells stun enemies, preventing them from moving or attacking"
+specific_changes = {
+"STUNDURATION": 1.5
+}
+upgrade_name = "Stunning Shells II"
+
+[node name="Stun3" type="Button" parent="."]
+margin_left = 389.197
+margin_top = 129.239
+margin_right = 469.197
+margin_bottom = 173.239
+text = "STUN III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Stun4") ]
+upgrade_price = 15
+description = "Mortar shells stun enemies, preventing them from moving or attacking"
+specific_changes = {
+"STUNDURATION": 1.0
+}
+upgrade_name = "Stunning Shells III"
+
+[node name="Stun4" type="Button" parent="."]
+margin_left = 389.197
+margin_top = 68.133
+margin_right = 469.197
+margin_bottom = 112.133
+text = "STUN IV"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "Mortar shells stun enemies, preventing them from moving or attacking"
+specific_changes = {
+"STUNDURATION": 0.5
+}
+upgrade_name = "Stunning Shells II"
+
+[node name="Health1" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 292.082
+margin_right = 86.9229
+margin_bottom = 336.082
+text = "HP I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Health2") ]
+upgrade_price = 2
+description = "Increases the health of every Mortar"
+specific_changes = {
+"HP": 2.0
+}
+upgrade_name = "Health I"
+
+[node name="Health2" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 226.205
+margin_right = 86.9229
+margin_bottom = 270.205
+text = "HP II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Health3") ]
+upgrade_price = 4
+description = "Increases the health of every Mortar"
+specific_changes = {
+"HP": 4.0
+}
+upgrade_name = "Health II"
+
+[node name="Health3" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 163.502
+margin_right = 86.9229
+margin_bottom = 207.502
+text = "HP III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Health4") ]
+upgrade_price = 5
+description = "Increases the health of every Mortar"
+specific_changes = {
+"HP": 5.0
+}
+upgrade_name = "Health III"
+
+[node name="Health4" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 100.006
+margin_right = 86.9229
+margin_bottom = 144.006
+text = "HP IV"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Health5") ]
+upgrade_price = 7
+description = "Increases the health of every Mortar"
+specific_changes = {
+"HP": 6.0
+}
+upgrade_name = "Health IV"
+
+[node name="Health5" type="Button" parent="."]
+margin_left = 34.9229
+margin_top = 44.4721
+margin_right = 86.9229
+margin_bottom = 88.4722
+text = "HP V"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 9
+description = "Increases the health of every Mortar"
+specific_changes = {
+"HP": 8.0
+}
+upgrade_name = "Health V"
+
+[node name="Bldtime1" type="Button" parent="."]
+margin_left = 103.809
+margin_top = 257.128
+margin_right = 181.809
+margin_bottom = 298.128
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME I"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime2") ]
+upgrade_price = 2
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time I"
+
+[node name="Bldtime2" type="Button" parent="."]
+margin_left = 103.809
+margin_top = 199.443
+margin_right = 186.809
+margin_bottom = 240.443
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME II"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime3") ]
+upgrade_price = 2
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time II"
+
+[node name="Bldtime3" type="Button" parent="."]
+margin_left = 103.809
+margin_top = 144.006
+margin_right = 191.809
+margin_bottom = 185.006
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME III"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime4") ]
+upgrade_price = 4
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time III"
+
+[node name="Bldtime4" type="Button" parent="."]
+margin_left = 111.148
+margin_top = 92.3492
+margin_right = 197.148
+margin_bottom = 133.349
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME IV"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime5") ]
+upgrade_price = 6
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time IV"
+
+[node name="Bldtime5" type="Button" parent="."]
+margin_left = 111.148
+margin_top = 44.4722
+margin_right = 192.148
+margin_bottom = 85.4722
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME V"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 8
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time V"

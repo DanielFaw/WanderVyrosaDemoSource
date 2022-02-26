@@ -1,0 +1,670 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scripts/MainGame/UI/TowerUpgradeNodeControllers/UpgradeNode.gd" type="Script" id=1]
+
+[sub_resource type="GDScript" id=1]
+script/source = "extends Control
+
+
+#When this button is clicked it should call can_be_viewed on every node in the scene
+
+"
+
+[node name="Gatty" type="Control"]
+margin_right = 712.0
+margin_bottom = 450.0
+script = SubResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MainNode" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 318.511
+margin_right = 90.6307
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "Gatling"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+is_root = true
+next_nodes = [ NodePath("../MoreHealth1"), NodePath("../Damage1"), NodePath("../Consistency1"), NodePath("../Atkspd1"), NodePath("../Bldtime1") ]
+upgrade_price = 0
+description = "Your standard issue Gatling Gun. Winds up to shoot at enemies but can overheat."
+upgrade_name = "Gatling Tower"
+is_bought = true
+
+[node name="Damage1" type="Button" parent="."]
+margin_left = 134.047
+margin_top = 318.511
+margin_right = 187.047
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "DMG I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage2") ]
+upgrade_price = 4
+description = "Bullets deal more damage"
+specific_changes = {
+"DMG": 0.1
+}
+upgrade_name = "Damage Increase I"
+
+[node name="Damage2" type="Button" parent="."]
+margin_left = 214.872
+margin_top = 318.511
+margin_right = 272.872
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "DMG II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage3") ]
+upgrade_price = 6
+description = "Bullets deal more damage"
+specific_changes = {
+"DMG": 0.1
+}
+upgrade_name = "Damage Increase II"
+
+[node name="Damage3" type="Button" parent="."]
+margin_left = 303.651
+margin_top = 318.511
+margin_right = 366.651
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "DMG III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage4") ]
+upgrade_price = 10
+description = "Bullets deal more damage"
+specific_changes = {
+"DMG": 0.15
+}
+upgrade_name = "Damage Increase III"
+
+[node name="Damage4" type="Button" parent="."]
+margin_left = 394.651
+margin_top = 318.511
+margin_right = 457.651
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "DMG IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Damage5") ]
+blocked_nodes = [ NodePath("../Atkspd4"), NodePath("../Consistency4") ]
+upgrade_price = 15
+description = "Switching out the ammo type requires us to shoot much slower, but at least it doesn't make as much heat"
+specific_changes = {
+"ATKSPD": 0.5,
+"COOLDOWN": -1.5,
+"DMG": 6.0,
+"SHOOTTIME": 2.5,
+"WNDTIME": 0.5
+}
+upgrade_name = "Tungsten Shells I"
+
+[node name="Damage5" type="Button" parent="."]
+margin_left = 488.696
+margin_top = 318.511
+margin_right = 551.696
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "DMG V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "Switching out the ammo type requires us to shoot much slower, but at least it doesn't make as much heat"
+specific_changes = {
+"ATKSPD": 0.2,
+"COOLDOWN": -1.0,
+"DMG": 6.0,
+"SHOOTTIME": 4.5,
+"WNDTIME": 0.5
+}
+upgrade_name = "Tungsten Shells II"
+
+[node name="Consistency1" type="Button" parent="."]
+margin_left = 43.5377
+margin_top = 387.807
+margin_right = 151.538
+margin_bottom = 428.807
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Consistency2") ]
+upgrade_price = 3
+description = "Gatling becomes more efficient, spending less time cooling down or winding up to shoot"
+specific_changes = {
+"COOLDOWN": -0.25,
+"SHOOTTIME": 0.5,
+"WNDTIME": -0.1
+}
+upgrade_name = "Efficiency I"
+
+[node name="Consistency2" type="Button" parent="."]
+margin_left = 167.01
+margin_top = 387.807
+margin_right = 275.01
+margin_bottom = 428.807
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Consistency3") ]
+upgrade_price = 5
+description = "Gatling becomes more efficient, spending less time cooling down or winding up to shoot"
+specific_changes = {
+"COOLDOWN": -0.25,
+"SHOOTTIME": 0.5,
+"WNDTIME": -0.1
+}
+upgrade_name = "Efficiency II"
+
+[node name="Consistency3" type="Button" parent="."]
+margin_left = 303.651
+margin_top = 387.807
+margin_right = 411.651
+margin_bottom = 428.807
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Consistency4") ]
+upgrade_price = 5
+description = "Gatling becomes more efficient, spending less time cooling down or winding up to shoot"
+specific_changes = {
+"COOLDOWN": -0.25,
+"SHOOTTIME": 1.0,
+"WNDTIME": -0.1
+}
+upgrade_name = "Efficiency III"
+
+[node name="Consistency4" type="Button" parent="."]
+margin_left = 448.0
+margin_top = 388.0
+margin_right = 523.0
+margin_bottom = 429.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Consistency5") ]
+blocked_nodes = [ NodePath("../Damage4"), NodePath("../Atkspd4") ]
+upgrade_price = 10
+description = "Higher quality build materials lead to a higher quality tower. Who would've thought"
+specific_changes = {
+"BLTSPRD": -1.5,
+"COOLDOWN": -0.5,
+"DMG": 0.15,
+"HP": 3.0,
+"SHOOTTIME": 0.5,
+"WNDTIME": -0.1
+}
+upgrade_name = "Quality I"
+
+[node name="Consistency5" type="Button" parent="."]
+margin_left = 586.594
+margin_top = 388.0
+margin_right = 702.594
+margin_bottom = 429.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Consistency6") ]
+upgrade_price = 10
+description = "Higher quality build materials lead to a higher quality tower. Who would've thought"
+specific_changes = {
+"BLTSPRD": -1.5,
+"COOLDOWN": -0.5,
+"DMG": 0.15,
+"HP": 3.0,
+"SHOOTTIME": 0.5,
+"WNDTIME": -0.1
+}
+upgrade_name = "Quality II"
+
+[node name="Consistency6" type="Button" parent="."]
+margin_left = 586.594
+margin_top = 318.511
+margin_right = 702.594
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "EFFICIENCY VI"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 15
+description = "Higher quality build materials lead to a higher quality tower. Who would've thought"
+specific_changes = {
+"BLTSPRD": -1.5,
+"COOLDOWN": -0.5,
+"DMG": 0.15,
+"HP": 3.0,
+"SHOOTTIME": 0.5,
+"WNDTIME": -0.1
+}
+upgrade_name = "Quality III"
+
+[node name="Atkspd1" type="Button" parent="."]
+margin_left = 134.047
+margin_top = 241.363
+margin_right = 204.047
+margin_bottom = 282.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Atkspd2") ]
+upgrade_price = 4
+description = "Gatling shoots faster"
+specific_changes = {
+"ATKSPD": -0.01
+}
+upgrade_name = "Faster Firing I"
+
+[node name="Atkspd2" type="Button" parent="."]
+margin_left = 217.047
+margin_top = 241.363
+margin_right = 287.047
+margin_bottom = 282.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Atkspd3") ]
+upgrade_price = 6
+description = "Gatling shoots faster"
+specific_changes = {
+"ATKSPD": -0.01
+}
+upgrade_name = "Faster Firing II"
+
+[node name="Atkspd3" type="Button" parent="."]
+margin_left = 314.651
+margin_top = 241.363
+margin_right = 384.651
+margin_bottom = 282.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Atkspd4") ]
+upgrade_price = 8
+description = "Gatling shoots faster"
+specific_changes = {
+"ATKSPD": -0.01
+}
+upgrade_name = "Faster Firing III"
+
+[node name="Atkspd4" type="Button" parent="."]
+margin_left = 421.651
+margin_top = 241.363
+margin_right = 501.651
+margin_bottom = 282.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Atkspd5") ]
+blocked_nodes = [ NodePath("../Damage4"), NodePath("../Consistency4") ]
+upgrade_price = 15
+description = "One of our engineers accidentally hooked this baby up to a 48V rail and fried the firing chip, but lucky for us that was just a limitation"
+specific_changes = {
+"ATKSPD": -0.02,
+"BLTSPRD": 3.0,
+"DMG": 0.1,
+"WNDTIME": -0.3
+}
+upgrade_name = "High Voltage I"
+
+[node name="Atkspd5" type="Button" parent="."]
+margin_left = 523.099
+margin_top = 241.363
+margin_right = 603.099
+margin_bottom = 282.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Atkspd6") ]
+upgrade_price = 15
+description = "One of our engineers accidentally hooked this baby up to a 48V rail and fried the firing chip, but lucky for us that was just a limitation"
+specific_changes = {
+"ATKSPD": -0.01,
+"BLTSPRD": 1.0,
+"DMG": 0.1,
+"WNDTIME": -0.1
+}
+upgrade_name = "High Voltage II"
+
+[node name="Atkspd6" type="Button" parent="."]
+margin_left = 603.099
+margin_top = 318.511
+margin_right = 683.099
+margin_bottom = 359.511
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "ATKSPD VI"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 20
+description = "One of our engineers accidentally hooked this baby up to a 48V rail and fried the firing chip, but lucky for us that was just a limitation"
+specific_changes = {
+"ATKSPD": -0.005,
+"BLTSPRD": 0.5,
+"DMG": 0.2,
+"WNDTIME": -0.2
+}
+upgrade_name = "High Voltage III"
+
+[node name="MoreHealth1" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 254.084
+margin_right = 76.6307
+margin_bottom = 295.084
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth2") ]
+upgrade_price = 2
+description = "Increase the health of every Gatling gun"
+specific_changes = {
+"HP": 4
+}
+upgrade_name = "Health Increase I"
+
+[node name="MoreHealth2" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 200.363
+margin_right = 79.6307
+margin_bottom = 241.363
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth3") ]
+upgrade_price = 4
+description = "Increase the health of every Gatling gun"
+specific_changes = {
+"HP": 3
+}
+upgrade_name = "Health Increase II"
+
+[node name="MoreHealth3" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 144.926
+margin_right = 82.6307
+margin_bottom = 185.926
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth4") ]
+upgrade_price = 6
+description = "Increase the health of every Gatling gun"
+specific_changes = {
+"HP": 4
+}
+upgrade_name = "Health Increase III"
+
+[node name="MoreHealth4" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 87.2412
+margin_right = 80.6307
+margin_bottom = 128.241
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../MoreHealth5") ]
+upgrade_price = 8
+description = "Increase the health of every Gatling gun even more"
+specific_changes = {
+"HP": 5
+}
+upgrade_name = "Health Increase IV"
+
+[node name="MoreHealth5" type="Button" parent="."]
+margin_left = 33.6307
+margin_top = 31.8039
+margin_right = 79.6307
+margin_bottom = 72.8039
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "HP V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 10
+description = "Increase the health of every Gatling gun even more"
+specific_changes = {
+"HP": 6
+}
+upgrade_name = "Health Increase V"
+
+[node name="Bldtime1" type="Button" parent="."]
+margin_left = 134.047
+margin_top = 144.926
+margin_right = 183.047
+margin_bottom = 185.926
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME I"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime2") ]
+upgrade_price = 2
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time I"
+
+[node name="Bldtime2" type="Button" parent="."]
+margin_left = 134.047
+margin_top = 87.2412
+margin_right = 212.047
+margin_bottom = 128.241
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME II"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime3") ]
+upgrade_price = 2
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time II"
+
+[node name="Bldtime3" type="Button" parent="."]
+margin_left = 134.047
+margin_top = 31.8039
+margin_right = 212.047
+margin_bottom = 72.8039
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME III"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime4") ]
+upgrade_price = 4
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time III"
+
+[node name="Bldtime4" type="Button" parent="."]
+margin_left = 230.921
+margin_top = 31.8039
+margin_right = 308.921
+margin_bottom = 72.8039
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME IV"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+next_nodes = [ NodePath("../Bldtime5") ]
+upgrade_price = 6
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time IV"
+
+[node name="Bldtime5" type="Button" parent="."]
+margin_left = 329.916
+margin_top = 31.8039
+margin_right = 407.916
+margin_bottom = 72.8039
+size_flags_horizontal = 0
+size_flags_vertical = 0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 0.65098, 0, 1, 1 )
+text = "BLDTIME V"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+upgrade_price = 8
+description = "More efficient manufacturing leads to a quicker build on the battlefield"
+specific_changes = {
+"BLDTIME": -0.66
+}
+upgrade_name = "Build Time V"

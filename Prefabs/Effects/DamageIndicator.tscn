@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=1]
+[ext_resource path="res://Rendering/UI/BBCodeEffects/BBCodeFadeLine.tres" type="RichTextEffect" id=2]
+[ext_resource path="res://Scripts/MainGame/Effects/DamageIndicator.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=1]
+colors = PoolColorArray( 0.114977, 0.976562, 0.0419617, 1, 1, 0, 0, 1 )
+
+[node name="DamageIndicator" type="Sprite3D"]
+flip_v = true
+billboard = 1
+script = ExtResource( 3 )
+_label_path = NodePath("Viewport/Label")
+_color_gradient = SubResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 100, 83 )
+own_world = true
+transparent_bg = true
+
+[node name="Label" type="RichTextLabel" parent="Viewport"]
+margin_right = 80.0
+margin_bottom = 83.0
+rect_min_size = Vector2( 80, 83 )
+custom_fonts/normal_font = ExtResource( 1 )
+bbcode_enabled = true
+custom_effects = [ ExtResource( 2 ) ]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+transform = Transform( 0.0899975, 0, 0, 0, 0.0899975, 0, 0, 0, 0.0899975, 0, 0, 0 )
+visible = false

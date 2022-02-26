@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Objects/Decoration/Flora/O_Pine1.tscn" type="PackedScene" id=1]
+
+[sub_resource type="CylinderShape" id=1]
+radius = 0.406754
+height = 4.69219
+
+[node name="P_Pine1" type="StaticBody"]
+collision_layer = 16
+collision_mask = 2147483676
+
+[node name="O_Pine1" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.305, 0, 0, 0, 0.305, 0, 0, 0, 0.305, 0, 0, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.86899, 0 )
+shape = SubResource( 1 )

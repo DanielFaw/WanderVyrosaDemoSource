@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=4 format=2]
+
+[ext_resource path="res://Prefabs/Towers/T_ResourceDrill.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/CustomResources/TowerResource.gd" type="Script" id=2]
+[ext_resource path="res://Objects/Towers/O_ResourceDrill.tscn" type="PackedScene" id=3]
+
+[resource]
+script = ExtResource( 2 )
+_towerModel = ExtResource( 3 )
+_towerPrefab = ExtResource( 1 )
+_modelScale = Vector3( 0.102, 0.102, 0.102 )
+_overridePlacementBounds = false
+_towerName = "Resource Drill"
+_displayName = "Resource Drill"
+_towerType = "Utility"
+_towerDescription = "Pulls shiny minerals from the ground. Place it on an ore vein to get more of that resource"
+_metalCost = 4
+_quartzCost = 2
+_siliconCost = 1
+_boomStoneCost = 0

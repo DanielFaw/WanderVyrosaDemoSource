@@ -1,0 +1,42 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Textures/Particles/circle.png" type="Texture" id=1]
+[ext_resource path="res://Scripts/MainGame/Effects/ExplosionParticles.gd" type="Script" id=2]
+[ext_resource path="res://Sounds/SFX/Explosion.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Materials/Particles/ExplosionParticles.tres" type="Material" id=4]
+
+[sub_resource type="SpatialMaterial" id=2]
+flags_transparent = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=3]
+material = SubResource( 2 )
+
+[node name="ExplosionParticles" type="Spatial"]
+script = ExtResource( 2 )
+
+[node name="Particles" type="Particles" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.6
+one_shot = true
+explosiveness = 1.0
+visibility_aabb = AABB( -4.86935, -4, -5.07656, 9.7387, 8, 10.1531 )
+process_material = ExtResource( 4 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+autostart = true
+
+[node name="AudioStreamPlayer3D" type="AudioStreamPlayer3D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+max_distance = 20.0
+out_of_range_mode = 1
+attenuation_filter_cutoff_hz = 20000.0

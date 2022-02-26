@@ -1,0 +1,58 @@
+[gd_resource type="Shader" format=2]
+
+[resource]
+code = "shader_type spatial;
+render_mode unshaded;
+//render_mode depth_draw_always; // Remove this line if you're not on the transparency pipeline.
+// Taken from Roystan tutorial linked below
+// https://roystan.net/articles/outline-shader.html
+
+uniform vec4 outline_color: hint_color = vec4(1.0,1.0,1.0,1.0);
+uniform int scale = 1;
+uniform float depth_threshold = 0.2;
+
+void vertex()
+{
+	POSITION = vec4(VERTEX,1.0);
+}
+
+void fragment()
+{
+	// Ensure a fully opaque outline
+	ALBEDO = outline_color.rgb;
+	
+	// Step 1
+	float half_scale_floor = floor(float(scale) * 0.5);
+	float half_scale_ceil = ceil(float(scale) * 0.5);
+	
+	vec2 main_texture_texel_size = vec2(1.0/1280.0,1.0/1280.0);
+	
+	// SCREEN_UV is the current fragment position 
+	vec2 bottom_left_uv = SCREEN_UV - vec2(main_texture_texel_size.x,main_texture_texel_size.y) * half_scale_floor;
+	vec2 top_right_uv = SCREEN_UV + vec2(main_texture_texel_size.x,main_texture_texel_size.y) * half_scale_ceil;
+	vec2 bottom_right_uv = SCREEN_UV + vec2(main_texture_texel_size.x * half_scale_ceil, - main_texture_texel_size.y * half_scale_floor);
+	vec2 top_left_uv = SCREEN_UV + vec2(-main_texture_texel_size.x * half_scale_floor, main_texture_texel_size.y * half_scale_ceil);
+	
+	// Calculate depths at each pixel
+	float depth0 = texture(DEPTH_TEXTURE,bottom_left_uv).r;
+	float depth1 = texture(DEPTH_TEXTURE,top_right_uv).r;
+	float depth2 = texture(DEPTH_TEXTURE,bottom_right_uv).r;
+	float depth3 = texture(DEPTH_TEXTURE,top_left_uv).r;
+	
+	
+	// Figure out depth difference
+	float depth_finite_difference_0 = depth1 - depth0;
+	float depth_finite_difference_1 = depth3 - depth2;
+	
+	//3 - Roberts Cross
+	float edge_depth = sqrt(pow(depth_finite_difference_0,2) + pow(depth_finite_difference_1,2)) * 100.0;
+	
+	float new_depth_threshold = depth_threshold * depth0;
+	
+	edge_depth = edge_depth > new_depth_threshold ? 1.0 : 0.0;	
+	//ALBEDO = vec3(edge_depth,edge_depth,edge_depth);
+	//vec4 final_color = mix(outline_color,0.0);
+	//ALBEDO = mix(ALBEDO,final_color.rgb,0.5);
+	//ALBEDO = ALBEDO + vec3(edge_depth,edge_depth,edge_depth);
+	ALPHA = edge_depth;
+}"

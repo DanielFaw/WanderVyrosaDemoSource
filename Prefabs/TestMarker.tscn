@@ -1,0 +1,8 @@
+[gd_scene format=2]
+
+[node name="TestMarker" type="Spatial"]
+
+[node name="CSGBox" type="CSGBox" parent="."]
+width = 0.5
+height = 0.5
+depth = 0.5

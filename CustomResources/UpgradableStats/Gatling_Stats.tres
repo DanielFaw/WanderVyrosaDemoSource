@@ -1,0 +1,115 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://Scripts/CustomResources/GatlingStats.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+has_been_set = true
+stat_list = [  ]
+my_stats = {
+1: {
+"basevalue": 0.1,
+"upgradevalue": 0
+},
+2: {
+"basevalue": 0.55,
+"upgradevalue": 0
+},
+3: {
+"basevalue": 10.0,
+"upgradevalue": 0
+},
+4: {
+"basevalue": 5.0,
+"upgradevalue": 0
+},
+5: {
+"basevalue": 2.0,
+"upgradevalue": 0
+},
+6: {
+"basevalue": 4.0,
+"upgradevalue": 0
+},
+7: {
+"basevalue": 7.5,
+"upgradevalue": 0
+},
+8: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+9: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+10: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+11: {
+"basevalue": 0,
+"upgradevalue": 0
+},
+12: {
+"basevalue": 6.0,
+"upgradevalue": 0
+},
+13: {
+"basevalue": 0,
+"upgradevalue": 0
+},
+14: {
+"basevalue": 0,
+"upgradevalue": 0
+},
+15: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+16: {
+"basevalue": 0,
+"upgradevalue": 0
+},
+17: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+18: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+19: {
+"basevalue": 0.0,
+"upgradevalue": 0
+},
+20: {
+"basevalue": 0,
+"upgradevalue": 0
+},
+21: {
+"basevalue": 0.0,
+"upgradevalue": 0
+}
+}
+base_attack_speed = 0.1
+base_damage = 0.55
+base_health = 10.0
+base_build_time = 5.0
+base_windup_time = 2.0
+base_cooldown_time = 4.0
+base_shoot_time = 7.5
+base_bullet_spread = 6.0
+base_explosion_radius = 0.0
+base_napalm_enabled = 0
+base_fire_damage = 0.0
+base_fire_tick_amount = 0
+base_time_between_fire_ticks = 0.0
+base_stun_enabled = 0
+base_stun_duration = 0.0
+base_drill_speed = 0.0
+base_drill_efficiency = 0.0
+base_drill_bucket_size = 0.0
+base_starting_resources = 0
+base_drone_count = 0
+base_drone_speed = 0.0

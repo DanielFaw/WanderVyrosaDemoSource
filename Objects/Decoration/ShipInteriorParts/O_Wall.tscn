@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/ShipInteriorParts/M_Wall.glb" type="PackedScene" id=2]
+
+[node name="O_Wall" instance=ExtResource( 2 )]
+
+[node name="Wall" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0, -1.46175, 0, -0.173857, 0, 0, 1.208, 1.16941 )
+material/0 = ExtResource( 1 )

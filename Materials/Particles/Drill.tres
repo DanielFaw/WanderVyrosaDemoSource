@@ -1,0 +1,25 @@
+[gd_resource type="ParticlesMaterial" load_steps=3 format=2]
+
+[sub_resource type="Curve" id=13]
+_data = [ Vector2( 0, 1 ), 0.0, 0.191963, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=14]
+curve = SubResource( 13 )
+
+[resource]
+emission_shape = 5
+emission_ring_radius = 1.0
+emission_ring_inner_radius = 0.5
+emission_ring_height = 0.1
+emission_ring_axis = Vector3( 0, 1, 0 )
+direction = Vector3( 1, 1, 1 )
+spread = 146.71
+flatness = 0.27
+gravity = Vector3( 0, 19.492, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.26
+angle = -17.6
+angle_random = 0.55
+scale = 0.5
+scale_curve = SubResource( 14 )
+color = Color( 0.721569, 0.435294, 0.313726, 1 )

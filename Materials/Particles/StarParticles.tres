@@ -1,0 +1,14 @@
+[gd_resource type="ParticlesMaterial" format=2]
+
+[resource]
+emission_shape = 2
+emission_box_extents = Vector3( 1, 10, 10 )
+flag_align_y = true
+flag_rotate_y = true
+direction = Vector3( -1, 0, 0 )
+spread = 0.0
+gravity = Vector3( -10, 0, 0 )
+initial_velocity = 21.51
+linear_accel = 16.99
+scale = 0.5
+scale_random = 0.5

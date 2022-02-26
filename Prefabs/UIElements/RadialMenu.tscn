@@ -1,0 +1,112 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Textures/UI/RadialMenu/radial_menu_ring.png" type="Texture" id=1]
+[ext_resource path="res://Prefabs/UIElements/RadialMenuItem.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Textures/UI/RadialMenu/scanning_icon.png" type="Texture" id=3]
+[ext_resource path="res://Scripts/GlobalUI/RadialMenuController.gd" type="Script" id=4]
+[ext_resource path="res://Textures/Particles/circle.png" type="Texture" id=5]
+[ext_resource path="res://Rendering/Fonts/Vanilla_ExtraLarge.tres" type="DynamicFont" id=6]
+[ext_resource path="res://Textures/UI/RadialMenu/pointer_triangle.png" type="Texture" id=7]
+
+[sub_resource type="Theme" id=1]
+
+[node name="RadialMenu" type="Control"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -512.0
+margin_top = -300.0
+margin_right = 512.0
+margin_bottom = 300.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+option_prefab = ExtResource( 2 )
+tween_path = NodePath("Tween")
+ring_path = NodePath("Ring")
+pointer_path = NodePath("Pointer")
+options = {
+"build": ExtResource( 3 )
+}
+option_initial_offset_deg = 0.0
+label_path = NodePath("Label")
+
+[node name="Ring" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -211.5
+margin_top = -211.5
+margin_right = 211.5
+margin_bottom = 211.5
+rect_pivot_offset = Vector2( 211, 211 )
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="RadialItem" parent="." instance=ExtResource( 2 )]
+visible = false
+margin_left = -32.6715
+margin_top = -233.49
+margin_right = 38.3285
+margin_bottom = -162.49
+
+[node name="Tween" type="Tween" parent="."]
+
+[node name="CenterDot" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -6.5
+margin_top = -6.5
+margin_right = 6.5
+margin_bottom = 6.5
+theme = SubResource( 1 )
+texture = ExtResource( 5 )
+expand = true
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -63.0
+margin_top = -107.0
+margin_right = 63.0
+margin_bottom = -80.0
+custom_fonts/font = ExtResource( 6 )
+text = "Text"
+align = 1
+valign = 1
+
+[node name="Pointer" type="Control" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -20.0
+margin_top = -20.0
+margin_right = 20.0
+margin_bottom = 20.0
+rect_pivot_offset = Vector2( 20, 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="Pointer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -12.3831
+margin_top = -58.5017
+margin_right = 115.617
+margin_bottom = 52.4983
+rect_scale = Vector2( 0.1925, 0.3125 )
+texture = ExtResource( 7 )

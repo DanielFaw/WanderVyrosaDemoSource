@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Materials/PAL_Main.tres" type="Material" id=1]
+[ext_resource path="res://Models/Decoration/ShipInteriorParts/M_LargeWindow_Center.glb" type="PackedScene" id=2]
+
+[node name="O_LargeWindow_Center" instance=ExtResource( 2 )]
+
+[node name="LargeWindowMiddle" parent="." index="0"]
+transform = Transform( 1, 0, 0, 0, 0.173857, 8.74228e-08, 0, 1.51991e-08, -1, 0, 0.0829175, -0.933028 )
+material/0 = ExtResource( 1 )

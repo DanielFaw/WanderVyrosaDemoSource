@@ -1,0 +1,23 @@
+[gd_resource type="Animation" format=2]
+
+[resource]
+resource_name = "S_Walk"
+length = 1.333
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath("Audio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.1, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"values": [ {
+"args": [  ],
+"method": "_StepRight"
+}, {
+"args": [  ],
+"method": "_StepLeft"
+} ]
+}

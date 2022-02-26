@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Objects/Misc/ResourcePockets/O_Quartz_Vein.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/MainGame/Building/ResourceVein.gd" type="Script" id=2]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.180763
+height = 0.173234
+
+[node name="P_QuartzVein" type="Spatial"]
+script = ExtResource( 2 )
+type = 1
+meshs_paths = [ NodePath("O_Quartz_Vein/Resource_Quartz") ]
+
+[node name="O_Quartz_Vein" parent="." instance=ExtResource( 1 )]
+transform = Transform( 0.565, 0, 0, 0, 0.565, 0, 0, 0, 0.565, 0, -0.542768, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="O_Quartz_Vein/Resource_Quartz/COL_Quartz" index="1"]
+transform = Transform( 0.999964, -0.00258474, -0.00802744, 0.00802752, 7.34534e-06, 0.999968, -0.00258461, -0.999996, 2.81176e-05, 0.0295719, 0.77801, -0.00574234 )
+shape = SubResource( 1 )
+
+[editable path="O_Quartz_Vein"]
